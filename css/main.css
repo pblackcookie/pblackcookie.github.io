@@ -382,6 +382,29 @@ td {
   transform: rotate(45deg);
   top: -5px;
 }
+.highlight-container {
+  position: relative;
+}
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background: #fff;
+  border: 0;
+  font-size: 0.8125em;
+  right: 0;
+  top: 0;
+}
 .highlight,
 pre {
   background: #f7f7f7;
@@ -1169,7 +1192,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffbe8a;
+  background: #cc1dfa;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2440,6 +2463,7 @@ ul.breadcrumb li + li:last-child {
   margin-top: 100%;
   position: static;
   width: 240px;
+  opacity: 0.8;
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -2540,6 +2564,7 @@ ul.breadcrumb li + li:last-child {
   background: initial;
   box-shadow: initial;
   padding: initial;
+  opacity: 0.8;
 }
 .post-block {
   background: var(--content-bg-color);
@@ -2659,4 +2684,11 @@ ul.breadcrumb li + li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+body {
+  background: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
 }
