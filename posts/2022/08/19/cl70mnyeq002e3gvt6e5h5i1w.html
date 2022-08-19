@@ -20,25 +20,26 @@
     var CONFIG = {"hostname":"yuxin719.org.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;记录笨蛋笔者设置树莓派静态IP的过程。">
+  <meta name="description" content="&amp;emsp;&amp;emsp;学Java中，一些记录。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有线——树莓派设置静态IP">
-<meta property="og:url" content="https://yuxin719.org.cn/posts/2022/08/13/cl6yh84wi001kfwvt0kpx09rc.html">
+<meta property="og:title" content="Java学习">
+<meta property="og:url" content="https://yuxin719.org.cn/posts/2022/08/19/cl70mnyeq002e3gvt6e5h5i1w.html">
 <meta property="og:site_name" content="寒流的小屋">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;记录笨蛋笔者设置树莓派静态IP的过程。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;学Java中，一些记录。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131928432.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131912204.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131946223.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131946879.png">
-<meta property="article:published_time" content="2022-08-13T10:58:19.472Z">
-<meta property="article:modified_time" content="2022-08-14T00:45:37.844Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191050472.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191154427.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191248729.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191247305.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191717568.png">
+<meta property="article:published_time" content="2022-08-19T02:46:00.405Z">
+<meta property="article:modified_time" content="2022-08-19T15:21:32.921Z">
 <meta property="article:author" content="寒流">
-<meta property="article:tag" content="Raspberry Pi">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131928432.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191050472.png">
 
-<link rel="canonical" href="https://yuxin719.org.cn/posts/2022/08/13/cl6yh84wi001kfwvt0kpx09rc.html">
+<link rel="canonical" href="https://yuxin719.org.cn/posts/2022/08/19/cl70mnyeq002e3gvt6e5h5i1w.html">
 
 
 <script id="page-configurations">
@@ -51,7 +52,7 @@
   };
 </script>
 
-  <title>有线——树莓派设置静态IP | 寒流的小屋</title>
+  <title>Java学习 | 寒流的小屋</title>
   
 
 
@@ -172,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yuxin719.org.cn/posts/2022/08/13/cl6yh84wi001kfwvt0kpx09rc.html">
+    <link itemprop="mainEntityOfPage" href="https://yuxin719.org.cn/posts/2022/08/19/cl70mnyeq002e3gvt6e5h5i1w.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blog_image.jpg">
@@ -185,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          有线——树莓派设置静态IP
+          Java学习
         </h1>
 
         <div class="post-meta">
@@ -194,16 +195,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-08-13 18:58:19" itemprop="dateCreated datePublished" datetime="2022-08-13T18:58:19+08:00">2022-08-13</time>
+              <time title="创建时间：2022-08-19 10:46:00 / 修改时间：23:21:32" itemprop="dateCreated datePublished" datetime="2022-08-19T10:46:00+08:00">2022-08-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-14 08:45:37" itemprop="dateModified" datetime="2022-08-14T08:45:37+08:00">2022-08-14</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -214,7 +209,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learn/Raspberry-Pi/" itemprop="url" rel="index"><span itemprop="name">Raspberry Pi</span></a>
+                  <a href="/categories/Learn/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
             </span>
 
@@ -224,7 +219,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>946</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -243,28 +238,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>&emsp;&emsp;记录<del>笨蛋</del>笔者设置树莓派静态IP的过程。</p>
+        <p>&emsp;&emsp;学Java中，一些记录。</p>
 <span id="more"></span>
 
-<h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>&emsp;&emsp;为了防止路由器分配给树莓派的地址总是变来变去，笔者在网上搜索了<em>如何设置树莓派的静态IP地址。</em></p>
-<p>&emsp;&emsp;然而，不论笔者如何设置树莓派的IP静态地址，再次打开时地址还是会变化。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>&emsp;&emsp;笔者终于发现了，大多数教程中设置<code>eth0</code>是设置<strong>有线网络</strong>的静态IP地址，而笔者之前一直用WIFI连接树莓派！</p>
-<p>&emsp;&emsp;再强调一遍，此教程是教<strong>有线网络</strong>的树莓派静态IP地址设置。</p>
-<p>&emsp;&emsp;<del>我还真是个笨蛋呐。</del></p>
-<h3 id="设置过程"><a href="#设置过程" class="headerlink" title="设置过程"></a>设置过程</h3><p>&emsp;&emsp;1.若要修改静态IP地址，修改 /etc/dhcp.conf 中的配置文件。（DHCP配置文件）</p>
-<p>&emsp;&emsp;<code>sudo vim /etc/dhcpcd.conf</code></p>
-<p>&emsp;&emsp;2.在打开的文件中，找到下图所示片段，并更改。</p>
-<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131928432.png"></p>
-<p>&emsp;&emsp;</p>
-<p>&emsp;&emsp;按下<code>i</code>键，进入编辑模式。<br>&emsp;&emsp;第一行就写 <code>interface eth0</code>即可。<br>&emsp;&emsp;第二行就在<code>static ip_address</code>后写出来自己想要设置的静态IP地址即可，笔者这里设置了<code>192.168.0.111/24</code>。基本就改<code>111</code>那个部分，前三个部分树莓派连接的路由器怎么写的这里就怎么写。<br>&emsp;&emsp;第三行写树莓派连接上的路由器地址，可以通过<code>ifconfig</code>指令查看。路由器地址可以通过看路由器上贴的纸来实现。<br>&emsp;&emsp;第四行写的是域名服务器地址，一般写<code>114.114.114.114 8.8.8.8</code>即可。  </p>
-<p>&emsp;&emsp;按下<code>esc</code>键后，按下<code>:wq</code>这三个键，保存并退出此文件。</p>
-<p>&emsp;&emsp;输入<code>sudo reboot</code>来重启树莓派。</p>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>&emsp;&emsp;重启之后，打开树莓派<code>Linux</code>终端，输入<code>hostname -I</code>，发现此时IP地址已经设置成功~</p>
-<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131912204.png"></p>
-<p>&emsp;&emsp;笔者一直用的远程连接来连接树莓派，所以能连接上其实已经证明静态IP设置成功了。  </p>
-<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131946223.png"></p>
-<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208131946879.png"></p>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>树莓派设置静态IP地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/duzetao/p/13770013.html">https://www.cnblogs.com/duzetao/p/13770013.html</a></p>
+
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><h3 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h3><p> 重要！！必记选项<br> <img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191050472.png"></p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//结果是多少,为什么?</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;  </span><br><span class="line">i = i++;</span><br><span class="line">System.out.println(i);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结果 i = 1;<br>规则使用临时变量:  </p>
+<ol>
+<li>temp = i ;  </li>
+<li>i = i + 1; (自增的i)  </li>
+<li>i = temp ;  </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 结果是多少,为什么?</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;  </span><br><span class="line">i = ++i;</span><br><span class="line">System.out.println(i);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结果 i = 2;<br>规则使用临时变量:  </p>
+<ol>
+<li>i = i + 1; (自增的i)     </li>
+<li>temp = i ;  </li>
+<li>i = temp ;  </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出是多少?</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i1</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">i2</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> i1++; <span class="comment">//i=10</span></span><br><span class="line">System.out.println(<span class="string">&quot;i = &quot;</span> + i); <span class="comment">//10</span></span><br><span class="line">System.out.println(<span class="string">&quot;i2 = &quot;</span> + i2); <span class="comment">//20</span></span><br><span class="line">i = --i2;<span class="comment">//i=19</span></span><br><span class="line">System.out.println(<span class="string">&quot;i = &quot;</span> + i); <span class="comment">//19</span></span><br><span class="line">System.out.println(<span class="string">&quot;i2 = &quot;</span> + i2); <span class="comment">//19</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如图所示:<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191154427.png"></p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>两张图示:<br>这里和模电不能说像,只能说一模一样。<br>逻辑与&amp;和短路与&amp;&amp;的区别:<br>&amp;:从左到右全部判断。<br>&amp;&amp;:能判断结果就停止。<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191248729.png"><br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191247305.png">  </p>
+<h3 id="原码-反码-补码-–-重要"><a href="#原码-反码-补码-–-重要" class="headerlink" title="原码,反码,补码 – 重要"></a>原码,反码,补码 – 重要</h3><p>说来惭愧,这里笔者绝对学过,全 忘 了。<br>0. 二进制  </p>
+<ol>
+<li>正数的原码,反码,补码都一样。  </li>
+<li>负数的反码=它的原码符号位不变,其它位取反。  </li>
+<li>负数的补码=它的反码+1, 负数的反码=负数的补码-1。  </li>
+<li>0的反码,补码都是0。  </li>
+<li>java没有无符号数。  </li>
+<li><strong>计算机运算的时候都是以补码的方式来运算的。</strong>  </li>
+<li>看运算结果的时候看原码。(important)  </li>
+</ol>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p>开始感觉有意思了。<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191717568.png"></p>
+<h3 id="第四章笔记重点记录"><a href="#第四章笔记重点记录" class="headerlink" title="第四章笔记重点记录"></a>第四章笔记重点记录</h3><h4 id="算术运算符-1"><a href="#算术运算符-1" class="headerlink" title="算术运算符"></a>算术运算符</h4><p>/ % ++(前、后) –（前、后）<br>数学公式和程序相结合（加小数点等：e.g.5/9改成5.0/9.0）<br><strong>=（赋值）和 == （逻辑等于）是两个东西！！</strong>  </p>
+<h4 id="逻辑运算符-1"><a href="#逻辑运算符-1" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>逻辑与短路的区别：<br>逻辑：全都判断一遍<br>短路：只要有一个满足/不满足条件就判断<br>多用短路与/或，因为效率高。<br>！取非 ：真变假，假变真。<br>^逻辑异或：a与b不一样的时候，结果为真；否则为假。  </p>
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>复合赋值运算符：<br>a+=b ==&gt; a = a + b<br>a-=b ==&gt; a = a - b  </p>
+<h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h4><p>条件表达式 ? 表达式1 : 表达式2;  </p>
+<h3 id="标识符的规则和规范"><a href="#标识符的规则和规范" class="headerlink" title="标识符的规则和规范"></a>标识符的规则和规范</h3><p>标识符的规则和规范:<br>标识符概念:变量,方法,类变量取名的那个叫标识符  </p>
+<p>规则:<br>1.由26个大小写字母,数字0-9,下划线_或$组成<br>2.数字不能开头<br>3.不能使用关键字或保留字,但可以包含关键字或保留字<br>4.严格区分大小写,长度无限制<br>5.标识符不能包含空格   </p>
+<p>规范:(更加专业)<br>1.包名:由多个单词组成时,所有单词小写<br>2.类名,接口名:由多个单词组成时,所有单词首字母大写[大驼峰]<br>3.变量名,方法名:由多个单词组成时,第一个单词首字母大写,第二个单词开始每个单词首字母大写[小驼峰]<br>4.常量名:所有字母都大写,多个单词间用下划线连接  </p>
+<h3 id="进制介绍"><a href="#进制介绍" class="headerlink" title="进制介绍"></a>进制介绍</h3><p>2进制： 以0b或0B开头<br>8进制： 以0开头<br>10进制：0-9，满10进1<br>16进制：以0x或者0X开头  </p>
+<p>进制转换：无非是除除乘乘。</p>
+<h3 id="原码反码补码–重要"><a href="#原码反码补码–重要" class="headerlink" title="原码反码补码–重要"></a>原码反码补码–重要</h3><p>计算机用补码运算的原因：补码统一了整数和负数，使计算机的计算更加轻松。<br>更多的上面记过了。</p>
 
     </div>
 
@@ -280,7 +298,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://yuxin719.org.cn/posts/2022/08/13/cl6yh84wi001kfwvt0kpx09rc.html" title="有线——树莓派设置静态IP">https://yuxin719.org.cn/posts/2022/08/13/cl6yh84wi001kfwvt0kpx09rc.html</a>
+    <a href="https://yuxin719.org.cn/posts/2022/08/19/cl70mnyeq002e3gvt6e5h5i1w.html" title="Java学习">https://yuxin719.org.cn/posts/2022/08/19/cl70mnyeq002e3gvt6e5h5i1w.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -291,7 +309,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Raspberry-Pi/" rel="tag"># Raspberry Pi</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
           </div>
 
         
@@ -300,13 +318,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/2022/08/11/cl6yh84wl001pfwvte7iqdf0e.html" rel="prev" title="【摩卡兰】冲破">
-      <i class="fa fa-chevron-left"></i> 【摩卡兰】冲破
+    <a href="/posts/2022/08/18/cl70mnyel00243gvta4wa89aj.html" rel="prev" title="Hexo优化背景主题——透明度">
+      <i class="fa fa-chevron-left"></i> Hexo优化背景主题——透明度
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/2022/08/16/cl6yh84wm001sfwvt1a169esy.html" rel="next" title="奇人趣事">
-      奇人趣事 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -365,7 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">设置过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">5.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">第三章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">Java数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="nav-number">2.</span> <span class="nav-text">第四章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81-%E5%8F%8D%E7%A0%81-%E8%A1%A5%E7%A0%81-%E2%80%93-%E9%87%8D%E8%A6%81"><span class="nav-number">2.3.</span> <span class="nav-text">原码,反码,补码 – 重要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.4.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0%E9%87%8D%E7%82%B9%E8%AE%B0%E5%BD%95"><span class="nav-number">2.5.</span> <span class="nav-text">第四章笔记重点记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6-1"><span class="nav-number">2.5.2.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.5.3.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.5.4.</span> <span class="nav-text">三元运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E8%A7%84%E5%88%99%E5%92%8C%E8%A7%84%E8%8C%83"><span class="nav-number">2.6.</span> <span class="nav-text">标识符的规则和规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%88%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.7.</span> <span class="nav-text">进制介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81%E2%80%93%E9%87%8D%E8%A6%81"><span class="nav-number">2.8.</span> <span class="nav-text">原码反码补码–重要</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
