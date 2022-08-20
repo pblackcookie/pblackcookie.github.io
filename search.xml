@@ -1596,7 +1596,49 @@
 <p>规范:(更加专业)<br>1.包名:由多个单词组成时,所有单词小写<br>2.类名,接口名:由多个单词组成时,所有单词首字母大写[大驼峰]<br>3.变量名,方法名:由多个单词组成时,第一个单词首字母大写,第二个单词开始每个单词首字母大写[小驼峰]<br>4.常量名:所有字母都大写,多个单词间用下划线连接  </p>
 <h3 id="进制介绍"><a href="#进制介绍" class="headerlink" title="进制介绍"></a>进制介绍</h3><p>2进制： 以0b或0B开头<br>8进制： 以0开头<br>10进制：0-9，满10进1<br>16进制：以0x或者0X开头  </p>
 <p>进制转换：无非是除除乘乘。</p>
-<h3 id="原码反码补码–重要"><a href="#原码反码补码–重要" class="headerlink" title="原码反码补码–重要"></a>原码反码补码–重要</h3><p>计算机用补码运算的原因：补码统一了整数和负数，使计算机的计算更加轻松。<br>更多的上面记过了。</p>
+<h3 id="原码反码补码–重要"><a href="#原码反码补码–重要" class="headerlink" title="原码反码补码–重要"></a>原码反码补码–重要</h3><p>计算机用补码运算的原因：补码统一了正数和负数，使计算机的计算更加轻松。<br>更多的上面记过了。</p>
+<h2 id="第五章笔记重点记录"><a href="#第五章笔记重点记录" class="headerlink" title="第五章笔记重点记录"></a>第五章笔记重点记录</h2><h3 id="switch语句的穿透"><a href="#switch语句的穿透" class="headerlink" title="switch语句的穿透"></a>switch语句的穿透</h3><p>穿透：满足条件后，执行对应语句块，判断有无break；<br>没有break跳出switch语句，不用判断下一个常量，直接执行下一语句块。<br>这就叫穿透现象。</p>
+<h3 id="switch语句的细节讨论"><a href="#switch语句的细节讨论" class="headerlink" title="switch语句的细节讨论"></a>switch语句的细节讨论</h3><ol>
+<li>表达式（switch后）的数据类型，应该和case后的常量类型一致，或是可以自动转化。（例如char可以自动转化成int类型）  </li>
+<li>swtich表达式中表达式的返回值必须是：（byte,short,int,char,enum[枚举]，String）  </li>
+<li>case语句中的值必须是常量，或者是常量表达式，不能是变量。  </li>
+<li>default语句是可选的，当没有匹配的case时，执行default;dafault+case都不匹配就无输出。  </li>
+<li>break语句用来在执行一个case分支后跳出switch语句。没有写break，则穿透。</li>
+</ol>
+<h3 id="switch和if的比较"><a href="#switch和if的比较" class="headerlink" title="switch和if的比较"></a>switch和if的比较</h3><ol>
+<li>如果判断的具体数值不多，而且符合（byte,short,int,char,enum[枚举]，String），建议使用switch语句  </li>
+<li>对区间判断，对结果为boo lean类型判断，用if语句（if使用范围更广）  </li>
+</ol>
+<h3 id="for循环细节注意事项"><a href="#for循环细节注意事项" class="headerlink" title="for循环细节注意事项"></a>for循环细节注意事项</h3><ol>
+<li>循环条件是返回一个布尔值表达式（true or false）  </li>
+<li>for循环初始化和变量迭代可以写到其他地方，但是“;”不能省略。<br>写在小括号里面，变量只在for循环中生效；写在小括号外面，变量全程序都能用。  </li>
+<li>循环初始值可以有多条初始化语句，要求类型一样，中间用逗号隔开；<br>循环变量迭代也可以有多条变量迭代句，中间用逗号隔开。  </li>
+</ol>
+<h2 id="编程思想"><a href="#编程思想" class="headerlink" title="编程思想"></a>编程思想</h2><p><strong>化繁为简，先死后活。</strong>  </p>
+<ol>
+<li>化繁为简： 将复杂的需求，拆解成简单的需求，逐步完成。  </li>
+<li>先死后活：先考虑固定的值，然后转成可以灵活变化的值。  </li>
+</ol>
+<h3 id="while循环细节注意事项"><a href="#while循环细节注意事项" class="headerlink" title="while循环细节注意事项"></a>while循环细节注意事项</h3><ol>
+<li>循环条件返回一个布尔值表达式。  </li>
+<li>while循环先判断后执行。  </li>
+</ol>
+<h3 id="while和do-while循环区别"><a href="#while和do-while循环区别" class="headerlink" title="while和do..while循环区别"></a>while和do..while循环区别</h3><p>while：先判断条件满足与否，再执行循环体内语句。<br>do..while:无论条件满足与否，先执行一次循环体，随后再进行条件判断。  </p>
+<h3 id="多重循环控制–重难点"><a href="#多重循环控制–重难点" class="headerlink" title="多重循环控制–重难点"></a>多重循环控制–重难点</h3><ol>
+<li>含义:将一个循环放在另一个循环体内,形成嵌套循环;可读性问题: 建议一般只用两行(不要超过三行)  </li>
+<li>嵌套循环把内层循环当成外层循环的循环体.当只有内层循环条件为false时,才会跳出内层循环.e.g.外层循环m次,内层循环n次–&gt;一共循环[m*n]次  </li>
+<li>经典题目:九九乘法表,空心金字塔等.</li>
+</ol>
+<h3 id="跳转控制语句-break"><a href="#跳转控制语句-break" class="headerlink" title="跳转控制语句-break"></a>跳转控制语句-break</h3><ol>
+<li>break语句出现在多层嵌套语句块时,可以通过<strong>标签</strong>指明要终止的是哪一层语句块.  </li>
+<li>标签名字由程序名指定 用法:break 标签名;  </li>
+<li>尽量不要使用标签.  </li>
+<li>如果没有指定break,默认退出最近的循环体.  </li>
+</ol>
+<h3 id="跳转控制语句-continue"><a href="#跳转控制语句-continue" class="headerlink" title="跳转控制语句-continue"></a>跳转控制语句-continue</h3><ol>
+<li>用于结束本次循环,继续进行下一次循环.  </li>
+<li>可以通过标签指明跳过哪一层循环.  </li>
+</ol>
 ]]></content>
       <categories>
         <category>Learn</category>
