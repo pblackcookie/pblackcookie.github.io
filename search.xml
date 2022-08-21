@@ -1639,6 +1639,17 @@
 <li>用于结束本次循环,继续进行下一次循环.  </li>
 <li>可以通过标签指明跳过哪一层循环.  </li>
 </ol>
+<h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组可以存放多个同一类型的数据,也是一种数据类型,是引用类型.<br>即:数组就是一组数据.<br>可以通过[数组名.length]得到数组的长度.  </p>
+<h3 id="数组细节"><a href="#数组细节" class="headerlink" title="数组细节"></a>数组细节</h3><ol>
+<li>数组内是多个<strong>相同</strong>数据类型的组合,不能混用.  </li>
+<li>数组中元素可以是任何数据类型,包括基本类型和引用类型.  </li>
+<li>数组创建后,如果没有赋值,有默认值: boolean:false;String:null;其他类型:0.  </li>
+<li>数组下标必须在指定范围内使用,否则会报:下标越界异常.  </li>
+<li>数组属于引用类型,数组型数据本质是对象.</li>
+</ol>
+<h3 id="数组赋值机制"><a href="#数组赋值机制" class="headerlink" title="数组赋值机制"></a>数组赋值机制</h3><p>数组在默认情况下是引用传递，赋值的是个地址；赋值方式叫做：地址拷贝<br>图解：<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208211057794.png"></p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>通过对待排序序列从后向前，依次比较相邻元素的值，若发现则逆序交换，使值较大的元素逐渐从前移向后部，就像水底下的气泡一样逐渐向上冒。<br>一般是两个循环嵌套使用,并且添加一个临时变量temp,在排序时实现临时的值的保存。  </p>
+<h2 id="参考学习资料"><a href="#参考学习资料" class="headerlink" title="参考学习资料"></a>参考学习资料</h2><p>【零基础 快速学Java】韩顺平 零基础30天学会Java: <a href="https://www.bilibili.com/video/BV1fh411y7R8">https://www.bilibili.com/video/BV1fh411y7R8</a></p>
 ]]></content>
       <categories>
         <category>Learn</category>
