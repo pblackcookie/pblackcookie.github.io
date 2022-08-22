@@ -1649,6 +1649,86 @@
 </ol>
 <h3 id="数组赋值机制"><a href="#数组赋值机制" class="headerlink" title="数组赋值机制"></a>数组赋值机制</h3><p>数组在默认情况下是引用传递，赋值的是个地址；赋值方式叫做：地址拷贝<br>图解：<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208211057794.png"></p>
 <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>通过对待排序序列从后向前，依次比较相邻元素的值，若发现则逆序交换，使值较大的元素逐渐从前移向后部，就像水底下的气泡一样逐渐向上冒。<br>一般是两个循环嵌套使用,并且添加一个临时变量temp,在排序时实现临时的值的保存。  </p>
+<h2 id="第七章–对象"><a href="#第七章–对象" class="headerlink" title="第七章–对象!!"></a>第七章–对象!!</h2><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>属性的定义语法同变量: 访问修饰符 属性类型 属性名;<br>访问修饰符: 控制属性的访问范围<br>有四种访问修饰符:</p>
+<ol>
+<li>public  </li>
+<li>procected  </li>
+<li>默认  </li>
+<li>private  </li>
+</ol>
+<p>属性的定义类型可以为任意定义类型.  </p>
+<p>属性如果不赋值,有默认值。规则和数组默认类型一样。</p>
+<h3 id="创建对象形式"><a href="#创建对象形式" class="headerlink" title="创建对象形式"></a>创建对象形式</h3><ol>
+<li>先声明再创建<br>Cat cat; // 声明<br>cat = new Cat();  // 创建空间  </li>
+<li>直接创建<br>Cat cat = new Cat();  </li>
+</ol>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="方法调用小节"><a href="#方法调用小节" class="headerlink" title="方法调用小节"></a>方法调用小节</h4><ol>
+<li>当程序执行到方法时,会开辟一个独立的空间(栈空间)  </li>
+<li>当方法执行完毕,或者执行到return语句时,就会返回  </li>
+<li>返回到调用方法的地方  </li>
+<li>返回后继续执行方法后面的代码  </li>
+<li>当main方法(栈)执行完毕后,整个程序退出  </li>
+</ol>
+<h4 id="成员方法定义"><a href="#成员方法定义" class="headerlink" title="成员方法定义"></a>成员方法定义</h4><p>访问修饰符 返回数据类型 方法名(形参列表..){//方法体<br>    语句;<br>    return 返回值;<br>}</p>
+<h4 id="方法的细节"><a href="#方法的细节" class="headerlink" title="方法的细节"></a>方法的细节</h4><p><strong>返回数据类型</strong>  </p>
+<ol>
+<li>一个方法最多只能有一个返回值;如何返回多个值? –&gt;使用数组  </li>
+<li>返回值可以为任意类型,包括基本类型或引用类型  </li>
+<li>如果方法要求有返回数据类型,则必须有 return 值 语句,且要求返回值类型和return值的类型一致或兼容  </li>
+<li>如果方法为void,则方法体中可以不写return语句,或者只写return  </li>
+<li>方法名最好见名字知含义[遵守大驼峰]</li>
+</ol>
+<p><strong>形参列表:</strong>  </p>
+<ol>
+<li>一个方法可以有0个参数,也可有多个参数,中间用逗号隔开getSum(int n1, int n2)  </li>
+<li>参数类型可以为任意类型,包含基本类型或引用类型;e.g.printArr(int[][] map)  </li>
+<li>调用参数的方法一定对应参数列表传参相同类型或者兼容类型的参数  </li>
+<li>形参和实参的个数要相等,顺序一定要一一对应  </li>
+</ol>
+<p><strong>方法体</strong>  </p>
+<ol>
+<li>完成功能的具体语句,方法之中不能再定义一个方法. –&gt; 禁止套娃!</li>
+</ol>
+<p><strong>方法调用细节</strong>  </p>
+<ol>
+<li>同一个类中的方法可以直接互相调用 –&gt; A类的方法2要调用A类的方法1  </li>
+<li>跨类调用要通过对象名引用(先创建对象,再跨类调用即可) –&gt; A类的方法2要调用B类的方法1  </li>
+<li>跨类的方法调用和方法的访问修饰符有关  </li>
+</ol>
+<h4 id="递归调用"><a href="#递归调用" class="headerlink" title="递归调用"></a>递归调用</h4><ol>
+<li>执行一个方法时,就会创建一个新的受保护的独立空间(栈空间)  </li>
+<li>方法的局部变量是独立的  </li>
+<li>如果方法中使用的是引用类型,就会共享该引用类型的数据  </li>
+<li>递归必须向退出递归的条件无限逼近,否则会栈溢出  </li>
+<li>当一个方法执行完毕,或者return时,遵守谁调用就将结果返回给谁 &lt;–&gt; 当返回值后方法也就执行完毕  </li>
+</ol>
+<h3 id="方法重载-Overload"><a href="#方法重载-Overload" class="headerlink" title="方法重载(Overload)"></a>方法重载(Overload)</h3><p>java中允许同一个类中,多个重名方法的存在,但是要求形参列表不一致.<br>这减轻了起名和记名的麻烦.<br>细节:  </p>
+<ol>
+<li>方法名一样  </li>
+<li>方法的形参列表必须不一样  </li>
+<li>方法的返回类型无要求  </li>
+</ol>
+<h3 id="可变参数细节"><a href="#可变参数细节" class="headerlink" title="可变参数细节"></a>可变参数细节</h3><ol>
+<li>可变参数的实参可以为数组  </li>
+<li>可变参数的本质是数组  </li>
+<li>可变参数可以和普通参数一起在形参列表, 但必须保证可变参数在最后  </li>
+<li>一个形参列表中最多只能出现一个可变参数  </li>
+</ol>
+<h3 id="对象创建的流程分析"><a href="#对象创建的流程分析" class="headerlink" title="对象创建的流程分析"></a>对象创建的流程分析</h3><p>Person p = new Person(“小倩”,20);</p>
+<ol>
+<li>加载Person类信息(Person.class),只会加载一次  </li>
+<li>在堆中分配空间(得到一个地址信息)  </li>
+<li>完成对象(属性的)初始化[1.默认初始化 2.显式初始化 3.构造器的初始化]  </li>
+<li>再把对象在堆中的地址返回给p(p是对象名/也可理解成对象的引用)  </li>
+</ol>
+<h3 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h3><p>java虚拟机会给每个对象分配this,代表当前对象.<br>哪个对象调用,this就代表哪个对象.  </p>
+<h4 id="注意细节"><a href="#注意细节" class="headerlink" title="注意细节"></a>注意细节</h4><ol>
+<li>this可以访问本类的属性,方法,构造器  </li>
+<li>this用于区分当前的类属性和局部变量  </li>
+<li>访问成员方法的语法: this.方法名(参数列表);  </li>
+<li>访问构造器语法: this(参数列表) 只能在构造器中使用.注意: 如果有this访问构造器语法,这句语法必须放在第一条语句  </li>
+<li>this不能在类定义的外部使用,只能在类定义的方法中使用  </li>
+</ol>
 <h2 id="参考学习资料"><a href="#参考学习资料" class="headerlink" title="参考学习资料"></a>参考学习资料</h2><p>【零基础 快速学Java】韩顺平 零基础30天学会Java: <a href="https://www.bilibili.com/video/BV1fh411y7R8">https://www.bilibili.com/video/BV1fh411y7R8</a></p>
 ]]></content>
       <categories>
