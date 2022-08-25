@@ -1513,6 +1513,10 @@
 <p>&emsp;&emsp;又回味了一遍，千束撞见米卡老师和信二的会面场景，说不出的难受尴尬。而之后千束还主动安慰一直瞒着她事情的米卡老师……什么小太阳。<br>&emsp;&emsp;而此时，泷奈却因为千束见到了一直想寻找的人替她开心。状态的反差勾勒出一副山雨欲来风满楼的不安场景……希望第八集是真的大的要来了啊！！</p>
 <p>&emsp;&emsp;<em>泷奈，爱的形式可是有多种多样的哦。</em>  </p>
 <h3 id="七至八话间之插播"><a href="#七至八话间之插播" class="headerlink" title="七至八话间之插播"></a>七至八话间之插播</h3><p>&emsp;&emsp;日亚的销量掉到不知道哪里去了，我的杂鱼蒜呜呜呜……   </p>
+<h3 id="第八话之胡言乱语"><a href="#第八话之胡言乱语" class="headerlink" title="第八话之胡言乱语"></a>第八话之胡言乱语</h3><p>&emsp;&emsp;为什么会断在这样一个让人心急的地方啊！我真的，本来都不急了，又被搞得急死忙活想看下一集，真有你的，やるな～（千束语气）</p>
+<p>&emsp;&emsp;个人最喜欢送小狗挂饰之后，千束道谢前，用书包遮住自己的脸，只露出小狗挂件的那一秒的停顿。一秒不多不少，足以让我的心被狠狠拿捏死了。<br>此刻的你，一定是控制不住面部表情在害羞吧！  </p>
+<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208250942281.png"></p>
+<p>&emsp;&emsp;强势完美的千束终于舍得吐露自己的弱点也很……啊氛围感真好啊……你们俩真好啊……  </p>
 ]]></content>
       <categories>
         <category>Daily</category>
@@ -1729,7 +1733,43 @@
 <li>访问构造器语法: this(参数列表) 只能在构造器中使用.注意: 如果有this访问构造器语法,这句语法必须放在第一条语句  </li>
 <li>this不能在类定义的外部使用,只能在类定义的方法中使用  </li>
 </ol>
-<h2 id="参考学习资料"><a href="#参考学习资料" class="headerlink" title="参考学习资料"></a>参考学习资料</h2><p>【零基础 快速学Java】韩顺平 零基础30天学会Java: <a href="https://www.bilibili.com/video/BV1fh411y7R8">https://www.bilibili.com/video/BV1fh411y7R8</a></p>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>包的命名规则：只能包含数字，字母，下划线，小圆点<br>不能数字开头，不能是关键字或保留字<br>包的命名规范：  </p>
+<ol>
+<li>   <strong>一般是小写字母+小圆点</strong><br>com.公司名.项目名.业务模块名<br>com.sina.crm.user  –&gt;用户模块<br>com.sina.crm.order –&gt;订单模块<br>com.sina.crm.utils –&gt;工具类  </li>
+<li>   <strong>常用的包</strong><br>Java.long.* 基本包，无需引用，可以直接用<br>Java.util.* 由系统提供的工具包<br>Java.net.* 网络包 网络开发<br>Java.awt.* 界面开发用（GUI）  </li>
+</ol>
+<h3 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h3><p>Java有四种访问控制修饰符号，用于控制方法和属性的访问权限  </p>
+<ol>
+<li>   公开级别：public 修饰 对外公开  </li>
+<li>   受保护级别：protected修饰 对子类和同一个包  中的类公开  </li>
+<li>   默认级别：没有修饰符，向同一个包的类公开  </li>
+<li>私有级别：private修饰 只有类本身可以访问，不对外公开   </li>
+</ol>
+<p><strong>注意事项：</strong></p>
+<ol>
+<li>修饰符可以用来修饰类中的属性，成员方法及类  </li>
+<li>只有默认和public才能修饰类！且遵循访问权限特点  </li>
+<li>继承的学习后再讲解……  </li>
+<li>成员方法访问规则和属性完全一样  </li>
+</ol>
+<h3 id="面向对象三大特征-：-封装、继承、多态"><a href="#面向对象三大特征-：-封装、继承、多态" class="headerlink" title="面向对象三大特征 ： 封装、继承、多态"></a>面向对象三大特征 ： 封装、继承、多态</h3><h4 id="封装：-encapsulation"><a href="#封装：-encapsulation" class="headerlink" title="封装： encapsulation"></a>封装： encapsulation</h4><p>把抽象出来的数据【属性】和对数据的操作【方法】封装在一起，数据被保护在内部，程序其他部分只有通过被授权操作【方法】，才能对数据进行操作。  </p>
+<p>封装好处：  </p>
+<ol>
+<li>隐藏实现的细节；方法（连接数据库）&lt;– 调用(传入参数)</li>
+<li>可以对数据进行验证，保证安全合理</li>
+</ol>
+<p>封装实现步骤:  </p>
+<ol>
+<li>先对属性进行私有化private,让外部不能直接修改属性</li>
+<li>提供一个公共的(public)set方法,用于对属性判断并赋值</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Public <span class="keyword">void</span> <span class="title function_">setXxx</span><span class="params">(类型,参数名)</span>&#123;</span><br><span class="line"><span class="comment">//加入数据验证的业务逻辑</span></span><br><span class="line">	属性= 参数名;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>提供一个公共的get方法,用于获取属性的值<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Public 数据类型 getXxx()&#123;<span class="comment">//权限判断 Xxx是某个属性</span></span><br><span class="line"><span class="keyword">return</span> xx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h4></li>
+</ol>
+<h4 id="多态："><a href="#多态：" class="headerlink" title="多态："></a>多态：</h4><h2 id="参考学习资料"><a href="#参考学习资料" class="headerlink" title="参考学习资料"></a>参考学习资料</h2><p>【零基础 快速学Java】韩顺平 零基础30天学会Java: <a href="https://www.bilibili.com/video/BV1fh411y7R8">https://www.bilibili.com/video/BV1fh411y7R8</a></p>
 ]]></content>
       <categories>
         <category>Learn</category>
