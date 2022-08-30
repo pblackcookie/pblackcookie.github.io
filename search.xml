@@ -1514,9 +1514,19 @@
 <p>&emsp;&emsp;<em>泷奈，爱的形式可是有多种多样的哦。</em>  </p>
 <h3 id="七至八话间之插播"><a href="#七至八话间之插播" class="headerlink" title="七至八话间之插播"></a>七至八话间之插播</h3><p>&emsp;&emsp;日亚的销量掉到不知道哪里去了，我的杂鱼蒜呜呜呜……   </p>
 <h3 id="第八话之胡言乱语"><a href="#第八话之胡言乱语" class="headerlink" title="第八话之胡言乱语"></a>第八话之胡言乱语</h3><p>&emsp;&emsp;为什么会断在这样一个让人心急的地方啊！我真的，本来都不急了，又被搞得急死忙活想看下一集，真有你的，やるな～（千束语气）</p>
-<p>&emsp;&emsp;个人最喜欢送小狗挂饰之后，千束道谢前，用书包遮住自己的脸，只露出小狗挂件的那一秒的停顿。一秒不多不少，足以让我的心被狠狠拿捏死了。<br>此刻的你，一定是控制不住面部表情在害羞吧！  </p>
+<p>&emsp;&emsp;个人最喜欢送小狗挂饰之后，千束道谢前，用书包遮住自己的脸，只露出小狗挂件的那一秒的停顿。一秒不多不少，足以让我的心被狠狠拿捏死了。  </p>
+<p>&emsp;&emsp;此刻的你，一定是控制不住面部表情在害羞吧！  </p>
 <p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208250942281.png"></p>
 <p>&emsp;&emsp;强势完美的千束终于舍得吐露自己的弱点也很……啊氛围感真好啊……你们俩真好啊……  </p>
+<h3 id="第九话之胡言乱语"><a href="#第九话之胡言乱语" class="headerlink" title="第九话之胡言乱语"></a>第九话之胡言乱语</h3><p>&emsp;&emsp;九话播出前被剧透逼得只能看壁吧的销量楼啊啊啊！到最后我连专楼都不敢去了。<br>&emsp;&emsp;剧透哥，你们收敛点儿行么！！</p>
+<p>&emsp;&emsp;因为有意避开了剧透，听到千束余命两个月时——什么！？<br>&emsp;&emsp;本话主要讲述了千束的过去，而存在于<em>现今</em>的人物中，肢体行动比语言更多地反映出人物的心境。喜欢这一点。</p>
+<p>&emsp;&emsp;泷奈绞尽脑汁想出的约会计划是她对千束说再见时道别的礼物，最后的场景纷纷扬扬的雪飘落下来，被晚灯染上希望一样星星的颜色。</p>
+<p>&emsp;&emsp;回头，无言对视，为了一个更好的未来，再背对背别离。</p>
+<p>&emsp;&emsp;——「行ってきます」</p>
+<p>&emsp;&emsp;这里我不得不一下就带到了HimeHina的世纪情歌里面的一句话。</p>
+<p>&emsp;&emsp;帰るつもりがあるから、「行ってきます」って言ったの （因为你有回来的打算，所以才说“我出发了”吧）</p>
+<p>&emsp;&emsp;——我们离别，是为了更好的重逢。</p>
+<p>&emsp;&emsp;期待第十集。祝愿她们拥有一个圆满的未来。</p>
 ]]></content>
       <categories>
         <category>Daily</category>
@@ -1733,7 +1743,7 @@
 <li>访问构造器语法: this(参数列表) 只能在构造器中使用.注意: 如果有this访问构造器语法,这句语法必须放在第一条语句  </li>
 <li>this不能在类定义的外部使用,只能在类定义的方法中使用  </li>
 </ol>
-<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>包的命名规则：只能包含数字，字母，下划线，小圆点<br>不能数字开头，不能是关键字或保留字<br>包的命名规范：  </p>
+<h2 id="第八章–开始使用IDEA"><a href="#第八章–开始使用IDEA" class="headerlink" title="第八章–开始使用IDEA"></a>第八章–开始使用IDEA</h2><h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>包的命名规则：只能包含数字，字母，下划线，小圆点<br>不能数字开头，不能是关键字或保留字<br>包的命名规范：  </p>
 <ol>
 <li>   <strong>一般是小写字母+小圆点</strong><br>com.公司名.项目名.业务模块名<br>com.sina.crm.user  –&gt;用户模块<br>com.sina.crm.order –&gt;订单模块<br>com.sina.crm.utils –&gt;工具类  </li>
 <li>   <strong>常用的包</strong><br>Java.long.* 基本包，无需引用，可以直接用<br>Java.util.* 由系统提供的工具包<br>Java.net.* 网络包 网络开发<br>Java.awt.* 界面开发用（GUI）  </li>
@@ -1760,16 +1770,120 @@
 </ol>
 <p>封装实现步骤:  </p>
 <ol>
-<li>先对属性进行私有化private,让外部不能直接修改属性</li>
-<li>提供一个公共的(public)set方法,用于对属性判断并赋值</li>
+<li><p>先对属性进行私有化private,让外部不能直接修改属性</p>
+</li>
+<li><p>提供一个公共的(public)set方法,用于对属性判断并赋值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Public <span class="keyword">void</span> <span class="title function_">setXxx</span><span class="params">(类型,参数名)</span>&#123;</span><br><span class="line"><span class="comment">//加入数据验证的业务逻辑</span></span><br><span class="line">	属性= 参数名;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>提供一个公共的get方法,用于获取属性的值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Public 数据类型 getXxx()&#123;<span class="comment">//权限判断 Xxx是某个属性</span></span><br><span class="line"><span class="keyword">return</span> xx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Public <span class="keyword">void</span> <span class="title function_">setXxx</span><span class="params">(类型,参数名)</span>&#123;</span><br><span class="line"><span class="comment">//加入数据验证的业务逻辑</span></span><br><span class="line">	属性= 参数名;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>封装： 将构造器 和 SetXxx结合</p>
+<h4 id="继承：-extends"><a href="#继承：-extends" class="headerlink" title="继承： extends"></a>继承： extends</h4><p>为什么需要继承：<br>当业务逻辑一样时，两个类的属性和方法有很多是相同的，此时使用<strong>继承</strong>提高代码的复用性。</p>
+<p>当多个类存在相同的属性（变量）时，可以将这些东西从子类中抽象出来形成父类。<br>不同的子类只要通过关键字’extends’调用父类中的属性即可。  </p>
+<p>继承基本语法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">class 子类 extends 父类&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>提供一个公共的get方法,用于获取属性的值<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Public 数据类型 getXxx()&#123;<span class="comment">//权限判断 Xxx是某个属性</span></span><br><span class="line"><span class="keyword">return</span> xx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h4></li>
+<p><strong>想要用继承，必须使用关键字‘extends’！！</strong>  </p>
+<p>好处：  </p>
+<ol>
+<li>代码复用性提高</li>
+<li>代码拓展性和维护性提高了</li>
 </ol>
-<h4 id="多态："><a href="#多态：" class="headerlink" title="多态："></a>多态：</h4><h2 id="参考学习资料"><a href="#参考学习资料" class="headerlink" title="参考学习资料"></a>参考学习资料</h2><p>【零基础 快速学Java】韩顺平 零基础30天学会Java: <a href="https://www.bilibili.com/video/BV1fh411y7R8">https://www.bilibili.com/video/BV1fh411y7R8</a></p>
+<h5 id="继承的细节"><a href="#继承的细节" class="headerlink" title="继承的细节"></a>继承的细节</h5><ol>
+<li>子类继承了所有的属性和方法，但是私有属性和方法不能在子类直接去访问，要通过<strong>父类</strong>提供的公共方法去访问  </li>
+<li>子类必须调用父类的构造器完成父类的初始化(隐藏”super();”,默认调用父类的无参构造器)</li>
+<li>当创造子类对象时，不管使用子类的哪个构造器,默认情况下总会调用父类的无参构造器.如果父类美欧提供无参构造器,则必须在子类的构造器中用super去指定使用父类的哪个构造器去完成对父类的初始化工作,否则编译不会通过</li>
+<li>如果希望指定去调用父类的某个构造器,则显示地调用一下: super(参数列表)</li>
+<li>super在使用时,需要放在构造器第一行(super只能在构造器中使用)</li>
+<li>super()和this()都只能放在构造器第一行,因此这两个方法不能共存在一个构造器</li>
+<li>java所有类都是Object的子类,Object是所有类的基类</li>
+<li>父类构造器的调用不限于直接父类!将一直向上追溯直到Object类(顶级父类)</li>
+<li>子类最多只能继承一个父类(直接继承),即java中是单继承机制</li>
+<li>不能滥用继承,子类和父类之间必须满足 is-a 的逻辑关系</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251542136.png"></p>
+<h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><p>super代表父类的引用,用于访问父类的属性,方法,构造器。  </p>
+<ol>
+<li>访问父类的属性，但不能访问父类的私有private属性。<br>super.属性名;</li>
+<li>访问父类的方法，但不能访问父类的私有private方法。<br>super.方法名(参数列表);</li>
+<li>访问父类的构造器：super.(参数列表);：只能放在构造器的第一句；只能出现一句。</li>
+</ol>
+<h5 id="super细节"><a href="#super细节" class="headerlink" title="super细节"></a>super细节</h5><ol>
+<li>调用父类构造器的好处（分工明确，父类属性由父类初始化，子类属性由子类初始化）</li>
+<li>当属性中有子类和父类的成员（属性和方法）重名时，为了访问父类的成员，必须通过super。如果没有重名，使用super,this,直接访问是一样的效果。<br>e.g.:  </li>
+</ol>
+<p><strong>this.function();</strong> 从本类开始找function，没有找到则依次向上级寻找<br><strong>super.function();</strong> 直接跳过本类，依次向上级寻找function  </p>
+<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251547254.png"></p>
+<ol start="3">
+<li>super的访问不限于直接父类，如果爷爷类和本类中有同名的成员，也可以用super去访问爷爷类的成员；如果多个基类中都有同名的成员，使用super访问遵循就近原则。<br>A –&gt; B –&gt; C<br>当然也需要遵守访问权限的相关规则。  </li>
+</ol>
+<h4 id="super-VS-this"><a href="#super-VS-this" class="headerlink" title="super VS. this"></a>super VS. this</h4><p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251604789.png"></p>
+<h4 id="方法重写-override"><a href="#方法重写-override" class="headerlink" title="方法重写-override"></a>方法重写-override</h4><p>子类有一个方法和父类的某个方法的名称，返回类型，参数一样，那么子类的方法会覆盖父类的方法。  </p>
+<h5 id="override细节"><a href="#override细节" class="headerlink" title="override细节"></a>override细节</h5><ol>
+<li>子类和父类的参数，方法名称要完全一样</li>
+<li>子类方法的返回类型和父类方法的返回类型一样，或是父类返回类型的子类</li>
+<li>子类方法不能缩小父类方法的访问权限，（但是可以扩大）</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251639999.png"></p>
+<h4 id="多态：polymorphic"><a href="#多态：polymorphic" class="headerlink" title="多态：polymorphic"></a>多态：polymorphic</h4><p>优点：多态能提高代码复用性，且利于代码维护。</p>
+<p>多态是建立在封装和继承基础之上的。</p>
+<h5 id="多态的具体体现"><a href="#多态的具体体现" class="headerlink" title="多态的具体体现"></a>多态的具体体现</h5><ol>
+<li>方法的多态：重写和重载体现多态。</li>
+<li>对象的多态： <strong>important</strong><br> (1)一个对象的编译类型和运行类型可以不一致<br> (2)编译类型在定义对象时，就确定了，不能改变<br> (3)运行类型是可以变化的<br> (4)编译类型看定义时 = 号的左边，运行类型看 = 号的右边  </li>
+</ol>
+<h5 id="多态–-gt-向上转型-的本质"><a href="#多态–-gt-向上转型-的本质" class="headerlink" title="多态–&gt; 向上转型 的本质"></a>多态–&gt; 向上转型 的本质</h5><ol>
+<li>本质： 父类的引用指向了子类的对象</li>
+<li>语法： 父类类型  引用名 = new 子类类型();</li>
+<li>特点:  <pre><code>     (1)编译类型看左边,运行类型看右边  
+     (2)可以调用父类中的所有成员(遵守访问权限)  
+     (3)不能调用子类中特有成员;  
+</code></pre>
+</li>
+</ol>
+<h5 id="多态–-gt-向下转型-的本质"><a href="#多态–-gt-向下转型-的本质" class="headerlink" title="多态–&gt; 向下转型 的本质"></a>多态–&gt; 向下转型 的本质</h5><ol>
+<li>语法: <strong>子类类型 引用名 = (子类类型) 父类引用;</strong></li>
+<li>只能强转父类的引用,不能强转父类对象</li>
+<li>要求 父类的引用必须指向的是当前目标类型的对象;(向下转型之前必须要有向上转型)</li>
+<li>可以调用子类类型中所有成员</li>
+<li>本质是 –&gt; 使用子类对象</li>
+</ol>
+<h5 id="多态-–-gt-注意细节"><a href="#多态-–-gt-注意细节" class="headerlink" title="多态 –&gt; 注意细节"></a>多态 –&gt; 注意细节</h5><ol>
+<li>属性没有重写之说,属性的值直接看编译类型</li>
+<li>instanceof 比较操作符 用于判断对象的<strong>运行</strong>类型是否为XX类型或XX类型的子类型</li>
+</ol>
+<h5 id="java的动态绑定机制-Important"><a href="#java的动态绑定机制-Important" class="headerlink" title="java的动态绑定机制 Important"></a>java的动态绑定机制 <strong>Important</strong></h5><ol>
+<li>当调用对象方法的时候，该方法会和该对象的内存地址/运行规则绑定</li>
+<li>当调用对象属性的时候，没有动态绑定机制，哪里声明哪里使用</li>
+</ol>
+<h3 id="Object类详解"><a href="#Object类详解" class="headerlink" title="Object类详解"></a>Object类详解</h3><h4 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h4><p>equals 和 == 的区别：</p>
+<p><strong>==：比较运算符</strong></p>
+<ol>
+<li>既可以判断基本类型，又可以判断引用类型</li>
+<li>判断基本类型，则判断值是否相等</li>
+<li>判断引用类型，判断引用的地址是否相等</li>
+</ol>
+<p><strong>equals方法</strong></p>
+<ol>
+<li>equals方法是Object类中的方法，只能判断引用类型</li>
+<li>默认判断地址是否相等</li>
+</ol>
+<h4 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a>hashCode方法</h4><ol>
+<li>提高具有哈希结构的容器效率</li>
+<li>两个引用，如果指向同一个对象，则哈希值肯定是一样的</li>
+<li>两个引用，如果指向不同对象，则哈希值不一样</li>
+<li>哈希值主要根据地址计算，但不能完全将哈希值等价地址</li>
+<li>如果hashCode需要的话，也会重写</li>
+</ol>
+<h4 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h4><p>默认返回：全类名 + @ + 哈希值的16进制<br>子类往往重写toString方法，用于返回对象的属性信息<br>重写toString方法 输出对象的属性（alt+insert里面就有）<br>当直接输出一个对象时，toString方法会被默认调用</p>
+<h4 id="finalize方法"><a href="#finalize方法" class="headerlink" title="finalize方法"></a>finalize方法</h4><ol>
+<li>当对象被回收时，系统自动调用该对象finalize方法，子类可以重写该方法，做一些释放资源的操作。</li>
+<li>什么时候被回收？ 当某个对象没有任何引用时，则jvm就任对这个对象是一个垃圾对象，就会使用垃圾回收机制来销毁该对象。在销毁该对象前，会先调用finalize方法</li>
+<li>垃圾回收机制的调用：是由系统来决定，也可以通过System。</li>
+</ol>
+<p><strong>垃圾不是立马回收，程序有自己的垃圾回收算法</strong><br>主动触发： System.gc()<br> 我没有成功触发….</p>
+<h3 id="断点调试-debug"><a href="#断点调试-debug" class="headerlink" title="断点调试(debug)"></a>断点调试(debug)</h3><p> debug过程中,看的是对象的debug类型</p>
+<p> <img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208261640172.png"></p>
+<h2 id="参考学习资料"><a href="#参考学习资料" class="headerlink" title="参考学习资料"></a>参考学习资料</h2><p>【零基础 快速学Java】韩顺平 零基础30天学会Java: <a href="https://www.bilibili.com/video/BV1fh411y7R8">https://www.bilibili.com/video/BV1fh411y7R8</a></p>
 ]]></content>
       <categories>
         <category>Learn</category>
