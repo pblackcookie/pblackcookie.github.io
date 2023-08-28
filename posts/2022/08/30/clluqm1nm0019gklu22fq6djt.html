@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yuxin719.org.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="&amp;emsp;&amp;emsp;学Java中，一些记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习">
+<meta property="og:url" content="https://yuxin719.org.cn/posts/2022/08/30/clluqm1nm0019gklu22fq6djt.html">
+<meta property="og:site_name" content="寒流掉的狼毛">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;学Java中，一些记录。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191050472.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191154427.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191248729.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191247305.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191717568.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208211057794.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251542136.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251547254.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251604789.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251639999.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208261640172.png">
+<meta property="article:published_time" content="2022-08-30T09:40:21.000Z">
+<meta property="article:modified_time" content="2023-08-28T08:56:38.450Z">
+<meta property="article:author" content="寒流">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191050472.png">
+
+<link rel="canonical" href="https://yuxin719.org.cn/posts/2022/08/30/clluqm1nm0019gklu22fq6djt.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Java学习 | 寒流掉的狼毛</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">寒流掉的狼毛</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">如果以后再也见不到您，祝您早安，午安，还有晚安。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">12</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">18</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">36</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yuxin719.org.cn/posts/2022/08/30/clluqm1nm0019gklu22fq6djt.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blog_image.jpg">
+      <meta itemprop="name" content="寒流">
+      <meta itemprop="description" content="个人网站，记录一切本狼所感兴趣之事。偶尔发发同人文。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒流掉的狼毛">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-30 17:40:21" itemprop="dateCreated datePublished" datetime="2022-08-30T17:40:21+08:00">2022-08-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-28 16:56:38" itemprop="dateModified" datetime="2023-08-28T16:56:38+08:00">2023-08-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn/" itemprop="url" rel="index"><span itemprop="name">Learn</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>&emsp;&emsp;学Java中，一些记录。</p>
+<span id="more"></span>
+
+
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><h3 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h3><p> 重要！！必记选项<br> <img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191050472.png"></p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//结果是多少,为什么?</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;  </span><br><span class="line">i = i++;</span><br><span class="line">System.out.println(i);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结果 i = 1;<br>规则使用临时变量:  </p>
+<ol>
+<li>temp = i ;  </li>
+<li>i = i + 1; (自增的i)  </li>
+<li>i = temp ;  </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 结果是多少,为什么?</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;  </span><br><span class="line">i = ++i;</span><br><span class="line">System.out.println(i);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结果 i = 2;<br>规则使用临时变量:  </p>
+<ol>
+<li>i = i + 1; (自增的i)     </li>
+<li>temp = i ;  </li>
+<li>i = temp ;  </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出是多少?</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i1</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">i2</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> i1++; <span class="comment">//i=10</span></span><br><span class="line">System.out.println(<span class="string">&quot;i = &quot;</span> + i); <span class="comment">//10</span></span><br><span class="line">System.out.println(<span class="string">&quot;i2 = &quot;</span> + i2); <span class="comment">//20</span></span><br><span class="line">i = --i2;<span class="comment">//i=19</span></span><br><span class="line">System.out.println(<span class="string">&quot;i = &quot;</span> + i); <span class="comment">//19</span></span><br><span class="line">System.out.println(<span class="string">&quot;i2 = &quot;</span> + i2); <span class="comment">//19</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如图所示:<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191154427.png"></p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>两张图示:<br>这里和模电不能说像,只能说一模一样。<br>逻辑与&amp;和短路与&amp;&amp;的区别:<br>&amp;:从左到右全部判断。<br>&amp;&amp;:能判断结果就停止。<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191248729.png"><br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191247305.png">  </p>
+<h3 id="原码-反码-补码-–-重要"><a href="#原码-反码-补码-–-重要" class="headerlink" title="原码,反码,补码 – 重要"></a>原码,反码,补码 – 重要</h3><p>说来惭愧,这里笔者绝对学过,全 忘 了。<br>0. 二进制  </p>
+<ol>
+<li>正数的原码,反码,补码都一样。  </li>
+<li>负数的反码=它的原码符号位不变,其它位取反。  </li>
+<li>负数的补码=它的反码+1, 负数的反码=负数的补码-1。  </li>
+<li>0的反码,补码都是0。  </li>
+<li>java没有无符号数。  </li>
+<li><strong>计算机运算的时候都是以补码的方式来运算的。</strong>  </li>
+<li>看运算结果的时候看原码。(important)  </li>
+</ol>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p>开始感觉有意思了。<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208191717568.png"></p>
+<h3 id="第四章笔记重点记录"><a href="#第四章笔记重点记录" class="headerlink" title="第四章笔记重点记录"></a>第四章笔记重点记录</h3><h4 id="算术运算符-1"><a href="#算术运算符-1" class="headerlink" title="算术运算符"></a>算术运算符</h4><p>/ % ++(前、后) –（前、后）<br>数学公式和程序相结合（加小数点等：e.g.5/9改成5.0/9.0）<br><strong>=（赋值）和 == （逻辑等于）是两个东西！！</strong>  </p>
+<h4 id="逻辑运算符-1"><a href="#逻辑运算符-1" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>逻辑与短路的区别：<br>逻辑：全都判断一遍<br>短路：只要有一个满足/不满足条件就判断<br>多用短路与/或，因为效率高。<br>！取非 ：真变假，假变真。<br>^逻辑异或：a与b不一样的时候，结果为真；否则为假。  </p>
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>复合赋值运算符：<br>a+=b ==&gt; a = a + b<br>a-=b ==&gt; a = a - b  </p>
+<h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h4><p>条件表达式 ? 表达式1 : 表达式2;  </p>
+<h3 id="标识符的规则和规范"><a href="#标识符的规则和规范" class="headerlink" title="标识符的规则和规范"></a>标识符的规则和规范</h3><p>标识符的规则和规范:<br>标识符概念:变量,方法,类变量取名的那个叫标识符  </p>
+<p>规则:<br>1.由26个大小写字母,数字0-9,下划线_或$组成<br>2.数字不能开头<br>3.不能使用关键字或保留字,但可以包含关键字或保留字<br>4.严格区分大小写,长度无限制<br>5.标识符不能包含空格   </p>
+<p>规范:(更加专业)<br>1.包名:由多个单词组成时,所有单词小写<br>2.类名,接口名:由多个单词组成时,所有单词首字母大写[大驼峰]<br>3.变量名,方法名:由多个单词组成时,第一个单词首字母大写,第二个单词开始每个单词首字母大写[小驼峰]<br>4.常量名:所有字母都大写,多个单词间用下划线连接  </p>
+<h3 id="进制介绍"><a href="#进制介绍" class="headerlink" title="进制介绍"></a>进制介绍</h3><p>2进制： 以0b或0B开头<br>8进制： 以0开头<br>10进制：0-9，满10进1<br>16进制：以0x或者0X开头  </p>
+<p>进制转换：无非是除除乘乘。</p>
+<h3 id="原码反码补码–重要"><a href="#原码反码补码–重要" class="headerlink" title="原码反码补码–重要"></a>原码反码补码–重要</h3><p>计算机用补码运算的原因：补码统一了正数和负数，使计算机的计算更加轻松。<br>更多的上面记过了。</p>
+<h2 id="第五章笔记重点记录"><a href="#第五章笔记重点记录" class="headerlink" title="第五章笔记重点记录"></a>第五章笔记重点记录</h2><h3 id="switch语句的穿透"><a href="#switch语句的穿透" class="headerlink" title="switch语句的穿透"></a>switch语句的穿透</h3><p>穿透：满足条件后，执行对应语句块，判断有无break；<br>没有break跳出switch语句，不用判断下一个常量，直接执行下一语句块。<br>这就叫穿透现象。</p>
+<h3 id="switch语句的细节讨论"><a href="#switch语句的细节讨论" class="headerlink" title="switch语句的细节讨论"></a>switch语句的细节讨论</h3><ol>
+<li>表达式（switch后）的数据类型，应该和case后的常量类型一致，或是可以自动转化。（例如char可以自动转化成int类型）  </li>
+<li>swtich表达式中表达式的返回值必须是：（byte,short,int,char,enum[枚举]，String）  </li>
+<li>case语句中的值必须是常量，或者是常量表达式，不能是变量。  </li>
+<li>default语句是可选的，当没有匹配的case时，执行default;dafault+case都不匹配就无输出。  </li>
+<li>break语句用来在执行一个case分支后跳出switch语句。没有写break，则穿透。</li>
+</ol>
+<h3 id="switch和if的比较"><a href="#switch和if的比较" class="headerlink" title="switch和if的比较"></a>switch和if的比较</h3><ol>
+<li>如果判断的具体数值不多，而且符合（byte,short,int,char,enum[枚举]，String），建议使用switch语句  </li>
+<li>对区间判断，对结果为boo lean类型判断，用if语句（if使用范围更广）  </li>
+</ol>
+<h3 id="for循环细节注意事项"><a href="#for循环细节注意事项" class="headerlink" title="for循环细节注意事项"></a>for循环细节注意事项</h3><ol>
+<li>循环条件是返回一个布尔值表达式（true or false）  </li>
+<li>for循环初始化和变量迭代可以写到其他地方，但是“;”不能省略。<br>写在小括号里面，变量只在for循环中生效；写在小括号外面，变量全程序都能用。  </li>
+<li>循环初始值可以有多条初始化语句，要求类型一样，中间用逗号隔开；<br>循环变量迭代也可以有多条变量迭代句，中间用逗号隔开。  </li>
+</ol>
+<h2 id="编程思想"><a href="#编程思想" class="headerlink" title="编程思想"></a>编程思想</h2><p><strong>化繁为简，先死后活。</strong>  </p>
+<ol>
+<li>化繁为简： 将复杂的需求，拆解成简单的需求，逐步完成。  </li>
+<li>先死后活：先考虑固定的值，然后转成可以灵活变化的值。  </li>
+</ol>
+<h3 id="while循环细节注意事项"><a href="#while循环细节注意事项" class="headerlink" title="while循环细节注意事项"></a>while循环细节注意事项</h3><ol>
+<li>循环条件返回一个布尔值表达式。  </li>
+<li>while循环先判断后执行。  </li>
+</ol>
+<h3 id="while和do-while循环区别"><a href="#while和do-while循环区别" class="headerlink" title="while和do..while循环区别"></a>while和do..while循环区别</h3><p>while：先判断条件满足与否，再执行循环体内语句。<br>do..while:无论条件满足与否，先执行一次循环体，随后再进行条件判断。  </p>
+<h3 id="多重循环控制–重难点"><a href="#多重循环控制–重难点" class="headerlink" title="多重循环控制–重难点"></a>多重循环控制–重难点</h3><ol>
+<li>含义:将一个循环放在另一个循环体内,形成嵌套循环;可读性问题: 建议一般只用两行(不要超过三行)  </li>
+<li>嵌套循环把内层循环当成外层循环的循环体.当只有内层循环条件为false时,才会跳出内层循环.e.g.外层循环m次,内层循环n次–&gt;一共循环[m*n]次  </li>
+<li>经典题目:九九乘法表,空心金字塔等.</li>
+</ol>
+<h3 id="跳转控制语句-break"><a href="#跳转控制语句-break" class="headerlink" title="跳转控制语句-break"></a>跳转控制语句-break</h3><ol>
+<li>break语句出现在多层嵌套语句块时,可以通过<strong>标签</strong>指明要终止的是哪一层语句块.  </li>
+<li>标签名字由程序名指定 用法:break 标签名;  </li>
+<li>尽量不要使用标签.  </li>
+<li>如果没有指定break,默认退出最近的循环体.  </li>
+</ol>
+<h3 id="跳转控制语句-continue"><a href="#跳转控制语句-continue" class="headerlink" title="跳转控制语句-continue"></a>跳转控制语句-continue</h3><ol>
+<li>用于结束本次循环,继续进行下一次循环.  </li>
+<li>可以通过标签指明跳过哪一层循环.  </li>
+</ol>
+<h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组可以存放多个同一类型的数据,也是一种数据类型,是引用类型.<br>即:数组就是一组数据.<br>可以通过[数组名.length]得到数组的长度.  </p>
+<h3 id="数组细节"><a href="#数组细节" class="headerlink" title="数组细节"></a>数组细节</h3><ol>
+<li>数组内是多个<strong>相同</strong>数据类型的组合,不能混用.  </li>
+<li>数组中元素可以是任何数据类型,包括基本类型和引用类型.  </li>
+<li>数组创建后,如果没有赋值,有默认值: boolean:false;String:null;其他类型:0.  </li>
+<li>数组下标必须在指定范围内使用,否则会报:下标越界异常.  </li>
+<li>数组属于引用类型,数组型数据本质是对象.</li>
+</ol>
+<h3 id="数组赋值机制"><a href="#数组赋值机制" class="headerlink" title="数组赋值机制"></a>数组赋值机制</h3><p>数组在默认情况下是引用传递，赋值的是个地址；赋值方式叫做：地址拷贝<br>图解：<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208211057794.png"></p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>通过对待排序序列从后向前，依次比较相邻元素的值，若发现则逆序交换，使值较大的元素逐渐从前移向后部，就像水底下的气泡一样逐渐向上冒。<br>一般是两个循环嵌套使用,并且添加一个临时变量temp,在排序时实现临时的值的保存。  </p>
+<h2 id="第七章–对象"><a href="#第七章–对象" class="headerlink" title="第七章–对象!!"></a>第七章–对象!!</h2><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>属性的定义语法同变量: 访问修饰符 属性类型 属性名;<br>访问修饰符: 控制属性的访问范围<br>有四种访问修饰符:</p>
+<ol>
+<li>public  </li>
+<li>procected  </li>
+<li>默认  </li>
+<li>private  </li>
+</ol>
+<p>属性的定义类型可以为任意定义类型.  </p>
+<p>属性如果不赋值,有默认值。规则和数组默认类型一样。</p>
+<h3 id="创建对象形式"><a href="#创建对象形式" class="headerlink" title="创建对象形式"></a>创建对象形式</h3><ol>
+<li>先声明再创建<br>Cat cat; // 声明<br>cat = new Cat();  // 创建空间  </li>
+<li>直接创建<br>Cat cat = new Cat();  </li>
+</ol>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="方法调用小节"><a href="#方法调用小节" class="headerlink" title="方法调用小节"></a>方法调用小节</h4><ol>
+<li>当程序执行到方法时,会开辟一个独立的空间(栈空间)  </li>
+<li>当方法执行完毕,或者执行到return语句时,就会返回  </li>
+<li>返回到调用方法的地方  </li>
+<li>返回后继续执行方法后面的代码  </li>
+<li>当main方法(栈)执行完毕后,整个程序退出  </li>
+</ol>
+<h4 id="成员方法定义"><a href="#成员方法定义" class="headerlink" title="成员方法定义"></a>成员方法定义</h4><p>访问修饰符 返回数据类型 方法名(形参列表..){//方法体<br>    语句;<br>    return 返回值;<br>}</p>
+<h4 id="方法的细节"><a href="#方法的细节" class="headerlink" title="方法的细节"></a>方法的细节</h4><p><strong>返回数据类型</strong>  </p>
+<ol>
+<li>一个方法最多只能有一个返回值;如何返回多个值? –&gt;使用数组  </li>
+<li>返回值可以为任意类型,包括基本类型或引用类型  </li>
+<li>如果方法要求有返回数据类型,则必须有 return 值 语句,且要求返回值类型和return值的类型一致或兼容  </li>
+<li>如果方法为void,则方法体中可以不写return语句,或者只写return  </li>
+<li>方法名最好见名字知含义[遵守大驼峰]</li>
+</ol>
+<p><strong>形参列表:</strong>  </p>
+<ol>
+<li>一个方法可以有0个参数,也可有多个参数,中间用逗号隔开getSum(int n1, int n2)  </li>
+<li>参数类型可以为任意类型,包含基本类型或引用类型;e.g.printArr(int[][] map)  </li>
+<li>调用参数的方法一定对应参数列表传参相同类型或者兼容类型的参数  </li>
+<li>形参和实参的个数要相等,顺序一定要一一对应  </li>
+</ol>
+<p><strong>方法体</strong>  </p>
+<ol>
+<li>完成功能的具体语句,方法之中不能再定义一个方法. –&gt; 禁止套娃!</li>
+</ol>
+<p><strong>方法调用细节</strong>  </p>
+<ol>
+<li>同一个类中的方法可以直接互相调用 –&gt; A类的方法2要调用A类的方法1  </li>
+<li>跨类调用要通过对象名引用(先创建对象,再跨类调用即可) –&gt; A类的方法2要调用B类的方法1  </li>
+<li>跨类的方法调用和方法的访问修饰符有关  </li>
+</ol>
+<h4 id="递归调用"><a href="#递归调用" class="headerlink" title="递归调用"></a>递归调用</h4><ol>
+<li>执行一个方法时,就会创建一个新的受保护的独立空间(栈空间)  </li>
+<li>方法的局部变量是独立的  </li>
+<li>如果方法中使用的是引用类型,就会共享该引用类型的数据  </li>
+<li>递归必须向退出递归的条件无限逼近,否则会栈溢出  </li>
+<li>当一个方法执行完毕,或者return时,遵守谁调用就将结果返回给谁 &lt;–&gt; 当返回值后方法也就执行完毕  </li>
+</ol>
+<h3 id="方法重载-Overload"><a href="#方法重载-Overload" class="headerlink" title="方法重载(Overload)"></a>方法重载(Overload)</h3><p>java中允许同一个类中,多个重名方法的存在,但是要求形参列表不一致.<br>这减轻了起名和记名的麻烦.<br>细节:  </p>
+<ol>
+<li>方法名一样  </li>
+<li>方法的形参列表必须不一样  </li>
+<li>方法的返回类型无要求  </li>
+</ol>
+<h3 id="可变参数细节"><a href="#可变参数细节" class="headerlink" title="可变参数细节"></a>可变参数细节</h3><ol>
+<li>可变参数的实参可以为数组  </li>
+<li>可变参数的本质是数组  </li>
+<li>可变参数可以和普通参数一起在形参列表, 但必须保证可变参数在最后  </li>
+<li>一个形参列表中最多只能出现一个可变参数  </li>
+</ol>
+<h3 id="对象创建的流程分析"><a href="#对象创建的流程分析" class="headerlink" title="对象创建的流程分析"></a>对象创建的流程分析</h3><p>Person p = new Person(“小倩”,20);</p>
+<ol>
+<li>加载Person类信息(Person.class),只会加载一次  </li>
+<li>在堆中分配空间(得到一个地址信息)  </li>
+<li>完成对象(属性的)初始化[1.默认初始化 2.显式初始化 3.构造器的初始化]  </li>
+<li>再把对象在堆中的地址返回给p(p是对象名/也可理解成对象的引用)  </li>
+</ol>
+<h3 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h3><p>java虚拟机会给每个对象分配this,代表当前对象.<br>哪个对象调用,this就代表哪个对象.  </p>
+<h4 id="注意细节"><a href="#注意细节" class="headerlink" title="注意细节"></a>注意细节</h4><ol>
+<li>this可以访问本类的属性,方法,构造器  </li>
+<li>this用于区分当前的类属性和局部变量  </li>
+<li>访问成员方法的语法: this.方法名(参数列表);  </li>
+<li>访问构造器语法: this(参数列表) 只能在构造器中使用.注意: 如果有this访问构造器语法,这句语法必须放在第一条语句  </li>
+<li>this不能在类定义的外部使用,只能在类定义的方法中使用  </li>
+</ol>
+<h2 id="第八章–开始使用IDEA"><a href="#第八章–开始使用IDEA" class="headerlink" title="第八章–开始使用IDEA"></a>第八章–开始使用IDEA</h2><h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>包的命名规则：只能包含数字，字母，下划线，小圆点<br>不能数字开头，不能是关键字或保留字<br>包的命名规范：  </p>
+<ol>
+<li>   <strong>一般是小写字母+小圆点</strong><br>com.公司名.项目名.业务模块名<br>com.sina.crm.user  –&gt;用户模块<br>com.sina.crm.order –&gt;订单模块<br>com.sina.crm.utils –&gt;工具类  </li>
+<li>   <strong>常用的包</strong><br>Java.long.* 基本包，无需引用，可以直接用<br>Java.util.* 由系统提供的工具包<br>Java.net.* 网络包 网络开发<br>Java.awt.* 界面开发用（GUI）  </li>
+</ol>
+<h3 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h3><p>Java有四种访问控制修饰符号，用于控制方法和属性的访问权限  </p>
+<ol>
+<li>   公开级别：public 修饰 对外公开  </li>
+<li>   受保护级别：protected修饰 对子类和同一个包  中的类公开  </li>
+<li>   默认级别：没有修饰符，向同一个包的类公开  </li>
+<li>私有级别：private修饰 只有类本身可以访问，不对外公开   </li>
+</ol>
+<p><strong>注意事项：</strong></p>
+<ol>
+<li>修饰符可以用来修饰类中的属性，成员方法及类  </li>
+<li>只有默认和public才能修饰类！且遵循访问权限特点  </li>
+<li>继承的学习后再讲解……  </li>
+<li>成员方法访问规则和属性完全一样  </li>
+</ol>
+<h3 id="面向对象三大特征-：-封装、继承、多态"><a href="#面向对象三大特征-：-封装、继承、多态" class="headerlink" title="面向对象三大特征 ： 封装、继承、多态"></a>面向对象三大特征 ： 封装、继承、多态</h3><h4 id="封装：-encapsulation"><a href="#封装：-encapsulation" class="headerlink" title="封装： encapsulation"></a>封装： encapsulation</h4><p>把抽象出来的数据【属性】和对数据的操作【方法】封装在一起，数据被保护在内部，程序其他部分只有通过被授权操作【方法】，才能对数据进行操作。  </p>
+<p>封装好处：  </p>
+<ol>
+<li>隐藏实现的细节；方法（连接数据库）&lt;– 调用(传入参数)</li>
+<li>可以对数据进行验证，保证安全合理</li>
+</ol>
+<p>封装实现步骤:  </p>
+<ol>
+<li><p>先对属性进行私有化private,让外部不能直接修改属性</p>
+</li>
+<li><p>提供一个公共的(public)set方法,用于对属性判断并赋值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Public <span class="keyword">void</span> <span class="title function_">setXxx</span><span class="params">(类型,参数名)</span>&#123;</span><br><span class="line"><span class="comment">//加入数据验证的业务逻辑</span></span><br><span class="line">	属性= 参数名;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>提供一个公共的get方法,用于获取属性的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Public 数据类型 getXxx()&#123;<span class="comment">//权限判断 Xxx是某个属性</span></span><br><span class="line"><span class="keyword">return</span> xx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>封装： 将构造器 和 SetXxx结合</p>
+<h4 id="继承：-extends"><a href="#继承：-extends" class="headerlink" title="继承： extends"></a>继承： extends</h4><p>为什么需要继承：<br>当业务逻辑一样时，两个类的属性和方法有很多是相同的，此时使用<strong>继承</strong>提高代码的复用性。</p>
+<p>当多个类存在相同的属性（变量）时，可以将这些东西从子类中抽象出来形成父类。<br>不同的子类只要通过关键字’extends’调用父类中的属性即可。  </p>
+<p>继承基本语法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class 子类 extends 父类&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>想要用继承，必须使用关键字‘extends’！！</strong>  </p>
+<p>好处：  </p>
+<ol>
+<li>代码复用性提高</li>
+<li>代码拓展性和维护性提高了</li>
+</ol>
+<h5 id="继承的细节"><a href="#继承的细节" class="headerlink" title="继承的细节"></a>继承的细节</h5><ol>
+<li>子类继承了所有的属性和方法，但是私有属性和方法不能在子类直接去访问，要通过<strong>父类</strong>提供的公共方法去访问  </li>
+<li>子类必须调用父类的构造器完成父类的初始化(隐藏”super();”,默认调用父类的无参构造器)</li>
+<li>当创造子类对象时，不管使用子类的哪个构造器,默认情况下总会调用父类的无参构造器.如果父类美欧提供无参构造器,则必须在子类的构造器中用super去指定使用父类的哪个构造器去完成对父类的初始化工作,否则编译不会通过</li>
+<li>如果希望指定去调用父类的某个构造器,则显示地调用一下: super(参数列表)</li>
+<li>super在使用时,需要放在构造器第一行(super只能在构造器中使用)</li>
+<li>super()和this()都只能放在构造器第一行,因此这两个方法不能共存在一个构造器</li>
+<li>java所有类都是Object的子类,Object是所有类的基类</li>
+<li>父类构造器的调用不限于直接父类!将一直向上追溯直到Object类(顶级父类)</li>
+<li>子类最多只能继承一个父类(直接继承),即java中是单继承机制</li>
+<li>不能滥用继承,子类和父类之间必须满足 is-a 的逻辑关系</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251542136.png"></p>
+<h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><p>super代表父类的引用,用于访问父类的属性,方法,构造器。  </p>
+<ol>
+<li>访问父类的属性，但不能访问父类的私有private属性。<br>super.属性名;</li>
+<li>访问父类的方法，但不能访问父类的私有private方法。<br>super.方法名(参数列表);</li>
+<li>访问父类的构造器：super.(参数列表);：只能放在构造器的第一句；只能出现一句。</li>
+</ol>
+<h5 id="super细节"><a href="#super细节" class="headerlink" title="super细节"></a>super细节</h5><ol>
+<li>调用父类构造器的好处（分工明确，父类属性由父类初始化，子类属性由子类初始化）</li>
+<li>当属性中有子类和父类的成员（属性和方法）重名时，为了访问父类的成员，必须通过super。如果没有重名，使用super,this,直接访问是一样的效果。<br>e.g.:  </li>
+</ol>
+<p><strong>this.function();</strong> 从本类开始找function，没有找到则依次向上级寻找<br><strong>super.function();</strong> 直接跳过本类，依次向上级寻找function  </p>
+<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251547254.png"></p>
+<ol start="3">
+<li>super的访问不限于直接父类，如果爷爷类和本类中有同名的成员，也可以用super去访问爷爷类的成员；如果多个基类中都有同名的成员，使用super访问遵循就近原则。<br>A –&gt; B –&gt; C<br>当然也需要遵守访问权限的相关规则。  </li>
+</ol>
+<h4 id="super-VS-this"><a href="#super-VS-this" class="headerlink" title="super VS. this"></a>super VS. this</h4><p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251604789.png"></p>
+<h4 id="方法重写-override"><a href="#方法重写-override" class="headerlink" title="方法重写-override"></a>方法重写-override</h4><p>子类有一个方法和父类的某个方法的名称，返回类型，参数一样，那么子类的方法会覆盖父类的方法。  </p>
+<h5 id="override细节"><a href="#override细节" class="headerlink" title="override细节"></a>override细节</h5><ol>
+<li>子类和父类的参数，方法名称要完全一样</li>
+<li>子类方法的返回类型和父类方法的返回类型一样，或是父类返回类型的子类</li>
+<li>子类方法不能缩小父类方法的访问权限，（但是可以扩大）</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208251639999.png"></p>
+<h4 id="多态：polymorphic"><a href="#多态：polymorphic" class="headerlink" title="多态：polymorphic"></a>多态：polymorphic</h4><p>优点：多态能提高代码复用性，且利于代码维护。</p>
+<p>多态是建立在封装和继承基础之上的。</p>
+<h5 id="多态的具体体现"><a href="#多态的具体体现" class="headerlink" title="多态的具体体现"></a>多态的具体体现</h5><ol>
+<li>方法的多态：重写和重载体现多态。</li>
+<li>对象的多态： <strong>important</strong><br> (1)一个对象的编译类型和运行类型可以不一致<br> (2)编译类型在定义对象时，就确定了，不能改变<br> (3)运行类型是可以变化的<br> (4)编译类型看定义时 = 号的左边，运行类型看 = 号的右边  </li>
+</ol>
+<h5 id="多态–-gt-向上转型-的本质"><a href="#多态–-gt-向上转型-的本质" class="headerlink" title="多态–&gt; 向上转型 的本质"></a>多态–&gt; 向上转型 的本质</h5><ol>
+<li>本质： 父类的引用指向了子类的对象</li>
+<li>语法： 父类类型  引用名 = new 子类类型();</li>
+<li>特点:  <pre><code>     (1)编译类型看左边,运行类型看右边  
+     (2)可以调用父类中的所有成员(遵守访问权限)  
+     (3)不能调用子类中特有成员;  
+</code></pre>
+</li>
+</ol>
+<h5 id="多态–-gt-向下转型-的本质"><a href="#多态–-gt-向下转型-的本质" class="headerlink" title="多态–&gt; 向下转型 的本质"></a>多态–&gt; 向下转型 的本质</h5><ol>
+<li>语法: <strong>子类类型 引用名 = (子类类型) 父类引用;</strong></li>
+<li>只能强转父类的引用,不能强转父类对象</li>
+<li>要求 父类的引用必须指向的是当前目标类型的对象;(向下转型之前必须要有向上转型)</li>
+<li>可以调用子类类型中所有成员</li>
+<li>本质是 –&gt; 使用子类对象</li>
+</ol>
+<h5 id="多态-–-gt-注意细节"><a href="#多态-–-gt-注意细节" class="headerlink" title="多态 –&gt; 注意细节"></a>多态 –&gt; 注意细节</h5><ol>
+<li>属性没有重写之说,属性的值直接看编译类型</li>
+<li>instanceof 比较操作符 用于判断对象的<strong>运行</strong>类型是否为XX类型或XX类型的子类型</li>
+</ol>
+<h5 id="java的动态绑定机制-Important"><a href="#java的动态绑定机制-Important" class="headerlink" title="java的动态绑定机制 Important"></a>java的动态绑定机制 <strong>Important</strong></h5><ol>
+<li>当调用对象方法的时候，该方法会和该对象的内存地址/运行规则绑定</li>
+<li>当调用对象属性的时候，没有动态绑定机制，哪里声明哪里使用</li>
+</ol>
+<h3 id="Object类详解"><a href="#Object类详解" class="headerlink" title="Object类详解"></a>Object类详解</h3><h4 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h4><p>equals 和 == 的区别：</p>
+<p><strong>==：比较运算符</strong></p>
+<ol>
+<li>既可以判断基本类型，又可以判断引用类型</li>
+<li>判断基本类型，则判断值是否相等</li>
+<li>判断引用类型，判断引用的地址是否相等</li>
+</ol>
+<p><strong>equals方法</strong></p>
+<ol>
+<li>equals方法是Object类中的方法，只能判断引用类型</li>
+<li>默认判断地址是否相等</li>
+</ol>
+<h4 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a>hashCode方法</h4><ol>
+<li>提高具有哈希结构的容器效率</li>
+<li>两个引用，如果指向同一个对象，则哈希值肯定是一样的</li>
+<li>两个引用，如果指向不同对象，则哈希值不一样</li>
+<li>哈希值主要根据地址计算，但不能完全将哈希值等价地址</li>
+<li>如果hashCode需要的话，也会重写</li>
+</ol>
+<h4 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h4><p>默认返回：全类名 + @ + 哈希值的16进制<br>子类往往重写toString方法，用于返回对象的属性信息<br>重写toString方法 输出对象的属性（alt+insert里面就有）<br>当直接输出一个对象时，toString方法会被默认调用</p>
+<h4 id="finalize方法"><a href="#finalize方法" class="headerlink" title="finalize方法"></a>finalize方法</h4><ol>
+<li>当对象被回收时，系统自动调用该对象finalize方法，子类可以重写该方法，做一些释放资源的操作。</li>
+<li>什么时候被回收？ 当某个对象没有任何引用时，则jvm就任对这个对象是一个垃圾对象，就会使用垃圾回收机制来销毁该对象。在销毁该对象前，会先调用finalize方法</li>
+<li>垃圾回收机制的调用：是由系统来决定，也可以通过System。</li>
+</ol>
+<p><strong>垃圾不是立马回收，程序有自己的垃圾回收算法</strong><br>主动触发： System.gc()<br> 我没有成功触发….</p>
+<h3 id="断点调试-debug"><a href="#断点调试-debug" class="headerlink" title="断点调试(debug)"></a>断点调试(debug)</h3><p> debug过程中,看的是对象的debug类型</p>
+<p> <img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/test-pic/202208261640172.png"></p>
+<h2 id="参考学习资料"><a href="#参考学习资料" class="headerlink" title="参考学习资料"></a>参考学习资料</h2><p>【零基础 快速学Java】韩顺平 零基础30天学会Java: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8">https://www.bilibili.com/video/BV1fh411y7R8</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>寒流
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yuxin719.org.cn/posts/2022/08/30/clluqm1nm0019gklu22fq6djt.html" title="Java学习">https://yuxin719.org.cn/posts/2022/08/30/clluqm1nm0019gklu22fq6djt.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2022/08/18/clluqm1nu002dgkluctui5ogm.html" rel="prev" title="Hexo优化背景主题——透明度">
+      <i class="fa fa-chevron-left"></i> Hexo优化背景主题——透明度
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/2022/10/03/clluqm1nl0014gklu7mow2usa.html" rel="next" title="周记">
+      周记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">第三章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">Java数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="nav-number">2.</span> <span class="nav-text">第四章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81-%E5%8F%8D%E7%A0%81-%E8%A1%A5%E7%A0%81-%E2%80%93-%E9%87%8D%E8%A6%81"><span class="nav-number">2.3.</span> <span class="nav-text">原码,反码,补码 – 重要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.4.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0%E9%87%8D%E7%82%B9%E8%AE%B0%E5%BD%95"><span class="nav-number">2.5.</span> <span class="nav-text">第四章笔记重点记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6-1"><span class="nav-number">2.5.2.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.5.3.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.5.4.</span> <span class="nav-text">三元运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E8%A7%84%E5%88%99%E5%92%8C%E8%A7%84%E8%8C%83"><span class="nav-number">2.6.</span> <span class="nav-text">标识符的规则和规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%88%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.7.</span> <span class="nav-text">进制介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81%E2%80%93%E9%87%8D%E8%A6%81"><span class="nav-number">2.8.</span> <span class="nav-text">原码反码补码–重要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%E7%AC%94%E8%AE%B0%E9%87%8D%E7%82%B9%E8%AE%B0%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">第五章笔记重点记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#switch%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%A9%BF%E9%80%8F"><span class="nav-number">3.1.</span> <span class="nav-text">switch语句的穿透</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%86%E8%8A%82%E8%AE%A8%E8%AE%BA"><span class="nav-number">3.2.</span> <span class="nav-text">switch语句的细节讨论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch%E5%92%8Cif%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">3.3.</span> <span class="nav-text">switch和if的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for%E5%BE%AA%E7%8E%AF%E7%BB%86%E8%8A%82%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">for循环细节注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3"><span class="nav-number">4.</span> <span class="nav-text">编程思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while%E5%BE%AA%E7%8E%AF%E7%BB%86%E8%8A%82%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">4.1.</span> <span class="nav-text">while循环细节注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while%E5%92%8Cdo-while%E5%BE%AA%E7%8E%AF%E5%8C%BA%E5%88%AB"><span class="nav-number">4.2.</span> <span class="nav-text">while和do..while循环区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E2%80%93%E9%87%8D%E9%9A%BE%E7%82%B9"><span class="nav-number">4.3.</span> <span class="nav-text">多重循环控制–重难点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-break"><span class="nav-number">4.4.</span> <span class="nav-text">跳转控制语句-break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-continue"><span class="nav-number">4.5.</span> <span class="nav-text">跳转控制语句-continue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0"><span class="nav-number">5.</span> <span class="nav-text">第六章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">5.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%BB%86%E8%8A%82"><span class="nav-number">5.2.</span> <span class="nav-text">数组细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E8%B5%8B%E5%80%BC%E6%9C%BA%E5%88%B6"><span class="nav-number">5.3.</span> <span class="nav-text">数组赋值机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">5.4.</span> <span class="nav-text">冒泡排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%E2%80%93%E5%AF%B9%E8%B1%A1"><span class="nav-number">6.</span> <span class="nav-text">第七章–对象!!</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">6.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%BD%A2%E5%BC%8F"><span class="nav-number">6.2.</span> <span class="nav-text">创建对象形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">6.3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E5%B0%8F%E8%8A%82"><span class="nav-number">6.3.1.</span> <span class="nav-text">方法调用小节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89"><span class="nav-number">6.3.2.</span> <span class="nav-text">成员方法定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E7%BB%86%E8%8A%82"><span class="nav-number">6.3.3.</span> <span class="nav-text">方法的细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8"><span class="nav-number">6.3.4.</span> <span class="nav-text">递归调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD-Overload"><span class="nav-number">6.4.</span> <span class="nav-text">方法重载(Overload)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%BB%86%E8%8A%82"><span class="nav-number">6.5.</span> <span class="nav-text">可变参数细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E7%9A%84%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="nav-number">6.6.</span> <span class="nav-text">对象创建的流程分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">6.7.</span> <span class="nav-text">this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%BB%86%E8%8A%82"><span class="nav-number">6.7.1.</span> <span class="nav-text">注意细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0%E2%80%93%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8IDEA"><span class="nav-number">7.</span> <span class="nav-text">第八章–开始使用IDEA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%85"><span class="nav-number">7.1.</span> <span class="nav-text">包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">7.2.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81-%EF%BC%9A-%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81"><span class="nav-number">7.3.</span> <span class="nav-text">面向对象三大特征 ： 封装、继承、多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%EF%BC%9A-encapsulation"><span class="nav-number">7.3.1.</span> <span class="nav-text">封装： encapsulation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%EF%BC%9A-extends"><span class="nav-number">7.3.2.</span> <span class="nav-text">继承： extends</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BB%86%E8%8A%82"><span class="nav-number">7.3.2.1.</span> <span class="nav-text">继承的细节</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#super%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">7.3.3.</span> <span class="nav-text">super关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#super%E7%BB%86%E8%8A%82"><span class="nav-number">7.3.3.1.</span> <span class="nav-text">super细节</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#super-VS-this"><span class="nav-number">7.3.4.</span> <span class="nav-text">super VS. this</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99-override"><span class="nav-number">7.3.5.</span> <span class="nav-text">方法重写-override</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#override%E7%BB%86%E8%8A%82"><span class="nav-number">7.3.5.1.</span> <span class="nav-text">override细节</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%80%81%EF%BC%9Apolymorphic"><span class="nav-number">7.3.6.</span> <span class="nav-text">多态：polymorphic</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E6%80%81%E7%9A%84%E5%85%B7%E4%BD%93%E4%BD%93%E7%8E%B0"><span class="nav-number">7.3.6.1.</span> <span class="nav-text">多态的具体体现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E6%80%81%E2%80%93-gt-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B-%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-number">7.3.6.2.</span> <span class="nav-text">多态–&gt; 向上转型 的本质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E6%80%81%E2%80%93-gt-%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B-%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-number">7.3.6.3.</span> <span class="nav-text">多态–&gt; 向下转型 的本质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E6%80%81-%E2%80%93-gt-%E6%B3%A8%E6%84%8F%E7%BB%86%E8%8A%82"><span class="nav-number">7.3.6.4.</span> <span class="nav-text">多态 –&gt; 注意细节</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java%E7%9A%84%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E6%9C%BA%E5%88%B6-Important"><span class="nav-number">7.3.6.5.</span> <span class="nav-text">java的动态绑定机制 Important</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object%E7%B1%BB%E8%AF%A6%E8%A7%A3"><span class="nav-number">7.4.</span> <span class="nav-text">Object类详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#equals"><span class="nav-number">7.4.1.</span> <span class="nav-text">equals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashCode%E6%96%B9%E6%B3%95"><span class="nav-number">7.4.2.</span> <span class="nav-text">hashCode方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toString%E6%96%B9%E6%B3%95"><span class="nav-number">7.4.3.</span> <span class="nav-text">toString方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#finalize%E6%96%B9%E6%B3%95"><span class="nav-number">7.4.4.</span> <span class="nav-text">finalize方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95-debug"><span class="nav-number">7.5.</span> <span class="nav-text">断点调试(debug)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99"><span class="nav-number">8.</span> <span class="nav-text">参考学习资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="寒流"
+      src="/images/blog_image.jpg">
+  <p class="site-author-name" itemprop="name">寒流</p>
+  <div class="site-description" itemprop="description">个人网站，记录一切本狼所感兴趣之事。偶尔发发同人文。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pblackcookie" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pblackcookie" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuxinsun147@gmail.com" title="E-Mail → mailto:yuxinsun147@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liehuohanliu" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liehuohanliu" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/s2029536227" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;s2029536227" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">来自寒流，爱您。</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">114k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:10</span>
+</div>
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span> | 你好！不论你是谁，很高兴遇见你。
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("08/03/2022 15:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已于 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒" +  " 前涅槃重生";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
