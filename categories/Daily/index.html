@@ -102,6 +102,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -136,11 +137,35 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">36</span></a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
 
 </div>
     </header>
@@ -188,7 +213,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/12/21/clmd97ckv001jp4lu18vo9j5u.html" itemprop="url">
+          <a class="post-title-link" href="/post/20221221174021.html" itemprop="url">
             <span itemprop="name">《末日之书》读后感</span>
           </a>
       </div>
@@ -208,7 +233,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/11/07/clmd97cku001gp4lu280x8vjm.html" itemprop="url">
+          <a class="post-title-link" href="/post/20221107174021.html" itemprop="url">
             <span itemprop="name">10月追番相关（又称锐评水星的魔女）</span>
           </a>
       </div>
@@ -228,7 +253,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/10/03/clmd97ckt0018p4lufnoy96ww.html" itemprop="url">
+          <a class="post-title-link" href="/post/20221003174021.html" itemprop="url">
             <span itemprop="name">周记</span>
           </a>
       </div>
@@ -248,7 +273,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/18/clmd97cl0002ip4lu4lq14fne.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220818140000.html" itemprop="url">
             <span itemprop="name">开始</span>
           </a>
       </div>
@@ -268,7 +293,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/16/clmd97ckz002ap4luaqt9ddv7.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220816174021.html" itemprop="url">
             <span itemprop="name">奇人趣事</span>
           </a>
       </div>
@@ -288,7 +313,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/09/clmd97cl1002sp4ludd5j6hb9.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220809174021.html" itemprop="url">
             <span itemprop="name">Lycoris Recoil-感想集合</span>
           </a>
       </div>
@@ -496,6 +521,13 @@ setInterval("createtime()",250);
 
   
 
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
 
 
 

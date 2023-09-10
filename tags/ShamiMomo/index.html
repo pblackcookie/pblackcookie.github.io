@@ -102,6 +102,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -136,11 +137,35 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">36</span></a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
 
 </div>
     </header>
@@ -188,7 +213,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/06/02/clmd97ckx001vp4luhzase3rv.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220602154633.html" itemprop="url">
             <span itemprop="name">【夏桃】魔族的伤痕消除计划</span>
           </a>
       </div>
@@ -208,7 +233,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/05/20/clmd97ckv001np4lu6rzm8hxi.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220520003005.html" itemprop="url">
             <span itemprop="name">【夏桃】魔族的尾部特训</span>
           </a>
       </div>
@@ -231,7 +256,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/06/29/clmd97cko000vp4lucxyi40nd.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200629133832.html" itemprop="url">
             <span itemprop="name">【夏桃】焦灼</span>
           </a>
       </div>
@@ -251,7 +276,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/05/28/clmd97ckl000jp4lu3mhn9tif.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200528002514.html" itemprop="url">
             <span itemprop="name">【夏桃】宝物</span>
           </a>
       </div>
@@ -271,7 +296,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/05/25/clmd97cko000tp4lu217bevmi.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200525203641.html" itemprop="url">
             <span itemprop="name">【夏桃】铁骨铮铮·千代田桃</span>
           </a>
       </div>
@@ -291,7 +316,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/04/08/clmd97ckk000dp4lu8vn25c4l.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200408203008.html" itemprop="url">
             <span itemprop="name">【夏桃】抉择</span>
           </a>
       </div>
@@ -311,7 +336,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/02/15/clmd97ckh0007p4lu2lfd11aj.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200215113035.html" itemprop="url">
             <span itemprop="name">【夏桃】呼唤</span>
           </a>
       </div>
@@ -331,7 +356,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/02/10/clmd97ckh0008p4lubl752c9b.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200210140005.html" itemprop="url">
             <span itemprop="name">【夏桃】家人，也许</span>
           </a>
       </div>
@@ -354,7 +379,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2019/10/05/clmd97cki0009p4lu7wvogn37.html" itemprop="url">
+          <a class="post-title-link" href="/post/20191005211835.html" itemprop="url">
             <span itemprop="name">【夏桃】暗堕</span>
           </a>
       </div>
@@ -562,6 +587,13 @@ setInterval("createtime()",250);
 
   
 
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
 
 
 

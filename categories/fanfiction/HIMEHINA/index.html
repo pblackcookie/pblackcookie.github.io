@@ -102,6 +102,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -136,11 +137,35 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">36</span></a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
 
 </div>
     </header>
@@ -188,7 +213,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/01/07/clmd97ckw001qp4lu0rgjf9f4.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220107013927.html" itemprop="url">
             <span itemprop="name">【HIMEHINA】歌词轶事</span>
           </a>
       </div>
@@ -211,7 +236,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2021/02/14/clmd97ckk000ep4lu0wmu9akd.html" itemprop="url">
+          <a class="post-title-link" href="/post/20210214140014.html" itemprop="url">
             <span itemprop="name">【HIMEHINA】巧克力</span>
           </a>
       </div>
@@ -234,7 +259,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/05/03/clmd97ckl000hp4lu3rg0hjqn.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200503222223.html" itemprop="url">
             <span itemprop="name">【HIMEHINA】恐怖催情剂</span>
           </a>
       </div>
@@ -257,7 +282,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2019/07/29/clmd97ckf0003p4luatbx5609.html" itemprop="url">
+          <a class="post-title-link" href="/post/20190729133805.html" itemprop="url">
             <span itemprop="name">【HIMEHINA】二人</span>
           </a>
       </div>
@@ -465,6 +490,13 @@ setInterval("createtime()",250);
 
   
 
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
 
 
 

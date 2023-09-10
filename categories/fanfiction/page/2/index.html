@@ -102,6 +102,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -136,11 +137,35 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">36</span></a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
 
 </div>
     </header>
@@ -188,7 +213,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2021/07/09/clmd97ckp0010p4lucn6i81cj.html" itemprop="url">
+          <a class="post-title-link" href="/post/20210709000001.html" itemprop="url">
             <span itemprop="name">【摩卡兰】去坐通往银河的列车吧</span>
           </a>
       </div>
@@ -208,7 +233,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2021/06/16/clmd97ckm000np4lu8w3b27nf.html" itemprop="url">
+          <a class="post-title-link" href="/post/20210616143005.html" itemprop="url">
             <span itemprop="name">【摩卡兰】初夏·天台·小憩</span>
           </a>
       </div>
@@ -228,7 +253,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2021/02/14/clmd97ckk000ep4lu0wmu9akd.html" itemprop="url">
+          <a class="post-title-link" href="/post/20210214140014.html" itemprop="url">
             <span itemprop="name">【HIMEHINA】巧克力</span>
           </a>
       </div>
@@ -251,7 +276,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/06/29/clmd97cko000vp4lucxyi40nd.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200629133832.html" itemprop="url">
             <span itemprop="name">【夏桃】焦灼</span>
           </a>
       </div>
@@ -271,7 +296,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/05/28/clmd97ckl000jp4lu3mhn9tif.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200528002514.html" itemprop="url">
             <span itemprop="name">【夏桃】宝物</span>
           </a>
       </div>
@@ -291,7 +316,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/05/25/clmd97cko000tp4lu217bevmi.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200525203641.html" itemprop="url">
             <span itemprop="name">【夏桃】铁骨铮铮·千代田桃</span>
           </a>
       </div>
@@ -311,7 +336,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/05/03/clmd97ckl000hp4lu3rg0hjqn.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200503222223.html" itemprop="url">
             <span itemprop="name">【HIMEHINA】恐怖催情剂</span>
           </a>
       </div>
@@ -331,7 +356,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/04/08/clmd97ckk000dp4lu8vn25c4l.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200408203008.html" itemprop="url">
             <span itemprop="name">【夏桃】抉择</span>
           </a>
       </div>
@@ -351,7 +376,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/02/15/clmd97ckh0007p4lu2lfd11aj.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200215113035.html" itemprop="url">
             <span itemprop="name">【夏桃】呼唤</span>
           </a>
       </div>
@@ -371,7 +396,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2020/02/10/clmd97ckh0008p4lubl752c9b.html" itemprop="url">
+          <a class="post-title-link" href="/post/20200210140005.html" itemprop="url">
             <span itemprop="name">【夏桃】家人，也许</span>
           </a>
       </div>
@@ -582,6 +607,13 @@ setInterval("createtime()",250);
 
   
 
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
 
 
 

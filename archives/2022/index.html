@@ -102,6 +102,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -136,11 +137,35 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">36</span></a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
 
 </div>
     </header>
@@ -187,7 +212,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/12/21/clmd97ckv001jp4lu18vo9j5u.html" itemprop="url">
+          <a class="post-title-link" href="/post/20221221174021.html" itemprop="url">
             <span itemprop="name">《末日之书》读后感</span>
           </a>
       </div>
@@ -207,7 +232,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/11/29/clmd97cku001bp4lu4l34eqmh.html" itemprop="url">
+          <a class="post-title-link" href="/post/20221129174021.html" itemprop="url">
             <span itemprop="name">【狸米】一次别离</span>
           </a>
       </div>
@@ -227,7 +252,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/11/07/clmd97cku001gp4lu280x8vjm.html" itemprop="url">
+          <a class="post-title-link" href="/post/20221107174021.html" itemprop="url">
             <span itemprop="name">10月追番相关（又称锐评水星的魔女）</span>
           </a>
       </div>
@@ -247,7 +272,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/10/03/clmd97ckt0018p4lufnoy96ww.html" itemprop="url">
+          <a class="post-title-link" href="/post/20221003174021.html" itemprop="url">
             <span itemprop="name">周记</span>
           </a>
       </div>
@@ -267,7 +292,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/30/clmd97cks0013p4lu2vmifgq5.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220830174021.html" itemprop="url">
             <span itemprop="name">Java学习</span>
           </a>
       </div>
@@ -287,7 +312,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/18/clmd97cl0002lp4luam58cmqm.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220818174021.html" itemprop="url">
             <span itemprop="name">Hexo优化背景主题——透明度</span>
           </a>
       </div>
@@ -307,7 +332,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/18/clmd97cl0002ip4lu4lq14fne.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220818140000.html" itemprop="url">
             <span itemprop="name">开始</span>
           </a>
       </div>
@@ -327,7 +352,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/16/clmd97ckz002ap4luaqt9ddv7.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220816174021.html" itemprop="url">
             <span itemprop="name">奇人趣事</span>
           </a>
       </div>
@@ -347,7 +372,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/13/clmd97cky0026p4lu111n27l1.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220813174021.html" itemprop="url">
             <span itemprop="name">有线——树莓派设置静态IP</span>
           </a>
       </div>
@@ -367,7 +392,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/posts/2022/08/11/clmd97cky0022p4luhsiq80hu.html" itemprop="url">
+          <a class="post-title-link" href="/post/20220811174021.html" itemprop="url">
             <span itemprop="name">【摩卡兰】冲破</span>
           </a>
       </div>
@@ -579,6 +604,13 @@ setInterval("createtime()",250);
 
   
 
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
 
 
 
