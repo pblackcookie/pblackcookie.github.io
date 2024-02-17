@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yuxin719.org.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="&amp;emsp;&amp;emsp;第三周tools的练习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Software tools】第三周习题">
+<meta property="og:url" content="https://yuxin719.org.cn/post/20240216100324.html">
+<meta property="og:site_name" content="寒流掉的狼毛">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;第三周tools的练习">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-16T10:03:24.000Z">
+<meta property="article:modified_time" content="2024-02-17T10:03:11.835Z">
+<meta property="article:author" content="寒流">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yuxin719.org.cn/post/20240216100324.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Software tools】第三周习题 | 寒流掉的狼毛</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">寒流掉的狼毛</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">如果以后再也见不到您，祝您早安，午安，还有晚安。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">39</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yuxin719.org.cn/post/20240216100324.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blog_image.jpg">
+      <meta itemprop="name" content="寒流">
+      <meta itemprop="description" content="个人网站，记录一切本狼所感兴趣之事。偶尔发发同人文。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒流掉的狼毛">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Software tools】第三周习题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-02-16 18:03:24" itemprop="dateCreated datePublished" datetime="2024-02-16T18:03:24+08:00">2024-02-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-02-17 18:03:11" itemprop="dateModified" datetime="2024-02-17T18:03:11+08:00">2024-02-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn/" itemprop="url" rel="index"><span itemprop="name">Learn</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>&emsp;&emsp;第三周tools的练习</p>
+<span id="more"></span>　
+<h1 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h1><h2 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h2><h3 id="创建用户和组"><a href="#创建用户和组" class="headerlink" title="创建用户和组"></a>创建用户和组</h3><ol>
+<li><p><code>sudo adduser NAME</code><br>创建用户。 NAME指用户名，最好全小写(good name)</p>
+</li>
+<li><p>观看用户和组文件。新创建的用户组应该出现在两种命令里</p>
+<ul>
+<li><code>tail /etc/passwd &amp; tail /etc/group</code></li>
+<li>显示最后N行(大写N)命令： <code>tail -n N FILE</code> </li>
+</ul>
+</li>
+<li><p>把两个用户全部添加到users用户组里</p>
+<ul>
+<li><code>sudo usermod -aG GROUPNAME USERNAME</code></li>
+</ul>
+</li>
+<li><p>创建了两个用户，名字分别是bell和cat，现在他们都在users用户组里。</p>
+</li>
+</ol>
+<h3 id="拓展文件权限"><a href="#拓展文件权限" class="headerlink" title="拓展文件权限"></a>拓展文件权限</h3><ol>
+<li><p>把主目录变成user使用的命令：</p>
+<ul>
+<li><code>chgrp -R GROUPNAME DIRECTORY</code></li>
+<li>GROUPNAME 是放到用户组的那个组名</li>
+<li>DIRECTORY 是用户目录 /home/cat or /home/bell 在我创建的用户组里</li>
+</ul>
+</li>
+<li><p>练习的歪门邪道1</p>
+<ul>
+<li><code>sudo chmod 755 /home/cat</code><br>这可以设置cat主目录权限，让bell可以读取，但是不可写入</li>
+</ul>
+<p><em>缺点</em>： 这样同时会导致下一题，在cat主目录里设置private私密文件夹的时候，bell依旧可以读取此私密文件夹。</p>
+</li>
+<li><p>练习的歪门邪道2:<br>为了解决上面的问题，使用<code>sudo chmod 700 /home/cat/private</code>在超级用户“vagrant”里先给予cat用户读写权限，与此同时让用户bell无权限(在bell用户里)<code>chmod 0 /home/cat/private</code><br><strong>user用户里使用chmod命令的时候不需要用sudo</strong></p>
+</li>
+</ol>
+<h3 id="Setuid"><a href="#Setuid" class="headerlink" title="Setuid"></a>Setuid</h3><ol>
+<li>任务： 创建一个文件，使得bell用户可以给cat用户传送信息(并保存到cat的主目录中)<br>chmod 指令可以修改权限</li>
+</ol>
+<p>-rwxr-xr-x 1 cat cat   16184 Feb 16 17:45 message-cat<br>在使用<code>chmod u+s message-cat</code>之后，权限会变成<br>-rwsr-xr-x 1 cat cat   16184 Feb 16 17:45 message-cat<br><strong>概率遇到错误：Error open file</strong>： 原因是没有修改他给的C文件里的用户名称。需要修改成自己创建的。我是bell和cat。<br>成功之后，bell用户可以以此在cat用户里创建messages.txt来传输messages。</p>
+<p>注意事项：setuid危险，有概率使别人接管你的用户账户</p>
+<p>Q: Why mount 和 umount指令是setuid的？<br>A: The mount command is used to attach a filesystem to the system’s hierarchy at a specified mount point. The umount command, on the other hand, is used to detach a mounted filesystem. Both mount and umount commands typically require root privileges because manipulating the filesystem can have system-wide consequences, and only privileged users should have the ability to make such changes.(ChatGPT)</p>
+<p>Q: Why passwd 需要 setuid？<br>A: Regarding the passwd program, it is typically setuid because it needs to modify the system’s password files, such as /etc/passwd and /etc/shadow. These files contain sensitive information such as user passwords and other authentication-related data. For security reasons, only privileged users (such as root) should be allowed to modify these files. (ChatGPT)</p>
+<p>中文版本：<br>mount 命令用于将文件系统附加到系统的层次结构中的指定挂载点。umount 命令用于卸载已挂载的文件系统。通常情况下，mount 和 umount 命令需要 root 权限，因为操作文件系统可能会对整个系统产生影响，只有特权用户才应该具有执行此类更改的能力。</p>
+<p>至于 passwd 程序，它通常被设置为 setuid，因为它需要修改系统的密码文件，如 /etc/passwd 和 /etc/shadow。这些文件包含敏感信息，如用户密码和其他与身份验证相关的数据。出于安全原因，只有特权用户（如 root）才能修改这些文件。</p>
+<h3 id="Sudo"><a href="#Sudo" class="headerlink" title="Sudo"></a>Sudo</h3><p>在vagrant用户里可以使用sudo的原因：  Everything is commented out except root ALL=(ALL) ALL and the last line #includedir /etc/sudoers.d (this is not a comment!) which contains a single file vagrant with the line vagrant ALL=(ALL) NOPASSWD: ALL which is why vagrant can use sudo in the first place.</p>
+<p><strong>警告：需要使用visudo文本编辑器来编辑 /etc/sudoers</strong>， 较大概率保证不出错。</p>
+<p>任务： 使用sudo su进入root，之后<strong>务必要</strong>使用visudo来编辑/etc/sudoers文件。(在root里只输入visudo它会自动打开文件)。随后添加一行指令<code>%users ALL=(ALL) /sbin/reboot </code>来使得users里面的用户也可以使用sudo reboot这个命令来重启虚拟机。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vagrant@debian12:~$ sudo su</span><br><span class="line">root@debian12:/home/vagrant<span class="comment"># visudo</span></span><br><span class="line">root@debian12:/home/vagrant<span class="comment"># </span></span><br><span class="line">root@debian12:/home/vagrant<span class="comment"># su cat</span></span><br><span class="line"><span class="built_in">cat</span>@debian12:/home/vagrant$ sudo reboot</span><br><span class="line">[sudo] password <span class="keyword">for</span> <span class="built_in">cat</span>:</span><br><span class="line"></span><br><span class="line">Broadcast message from root@debian12.localdomain on pts/2 (Fri 2024-02-16 19:09:44 UTC):</span><br><span class="line"></span><br><span class="line">The system will reboot now!</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Broadcast message from root@debian12.localdomain on pts/2 (Fri 2024-02-16 19:09:44 UTC):</span><br><span class="line"></span><br><span class="line">The system will reboot now!</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span>@debian12:/home/vagrant$ Connection to 127.0.0.1 closed by remote host.</span><br><span class="line">Connection to 127.0.0.1 closed.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Shell-脚本"><a href="#Shell-脚本" class="headerlink" title="Shell 脚本"></a>Shell 脚本</h2><h3 id="Compiler-helper-exercise"><a href="#Compiler-helper-exercise" class="headerlink" title="Compiler helper exercise"></a>Compiler helper exercise</h3><p>根据题目要求写出的脚本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Function to compile a C file</span></span><br><span class="line"><span class="function"><span class="title">compile</span></span>() &#123;</span><br><span class="line">    src_file=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="keyword">if</span> [ ! -f <span class="string">&quot;<span class="variable">$src_file</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        src_file=<span class="string">&quot;<span class="variable">$&#123;src_file%.c&#125;</span>.c&quot;</span>  <span class="comment"># Append .c if not provided</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -f <span class="string">&quot;<span class="variable">$src_file</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Error: Source file &#x27;<span class="variable">$1</span>&#x27; not found.&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="built_in">return</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> gcc -Wall -std=c11 -g <span class="string">&quot;<span class="variable">$src_file</span>&quot;</span> -o <span class="string">&quot;<span class="variable">$&#123;src_file%.c&#125;</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Compilation successful.&quot;</span></span><br><span class="line">        <span class="built_in">return</span> 0</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Error: Compilation failed.&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Function to run a compiled program</span></span><br><span class="line"><span class="function"><span class="title">run</span></span>() &#123;</span><br><span class="line">    program=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="keyword">if</span> [ ! -x <span class="string">&quot;<span class="variable">$program</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Error: Program &#x27;<span class="variable">$program</span>&#x27; not found or not executable.&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    ./<span class="string">&quot;<span class="variable">$program</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Main script logic</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> [compile|run|build] [filename]&quot;</span> &gt;&amp;2</span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">    compile)</span><br><span class="line">        <span class="built_in">shift</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Error: Missing filename.&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="built_in">exit</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        compile <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    run)</span><br><span class="line">        <span class="built_in">shift</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Error: Missing program name.&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="built_in">exit</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        run <span class="string">&quot;<span class="variable">$&#123;1%.c&#125;</span>&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    build)</span><br><span class="line">        <span class="built_in">shift</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Error: Missing filename.&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="built_in">exit</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> compile <span class="string">&quot;<span class="variable">$1</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">            run <span class="string">&quot;<span class="variable">$&#123;1%.c&#125;</span>&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> [compile|run|build] [filename]&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<p><em>本代码完全由chatgpt生成。</em></p>
+<p>随后，对于写好的 b/b.sh 文件，使用<code>vagrant@debian12:~$ chmod +x b</code>给予脚本权限，可以达到效果</p>
+<h4 id="对于b-sh"><a href="#对于b-sh" class="headerlink" title="对于b.sh"></a>对于b.sh</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vagrant@debian12:~$ <span class="built_in">chmod</span> +x b.sh</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">ls</span></span><br><span class="line">arguments  arguments.c  b.sh  ex231  hello.c  readme.txt  week2  week3</span><br><span class="line">vagrant@debian12:~$ ./b.sh compile hello.c</span><br><span class="line">Compilation successful.</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">ls</span></span><br><span class="line">arguments  arguments.c  b.sh  ex231  hello  hello.c  readme.txt  week2  week3</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">rm</span> hello</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">ls</span></span><br><span class="line">arguments  arguments.c  b.sh  ex231  hello.c  readme.txt  week2  week3</span><br><span class="line">vagrant@debian12:~$ ./b.sh compile hello</span><br><span class="line">Compilation successful.</span><br><span class="line">vagrant@debian12:~$ ./b.sh run hello</span><br><span class="line">Hello from Amy!</span><br></pre></td></tr></table></figure>
+<h4 id="对于b"><a href="#对于b" class="headerlink" title="对于b"></a>对于b</h4><p>试了一下，给文件单独起名b也行，也能做到上述一系列事情。 但是应该不是这个意思吧？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vagrant@debian12:~$ <span class="built_in">chmod</span> +x b</span><br><span class="line">vagrant@debian12:~$ ./b compile hello</span><br><span class="line">Compilation successful.</span><br><span class="line">vagrant@debian12:~$ ./b run hello</span><br><span class="line">Hello from Amy!</span><br></pre></td></tr></table></figure>
+<p>不确定的答案： 建立软链接？</p>
+<h3 id="Strict-Mode"><a href="#Strict-Mode" class="headerlink" title="Strict Mode"></a>Strict Mode</h3><ul>
+<li>将所有的warning视作error！<br>使用<strong>set</strong>命令来启用严格模式,减少脚本中的错误。下面是每个选项的作用：</li>
+</ul>
+<p><code>set -e</code>：使整个脚本在任何命令失败时立即退出。这样，如果要运行一系列命令，只需将它们放在脚本的顶部，并设置 set -e，只要所有命令都成功（返回 0），Shell 就会继续执行；如果任何命令返回非零值，Shell 将停止运行任何后续命令。类似于在每个命令的结尾加上 || exit $?。</p>
+<p><code>set -u</code>：引用未定义变量将被视为错误。这是良好的实践，有很多理由支持。</p>
+<p><code>set -o pipefail</code>：改变管道的工作方式。通常情况下，管道的返回值是管道中最后一个命令的返回值。但是使用了 pipefail选项后，如果管道中的任何命令失败（返回非零值），则整个管道的返回值将是该命令的退出代码。</p>
+<p>关于<code>set -u</code>，值得注意的是，如果你写了类似 <code>rm -rf $FOLDER/</code> 的命令，而 <code>$FOLDER</code> 没有设置，那么你不会意外地删除整个系统！当然，大多数 rm 实现都会拒绝删除 /，除非使用了<code>--no-preserve-root</code> 选项，而且你不应该在命令中使用结尾的斜杠。最后一个斜杠是在一个 Steam for Linux 的测试版本中的一个 bug 中引起的。在某些情况下，该变量设置为空字符串，而 -u 选项无法防止这种情况发生。由于这是一个安装脚本，所以以 root用户身份运行，这使得情况变得更糟。</p>
+<p>Exercise – 还没做暂时</p>
+<h1 id="构建工具-下载、安装工具"><a href="#构建工具-下载、安装工具" class="headerlink" title="构建工具(下载、安装工具)"></a>构建工具(下载、安装工具)</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h3 id="一系列安装操作"><a href="#一系列安装操作" class="headerlink" title="一系列安装操作"></a>一系列安装操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vagrant@debian12:~$ wget  https://sqlite.org/2021/sqlite-autoconf-3340100.tar.gz</span><br><span class="line">vagrant@debian12:~$ tar -zxvf sqlite-autoconf-3340100.tar.gz</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">cd</span> sqlite-autoconf-3340100/</span><br><span class="line">vagrant@debian12:~/sqlite-autoconf-3340100$ ./configure; make; make install</span><br></pre></td></tr></table></figure>
+<p>最后一个指令可以配置、创建和安装这个包。</p>
+<h3 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h3><ol>
+<li>以 <code>#! /bin/sh</code>开始配置脚本 -&gt; 该路径在几乎任何与 posix 兼容的系统上都应该有效</li>
+<li>这里的Configure脚本是一系列上报错误的总和test</li>
+</ol>
+<h3 id="Make"><a href="#Make" class="headerlink" title="Make"></a>Make</h3><p>键入command<code>make</code>之后，一个sqlite就被安装好了？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vagrant@debian12:~/sqlite-autoconf-3340100$ ./sqlite3</span><br><span class="line">SQLite version 3.34.1 2021-01-20 14:10:07</span><br><span class="line">Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> usage hints.</span><br><span class="line">Connected to a transient in-memory database.</span><br><span class="line">Use <span class="string">&quot;.open FILENAME&quot;</span> to reopen on a persistent database.</span><br><span class="line">sqlite&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><ol>
+<li><p>Python的包管理使用command<code>pip</code></p>
+<ul>
+<li>虚拟机没python，先安装python</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vagrant@debian12:~$ wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz</span><br><span class="line">vagrant@debian12:~$ tar -zxvf Python-3.12.2.tgz</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">cd</span> Python-3.12.2</span><br><span class="line">vagrant@debian12:~/Python-3.12.2$ ./configure --prefix=/user/local/python3</span><br><span class="line">vagrant@debian12:~/Python-3.12.2$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>部分参考链接： <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42571592/article/details/122902266">https://blog.csdn.net/qq_42571592/article/details/122902266</a></p>
+<ol start="2">
+<li>安装好之后，开始<code>import mistletoe</code>模块的安装<ul>
+<li>显示找不到模块，使用<code>sudo pip3 install mistletoe</code>显示找不到pip3</li>
+<li>安装pip3： <code>sudo apt install python3-pip</code><br>(遇到错误)</li>
+<li>另一种方法： <code>vagrant@debian12:~$ sudo su</code>之后<code>root@debian12:/home/vagrant# apt install python3-mistletoe</code><br>EMMM 卡住了 先跳过</li>
+</ul>
+</li>
+</ol>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>寒流
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yuxin719.org.cn/post/20240216100324.html" title="【Software tools】第三周习题">https://yuxin719.org.cn/post/20240216100324.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20240106125640.html" rel="prev" title="《ghostpia幽灵镇少女》season one玩（观？）后感">
+      <i class="fa fa-chevron-left"></i> 《ghostpia幽灵镇少女》season one玩（观？）后感
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20240217040224.html" rel="next" title="【Software tools】Mock Test整理">
+      【Software tools】Mock Test整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell%E8%84%9A%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">Shell脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">1.1.</span> <span class="nav-text">文件权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建用户和组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%93%E5%B1%95%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">拓展文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Setuid"><span class="nav-number">1.1.3.</span> <span class="nav-text">Setuid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sudo"><span class="nav-number">1.1.4.</span> <span class="nav-text">Sudo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell-%E8%84%9A%E6%9C%AC"><span class="nav-number">1.2.</span> <span class="nav-text">Shell 脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compiler-helper-exercise"><span class="nav-number">1.2.1.</span> <span class="nav-text">Compiler helper exercise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8Eb-sh"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">对于b.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8Eb"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">对于b</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strict-Mode"><span class="nav-number">1.2.2.</span> <span class="nav-text">Strict Mode</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7-%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">构建工具(下载、安装工具)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">2.1.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%B3%BB%E5%88%97%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C"><span class="nav-number">2.1.1.</span> <span class="nav-text">一系列安装操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configure"><span class="nav-number">2.1.2.</span> <span class="nav-text">Configure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Make"><span class="nav-number">2.1.3.</span> <span class="nav-text">Make</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">2.2.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-number">2.3.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring"><span class="nav-number">2.4.</span> <span class="nav-text">Spring</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="寒流"
+      src="/images/blog_image.jpg">
+  <p class="site-author-name" itemprop="name">寒流</p>
+  <div class="site-description" itemprop="description">个人网站，记录一切本狼所感兴趣之事。偶尔发发同人文。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pblackcookie" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pblackcookie" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuxinsun147@gmail.com" title="E-Mail → mailto:yuxinsun147@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liehuohanliu" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liehuohanliu" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/s2029536227" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;s2029536227" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">来自寒流，爱您。</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">124k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:27</span>
+</div>
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span> | 你好！不论你是谁，很高兴遇见你。
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("08/03/2022 15:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已于 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒" +  " 前涅槃重生";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

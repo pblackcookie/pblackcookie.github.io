@@ -1907,4 +1907,215 @@
         <category>Ramblings</category>
       </categories>
   </entry>
+  <entry>
+    <title>【Software tools】第三周习题</title>
+    <url>/post/20240216100324.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;第三周tools的练习</p>
+<span id="more"></span>　
+<h1 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h1><h2 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h2><h3 id="创建用户和组"><a href="#创建用户和组" class="headerlink" title="创建用户和组"></a>创建用户和组</h3><ol>
+<li><p><code>sudo adduser NAME</code><br>创建用户。 NAME指用户名，最好全小写(good name)</p>
+</li>
+<li><p>观看用户和组文件。新创建的用户组应该出现在两种命令里</p>
+<ul>
+<li><code>tail /etc/passwd &amp; tail /etc/group</code></li>
+<li>显示最后N行(大写N)命令： <code>tail -n N FILE</code> </li>
+</ul>
+</li>
+<li><p>把两个用户全部添加到users用户组里</p>
+<ul>
+<li><code>sudo usermod -aG GROUPNAME USERNAME</code></li>
+</ul>
+</li>
+<li><p>创建了两个用户，名字分别是bell和cat，现在他们都在users用户组里。</p>
+</li>
+</ol>
+<h3 id="拓展文件权限"><a href="#拓展文件权限" class="headerlink" title="拓展文件权限"></a>拓展文件权限</h3><ol>
+<li><p>把主目录变成user使用的命令：</p>
+<ul>
+<li><code>chgrp -R GROUPNAME DIRECTORY</code></li>
+<li>GROUPNAME 是放到用户组的那个组名</li>
+<li>DIRECTORY 是用户目录 /home/cat or /home/bell 在我创建的用户组里</li>
+</ul>
+</li>
+<li><p>练习的歪门邪道1</p>
+<ul>
+<li><code>sudo chmod 755 /home/cat</code><br>这可以设置cat主目录权限，让bell可以读取，但是不可写入</li>
+</ul>
+<p><em>缺点</em>： 这样同时会导致下一题，在cat主目录里设置private私密文件夹的时候，bell依旧可以读取此私密文件夹。</p>
+</li>
+<li><p>练习的歪门邪道2:<br>为了解决上面的问题，使用<code>sudo chmod 700 /home/cat/private</code>在超级用户“vagrant”里先给予cat用户读写权限，与此同时让用户bell无权限(在bell用户里)<code>chmod 0 /home/cat/private</code><br><strong>user用户里使用chmod命令的时候不需要用sudo</strong></p>
+</li>
+</ol>
+<h3 id="Setuid"><a href="#Setuid" class="headerlink" title="Setuid"></a>Setuid</h3><ol>
+<li>任务： 创建一个文件，使得bell用户可以给cat用户传送信息(并保存到cat的主目录中)<br>chmod 指令可以修改权限</li>
+</ol>
+<p>-rwxr-xr-x 1 cat cat   16184 Feb 16 17:45 message-cat<br>在使用<code>chmod u+s message-cat</code>之后，权限会变成<br>-rwsr-xr-x 1 cat cat   16184 Feb 16 17:45 message-cat<br><strong>概率遇到错误：Error open file</strong>： 原因是没有修改他给的C文件里的用户名称。需要修改成自己创建的。我是bell和cat。<br>成功之后，bell用户可以以此在cat用户里创建messages.txt来传输messages。</p>
+<p>注意事项：setuid危险，有概率使别人接管你的用户账户</p>
+<p>Q: Why mount 和 umount指令是setuid的？<br>A: The mount command is used to attach a filesystem to the system’s hierarchy at a specified mount point. The umount command, on the other hand, is used to detach a mounted filesystem. Both mount and umount commands typically require root privileges because manipulating the filesystem can have system-wide consequences, and only privileged users should have the ability to make such changes.(ChatGPT)</p>
+<p>Q: Why passwd 需要 setuid？<br>A: Regarding the passwd program, it is typically setuid because it needs to modify the system’s password files, such as /etc/passwd and /etc/shadow. These files contain sensitive information such as user passwords and other authentication-related data. For security reasons, only privileged users (such as root) should be allowed to modify these files. (ChatGPT)</p>
+<p>中文版本：<br>mount 命令用于将文件系统附加到系统的层次结构中的指定挂载点。umount 命令用于卸载已挂载的文件系统。通常情况下，mount 和 umount 命令需要 root 权限，因为操作文件系统可能会对整个系统产生影响，只有特权用户才应该具有执行此类更改的能力。</p>
+<p>至于 passwd 程序，它通常被设置为 setuid，因为它需要修改系统的密码文件，如 /etc/passwd 和 /etc/shadow。这些文件包含敏感信息，如用户密码和其他与身份验证相关的数据。出于安全原因，只有特权用户（如 root）才能修改这些文件。</p>
+<h3 id="Sudo"><a href="#Sudo" class="headerlink" title="Sudo"></a>Sudo</h3><p>在vagrant用户里可以使用sudo的原因：  Everything is commented out except root ALL=(ALL) ALL and the last line #includedir /etc/sudoers.d (this is not a comment!) which contains a single file vagrant with the line vagrant ALL=(ALL) NOPASSWD: ALL which is why vagrant can use sudo in the first place.</p>
+<p><strong>警告：需要使用visudo文本编辑器来编辑 /etc/sudoers</strong>， 较大概率保证不出错。</p>
+<p>任务： 使用sudo su进入root，之后<strong>务必要</strong>使用visudo来编辑/etc/sudoers文件。(在root里只输入visudo它会自动打开文件)。随后添加一行指令<code>%users ALL=(ALL) /sbin/reboot </code>来使得users里面的用户也可以使用sudo reboot这个命令来重启虚拟机。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant@debian12:~$ sudo su</span><br><span class="line">root@debian12:/home/vagrant<span class="comment"># visudo</span></span><br><span class="line">root@debian12:/home/vagrant<span class="comment"># </span></span><br><span class="line">root@debian12:/home/vagrant<span class="comment"># su cat</span></span><br><span class="line"><span class="built_in">cat</span>@debian12:/home/vagrant$ sudo reboot</span><br><span class="line">[sudo] password <span class="keyword">for</span> <span class="built_in">cat</span>:</span><br><span class="line"></span><br><span class="line">Broadcast message from root@debian12.localdomain on pts/2 (Fri 2024-02-16 19:09:44 UTC):</span><br><span class="line"></span><br><span class="line">The system will reboot now!</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Broadcast message from root@debian12.localdomain on pts/2 (Fri 2024-02-16 19:09:44 UTC):</span><br><span class="line"></span><br><span class="line">The system will reboot now!</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span>@debian12:/home/vagrant$ Connection to 127.0.0.1 closed by remote host.</span><br><span class="line">Connection to 127.0.0.1 closed.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Shell-脚本"><a href="#Shell-脚本" class="headerlink" title="Shell 脚本"></a>Shell 脚本</h2><h3 id="Compiler-helper-exercise"><a href="#Compiler-helper-exercise" class="headerlink" title="Compiler helper exercise"></a>Compiler helper exercise</h3><p>根据题目要求写出的脚本</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Function to compile a C file</span></span><br><span class="line"><span class="function"><span class="title">compile</span></span>() &#123;</span><br><span class="line">    src_file=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="keyword">if</span> [ ! -f <span class="string">&quot;<span class="variable">$src_file</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        src_file=<span class="string">&quot;<span class="variable">$&#123;src_file%.c&#125;</span>.c&quot;</span>  <span class="comment"># Append .c if not provided</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -f <span class="string">&quot;<span class="variable">$src_file</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Error: Source file &#x27;<span class="variable">$1</span>&#x27; not found.&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="built_in">return</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> gcc -Wall -std=c11 -g <span class="string">&quot;<span class="variable">$src_file</span>&quot;</span> -o <span class="string">&quot;<span class="variable">$&#123;src_file%.c&#125;</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Compilation successful.&quot;</span></span><br><span class="line">        <span class="built_in">return</span> 0</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Error: Compilation failed.&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Function to run a compiled program</span></span><br><span class="line"><span class="function"><span class="title">run</span></span>() &#123;</span><br><span class="line">    program=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="keyword">if</span> [ ! -x <span class="string">&quot;<span class="variable">$program</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Error: Program &#x27;<span class="variable">$program</span>&#x27; not found or not executable.&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    ./<span class="string">&quot;<span class="variable">$program</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Main script logic</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> [compile|run|build] [filename]&quot;</span> &gt;&amp;2</span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">    compile)</span><br><span class="line">        <span class="built_in">shift</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Error: Missing filename.&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="built_in">exit</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        compile <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    run)</span><br><span class="line">        <span class="built_in">shift</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Error: Missing program name.&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="built_in">exit</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        run <span class="string">&quot;<span class="variable">$&#123;1%.c&#125;</span>&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    build)</span><br><span class="line">        <span class="built_in">shift</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Error: Missing filename.&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="built_in">exit</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> compile <span class="string">&quot;<span class="variable">$1</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">            run <span class="string">&quot;<span class="variable">$&#123;1%.c&#125;</span>&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> [compile|run|build] [filename]&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<p><em>本代码完全由chatgpt生成。</em></p>
+<p>随后，对于写好的 b/b.sh 文件，使用<code>vagrant@debian12:~$ chmod +x b</code>给予脚本权限，可以达到效果</p>
+<h4 id="对于b-sh"><a href="#对于b-sh" class="headerlink" title="对于b.sh"></a>对于b.sh</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant@debian12:~$ <span class="built_in">chmod</span> +x b.sh</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">ls</span></span><br><span class="line">arguments  arguments.c  b.sh  ex231  hello.c  readme.txt  week2  week3</span><br><span class="line">vagrant@debian12:~$ ./b.sh compile hello.c</span><br><span class="line">Compilation successful.</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">ls</span></span><br><span class="line">arguments  arguments.c  b.sh  ex231  hello  hello.c  readme.txt  week2  week3</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">rm</span> hello</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">ls</span></span><br><span class="line">arguments  arguments.c  b.sh  ex231  hello.c  readme.txt  week2  week3</span><br><span class="line">vagrant@debian12:~$ ./b.sh compile hello</span><br><span class="line">Compilation successful.</span><br><span class="line">vagrant@debian12:~$ ./b.sh run hello</span><br><span class="line">Hello from Amy!</span><br></pre></td></tr></table></figure>
+<h4 id="对于b"><a href="#对于b" class="headerlink" title="对于b"></a>对于b</h4><p>试了一下，给文件单独起名b也行，也能做到上述一系列事情。 但是应该不是这个意思吧？</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant@debian12:~$ <span class="built_in">chmod</span> +x b</span><br><span class="line">vagrant@debian12:~$ ./b compile hello</span><br><span class="line">Compilation successful.</span><br><span class="line">vagrant@debian12:~$ ./b run hello</span><br><span class="line">Hello from Amy!</span><br></pre></td></tr></table></figure>
+<p>不确定的答案： 建立软链接？</p>
+<h3 id="Strict-Mode"><a href="#Strict-Mode" class="headerlink" title="Strict Mode"></a>Strict Mode</h3><ul>
+<li>将所有的warning视作error！<br>使用<strong>set</strong>命令来启用严格模式,减少脚本中的错误。下面是每个选项的作用：</li>
+</ul>
+<p><code>set -e</code>：使整个脚本在任何命令失败时立即退出。这样，如果要运行一系列命令，只需将它们放在脚本的顶部，并设置 set -e，只要所有命令都成功（返回 0），Shell 就会继续执行；如果任何命令返回非零值，Shell 将停止运行任何后续命令。类似于在每个命令的结尾加上 || exit $?。</p>
+<p><code>set -u</code>：引用未定义变量将被视为错误。这是良好的实践，有很多理由支持。</p>
+<p><code>set -o pipefail</code>：改变管道的工作方式。通常情况下，管道的返回值是管道中最后一个命令的返回值。但是使用了 pipefail选项后，如果管道中的任何命令失败（返回非零值），则整个管道的返回值将是该命令的退出代码。</p>
+<p>关于<code>set -u</code>，值得注意的是，如果你写了类似 <code>rm -rf $FOLDER/</code> 的命令，而 <code>$FOLDER</code> 没有设置，那么你不会意外地删除整个系统！当然，大多数 rm 实现都会拒绝删除 /，除非使用了<code>--no-preserve-root</code> 选项，而且你不应该在命令中使用结尾的斜杠。最后一个斜杠是在一个 Steam for Linux 的测试版本中的一个 bug 中引起的。在某些情况下，该变量设置为空字符串，而 -u 选项无法防止这种情况发生。由于这是一个安装脚本，所以以 root用户身份运行，这使得情况变得更糟。</p>
+<p>Exercise – 还没做暂时</p>
+<h1 id="构建工具-下载、安装工具"><a href="#构建工具-下载、安装工具" class="headerlink" title="构建工具(下载、安装工具)"></a>构建工具(下载、安装工具)</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h3 id="一系列安装操作"><a href="#一系列安装操作" class="headerlink" title="一系列安装操作"></a>一系列安装操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant@debian12:~$ wget  https://sqlite.org/2021/sqlite-autoconf-3340100.tar.gz</span><br><span class="line">vagrant@debian12:~$ tar -zxvf sqlite-autoconf-3340100.tar.gz</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">cd</span> sqlite-autoconf-3340100/</span><br><span class="line">vagrant@debian12:~/sqlite-autoconf-3340100$ ./configure; make; make install</span><br></pre></td></tr></table></figure>
+<p>最后一个指令可以配置、创建和安装这个包。</p>
+<h3 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h3><ol>
+<li>以 <code>#! /bin/sh</code>开始配置脚本 -&gt; 该路径在几乎任何与 posix 兼容的系统上都应该有效</li>
+<li>这里的Configure脚本是一系列上报错误的总和test</li>
+</ol>
+<h3 id="Make"><a href="#Make" class="headerlink" title="Make"></a>Make</h3><p>键入command<code>make</code>之后，一个sqlite就被安装好了？</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant@debian12:~/sqlite-autoconf-3340100$ ./sqlite3</span><br><span class="line">SQLite version 3.34.1 2021-01-20 14:10:07</span><br><span class="line">Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> usage hints.</span><br><span class="line">Connected to a transient in-memory database.</span><br><span class="line">Use <span class="string">&quot;.open FILENAME&quot;</span> to reopen on a persistent database.</span><br><span class="line">sqlite&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><ol>
+<li><p>Python的包管理使用command<code>pip</code></p>
+<ul>
+<li>虚拟机没python，先安装python</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant@debian12:~$ wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz</span><br><span class="line">vagrant@debian12:~$ tar -zxvf Python-3.12.2.tgz</span><br><span class="line">vagrant@debian12:~$ <span class="built_in">cd</span> Python-3.12.2</span><br><span class="line">vagrant@debian12:~/Python-3.12.2$ ./configure --prefix=/user/local/python3</span><br><span class="line">vagrant@debian12:~/Python-3.12.2$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>部分参考链接： <a href="https://blog.csdn.net/qq_42571592/article/details/122902266">https://blog.csdn.net/qq_42571592/article/details/122902266</a></p>
+<ol start="2">
+<li>安装好之后，开始<code>import mistletoe</code>模块的安装<ul>
+<li>显示找不到模块，使用<code>sudo pip3 install mistletoe</code>显示找不到pip3</li>
+<li>安装pip3： <code>sudo apt install python3-pip</code><br>(遇到错误)</li>
+<li>另一种方法： <code>vagrant@debian12:~$ sudo su</code>之后<code>root@debian12:/home/vagrant# apt install python3-mistletoe</code><br>EMMM 卡住了 先跳过</li>
+</ul>
+</li>
+</ol>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2>]]></content>
+      <categories>
+        <category>Learn</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Software tools】Mock Test整理</title>
+    <url>/post/20240217040224.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;Software tools的Mock Test练习</p>
+<span id="more"></span>
+
+<h1 id="Test-Questions-collection"><a href="#Test-Questions-collection" class="headerlink" title="Test Questions collection"></a>Test Questions collection</h1><h2 id="Q1-Type-the-command-one-word-that-you-would-use-on-a-Linux-system-to-print-the-name-of-the-current-user-to-the-terminal"><a href="#Q1-Type-the-command-one-word-that-you-would-use-on-a-Linux-system-to-print-the-name-of-the-current-user-to-the-terminal" class="headerlink" title="Q1. Type the command (one word) that you would use on a Linux system to print the name of the current user to the terminal"></a>Q1. Type the command (one word) that you would use on a Linux system to print the name of the current user to the terminal</h2><p>A1. <code>whoami</code></p>
+<h2 id="Q2-Enter-the-command-that-you-would-use-in-the-shell-to-make-a-copy-of-a-file-called-ruby-The-copied-file-should-be-called-diamond"><a href="#Q2-Enter-the-command-that-you-would-use-in-the-shell-to-make-a-copy-of-a-file-called-ruby-The-copied-file-should-be-called-diamond" class="headerlink" title="Q2. Enter the command that you would use in the shell to make a copy of a file called ruby. The copied file should be called diamond."></a>Q2. Enter the command that you would use in the shell to make a copy of a file called ruby. The copied file should be called diamond.</h2><p>A2. <code>cp ruby diamond</code></p>
+<p><strong>Another Q：Enter the command that you would use in the shell to delete a file called ruby.</strong><br>A：<code>rm ruby</code></p>
+<h2 id="Q3-The-command-sed-stream-editor-reads-from-standard-input-applies-a-transformation-based-on-its-arguments-and-prints-the-result-on-standard-output"><a href="#Q3-The-command-sed-stream-editor-reads-from-standard-input-applies-a-transformation-based-on-its-arguments-and-prints-the-result-on-standard-output" class="headerlink" title="Q3. The command sed (stream editor) reads from standard input, applies a transformation based on its arguments and prints the result on standard output."></a>Q3. The command sed (stream editor) reads from standard input, applies a transformation based on its arguments and prints the result on standard output.</h2><p>One of its arguments is described in the manual page as follows:</p>
+<p>y/source/dest/<br>    Transliterate the characters in the pattern space which appear in source<br>    to the corresponding character in dest.<br>The pattern space refers to the input.</p>
+<p>For example, echo aabbccddee | sed y/bc/xb/ would print aaxxbbddee.</p>
+<p>Based on this information, consider the following commands (lines starting with $ are commands, the rest is output):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> colors.txt</span><br><span class="line">Gules</span><br><span class="line">Azure</span><br><span class="line">Vert</span><br><span class="line">Sable</span><br><span class="line">Purpure</span><br><span class="line">$ <span class="built_in">cat</span> colors.txt | sed y/aeiou/eioua/ | <span class="built_in">tail</span> -n 3</span><br></pre></td></tr></table></figure>
+<p>What will be printed on the <strong>second line</strong> of the output of the last command?</p>
+<p>A3. Sebli</p>
+<h2 id="Q4-Select-the-correct-statement-describing-the-normal-location-of-certain-files-in-a-POSIX-system"><a href="#Q4-Select-the-correct-statement-describing-the-normal-location-of-certain-files-in-a-POSIX-system" class="headerlink" title="Q4. Select the correct statement describing the normal location of certain files in a POSIX system."></a>Q4. Select the correct statement describing the normal location of certain files in a POSIX system.</h2><p>Q4./bin contains executable programs. /home contains folders that can be written to by normal (non-root) users. /etc contains system-wide configuration files.</p>
+<ul>
+<li>/bin -&gt; 包含可执行程序</li>
+<li>/usr -&gt; 包含用户可用的大部分系统文件和程序</li>
+<li>/etc -&gt; 包含通常(system-wide)的环境配置</li>
+<li>/home -&gt; 包含能被普通用户写的文件<br>解释：</li>
+</ul>
+<ol>
+<li><p><strong>/bin</strong>：</p>
+<ul>
+<li>包含可执行程序，这些程序通常是系统启动和维护所需的基本工具。例如，命令行工具如ls、cp、mv等通常位于/bin目录中。</li>
+<li>这些可执行程序对于系统的正常运行至关重要，因此它们通常被放置在一个较小的文件系统中，以便在引导时能够立即访问。</li>
+</ul>
+</li>
+<li><p><strong>/usr</strong>：</p>
+<ul>
+<li>包含用户可用的大部分系统文件和程序。这个目录包含了系统软件安装的大部分内容。</li>
+<li>/usr目录中包含了各种子目录，比如/usr/bin、/usr/lib、/usr/include等。其中：<ul>
+<li>/usr/bin包含了许多用户可用的可执行程序。</li>
+<li>/usr/lib包含了程序运行所需的共享库文件。</li>
+<li>/usr/include包含了用于编译软件的头文件。</li>
+</ul>
+</li>
+<li>通常，/usr目录中的内容可以被普通用户访问和使用，但有一些系统关键文件和目录可能会有限制。</li>
+</ul>
+</li>
+<li><p><strong>/etc</strong>：</p>
+<ul>
+<li>包含系统范围的配置文件。这些配置文件用于设置系统的各种参数、服务和应用程序的行为。</li>
+<li>/etc目录中包含了许多配置文件和子目录，用于配置不同的系统组件和应用程序。例如，/etc/passwd和/etc/group文件存储了用户和组的信息，/etc/network/interfaces文件用于配置网络接口等。</li>
+<li>这些配置文件通常只能由特权用户（如root）进行修改，以确保系统的稳定性和安全性。</li>
+</ul>
+</li>
+<li><p><strong>/home</strong> </p>
+<ul>
+<li>包含可供普通用户写入的文件夹：</li>
+<li>/home目录是Linux系统中用户的主目录所在的位置。每个用户在/home目录下都有一个独立的子目录，其中包含了他们的个人文件和设置。这些用户目录通常只允许相应的用户和root用户对其进行写入操作。</li>
+</ul>
+</li>
+<li><p><strong>/usr vs /home</strong><br>/usr 和 /home 都是 Linux 文件系统中的常见目录，但它们的用途和内容有所不同。</p>
+<h3 id="usr（Unix-System-Resources）："><a href="#usr（Unix-System-Resources）：" class="headerlink" title="/usr（Unix System Resources）："></a><strong>/usr</strong>（Unix System Resources）：</h3><ul>
+<li><strong>包含系统资源和用户应用程序</strong>：/usr 目录通常包含系统资源和用户安装的应用程序。这些应用程序可以是系统自带的，也可以是用户自行安装的。</li>
+<li><strong>可供所有用户访问</strong>：与/home不同，/usr目录中的文件和应用程序通常是系统范围内共享的，因此可以被所有用户访问。</li>
+<li><strong>例如</strong>：/usr/bin 存储系统的可执行文件，/usr/lib 存储共享的库文件，/usr/share 存储共享的数据文件，/usr/local 存储用户自行安装的软件等。</li>
+</ul>
+<h3 id="home："><a href="#home：" class="headerlink" title="/home："></a><strong>/home</strong>：</h3><ul>
+<li><strong>包含用户的个人文件和设置</strong>：/home 目录包含了每个用户的个人文件和设置。每个用户通常都有一个以其用户名命名的子目录，用于存储他们的文档、音乐、视频、配置文件等。</li>
+<li><strong>只对相应用户可写</strong>：/home 目录中的用户文件夹只能由相应用户或超级用户（root）访问和修改。</li>
+<li><strong>通常用于用户个人数据</strong>：/home 目录主要用于存储用户个人数据，例如文档、图片、下载内容等。</li>
+</ul>
+</li>
+</ol>
+<p>总之，/usr 包含系统范围内的共享资源和应用程序，可供所有用户访问；而 /home 包含用户的个人文件和设置，每个用户的文件夹只能由相应用户或超级用户访问和修改。</p>
+<h2 id="Q5-Given-a-file-that-shows-up-as-follows-in-ls-l"><a href="#Q5-Given-a-file-that-shows-up-as-follows-in-ls-l" class="headerlink" title="Q5. Given a file that shows up as follows in ls -l:"></a>Q5. Given a file that shows up as follows in ls -l:</h2><p>-rw-rw-r–  1 Breda  staff  1024  Jan 1 10:01 logfile<br>Suppose that group users contains Alice, Breda and Carole; group tech contains Alice and Breda; and group staff contains Breda and Carole.</p>
+<p>What are the access rights for the three users on this file?</p>
+<p>A5.<br><strong>Alice: Can read, but not write or execute<br>Breda: Can read and write, but not execute<br>Carole: Can read and write, but not execute</strong></p>
+<p>In all cases, “execute” refers to running the program as ./logfile.</p>
+<p>解释：注意看文件的状态，文件属于staff组，而Alice在tech组，所以权限只有r。</p>
+<h2 id="Q6-A-colleague-has-written-a-shell-script-called-star-When-they-directly-address-it-as-star-or-home-bob-code-star-it-works-but-just-typing-star-gives-an-error-message-Mark-the-following-as-true-or-false"><a href="#Q6-A-colleague-has-written-a-shell-script-called-star-When-they-directly-address-it-as-star-or-home-bob-code-star-it-works-but-just-typing-star-gives-an-error-message-Mark-the-following-as-true-or-false" class="headerlink" title="Q6. A colleague has written a shell script called star. When they directly address it as ./star or /home/bob/code/star, it works, but just typing star gives an error message. Mark the following as true or false:"></a>Q6. A colleague has written a shell script called star. When they directly address it as ./star or /home/bob/code/star, it works, but just typing star gives an error message. Mark the following as true or false:</h2><p>A6.</p>
+<ul>
+<li><strong>FALSE</strong> The colleague has forgotten to set the +x bit on the script.</li>
+<li><strong>FALSE</strong> To run a shell script without the ./ prefix, the file has to have the extension .sh.</li>
+<li><strong>TRUE</strong> The error message appears because the folder containing the script is not on the shell’s PATH.</li>
+</ul>
+<p>Expian:<br>[a] 设置 +x 位（可执行权限）是使脚本直接可执行的必要条件。由于脚本可以通过 ./star 或 /home/bob/code/star 运行，这意味着脚本已经设置了可执行权限，因此同事没有忘记设置 +x 位。</p>
+<p>[b] 脚本文件是否具有 .sh 扩展名并不影响在没有 ./ 前缀的情况下运行脚本的能力。只要脚本文件具有可执行权限，并且位于 PATH 环境变量中列出的目录中，就可以在不指定路径或 ./ 前缀的情况下执行它。</p>
+<p>[c] 出现错误消息是因为包含脚本的文件夹不在 shell 的 PATH 中。当您输入一个命令而没有指定路径时，shell 会在 PATH 环境变量中列出的目录中查找该命令。如果脚本所在的目录未包含在 PATH 中，shell 就无法找到它。</p>
+<h2 id="Q7-You-are-currently-on-branch-develop-and-you-would-like-to-merge-commits-from-branch-fred-into-branch-george-Complete-the-git-commands-to-do-this-assuming-you-have-no-uncommitted-changes-in-your-local-files-You-do-not-need-to-do-any-git-status-to-check-the-state-of-anything-for-this-question"><a href="#Q7-You-are-currently-on-branch-develop-and-you-would-like-to-merge-commits-from-branch-fred-into-branch-george-Complete-the-git-commands-to-do-this-assuming-you-have-no-uncommitted-changes-in-your-local-files-You-do-not-need-to-do-any-git-status-to-check-the-state-of-anything-for-this-question" class="headerlink" title="Q7. You are currently on branch develop and you would like to merge commits from branch fred into branch george. Complete the git commands to do this, assuming you have no uncommitted changes in your local files. You do not need to do any git status to check the state of anything for this question."></a>Q7. You are currently on branch develop and you would like to merge commits from branch fred into branch george. Complete the git commands to do this, assuming you have no uncommitted changes in your local files. You do not need to do any git status to check the state of anything for this question.</h2><p>A7.</p>
+<ul>
+<li>git checkout george</li>
+<li>git merge fred</li>
+</ul>
+<h2 id="Q8-The-following-script-with-line-numbers-added-is-an-attempt-to-implement-the-“compiler-helper-exercise”-to-make-a-script-called-b-that-when-called-with-either-b-build-example-or-b-build-example-c-should-first-compile-the-C-program-example-c-to-example-and-if-and-only-if-this-was-successful-then-run-it"><a href="#Q8-The-following-script-with-line-numbers-added-is-an-attempt-to-implement-the-“compiler-helper-exercise”-to-make-a-script-called-b-that-when-called-with-either-b-build-example-or-b-build-example-c-should-first-compile-the-C-program-example-c-to-example-and-if-and-only-if-this-was-successful-then-run-it" class="headerlink" title="Q8. The following script, with line numbers added, is an attempt to implement the “compiler helper exercise” to make a script called b that, when called with either ./b build example or ./b build example.c, should first compile the C program example.c to example and, if and only if this was successful, then run it."></a>Q8. The following script, with line numbers added, is an attempt to implement the “compiler helper exercise” to make a script called b that, when called with either ./b build example or ./b build example.c, should first compile the C program example.c to example and, if and only if this was successful, then run it.</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> 1 | #!/bin/sh</span><br><span class="line"> 2 | # Build helper script</span><br><span class="line"> 3 | if [ $# -lt 2 ]</span><br><span class="line"> 4 | then</span><br><span class="line"> 5 |     echo &quot;Use: $0 [compile|build|run] PROGRAM&quot;</span><br><span class="line"> 6 |     exit 2</span><br><span class="line"> 7 | fi</span><br><span class="line"> 8 | BASE=&quot;$(basename $2)&quot;</span><br><span class="line"> 9 | SOURCE=&quot;$&#123;BASE&#125;.c&quot;</span><br><span class="line">10 | case $1 in</span><br><span class="line">11 |     compile)</span><br><span class="line">12 |         gcc -Wall -std=c99 &quot;$SOURCE&quot; -o &quot;$BASE&quot;</span><br><span class="line">13 |         ;;</span><br><span class="line">14 |     run)</span><br><span class="line">15 |         exec &quot;./$BASE&quot;</span><br><span class="line">16 |         ;;</span><br><span class="line">17 |     build)</span><br><span class="line">18 |         $0 compile &quot;$2&quot; || $0 run &quot;$2&quot;</span><br><span class="line">19 |         ;;</span><br><span class="line">20 |     *)</span><br><span class="line">21 |         echo &quot;Unknown command &#x27;$1&#x27;, valid ones are compile, build, run.&quot;</span><br><span class="line">22 |         ;;</span><br><span class="line">23 | esac</span><br></pre></td></tr></table></figure>
+
+<p>The first mistake is on line 8. 应该是{}而不是()<br>The second mistake is on line 18. || 用错了</p>
+<h2 id="Q9-Enter-the-commands-that-you-would-run-on-a-Debian-Linux-system-as-the-root-user-to-perform-the-following-system-administration-tasks"><a href="#Q9-Enter-the-commands-that-you-would-run-on-a-Debian-Linux-system-as-the-root-user-to-perform-the-following-system-administration-tasks" class="headerlink" title="Q9. Enter the commands that you would run on a Debian Linux system as the root user to perform the following system administration tasks."></a>Q9. Enter the commands that you would run on a Debian Linux system as the root user to perform the following system administration tasks.</h2><p>A9. </p>
+<ul>
+<li>Install the package called redstone (assume that it exists): <code>apt install redstone</code></li>
+<li>Fetch the latest version of the catalog file from the repository server, that shows what the latest version of each package is: <code>apt update</code></li>
+</ul>
+<h2 id="Q10-You-call-fork-and-see-a-return-value-of-404-Which-of-the-following-is-correct"><a href="#Q10-You-call-fork-and-see-a-return-value-of-404-Which-of-the-following-is-correct" class="headerlink" title="Q10. You call fork() and see a return value of 404. Which of the following is correct?"></a>Q10. You call fork() and see a return value of 404. Which of the following is correct?</h2><p>A10. Fork succeeded, you are in the parent process, and the pid of the child process is 404.</p>
+<p>解释：当调用 <code>fork()</code> 函数成功时，它会创建一个新的子进程。在父进程中，<code>fork()</code> 函数会返回新创建的子进程的进程ID（PID）。如果 <code>fork()</code> 的返回值是 404，那么表示子进程的PID是404。因此，父进程会接收到子进程的PID作为<code>fork()</code>函数的返回值。</p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
 </search>
