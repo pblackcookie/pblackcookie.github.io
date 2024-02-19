@@ -2002,7 +2002,29 @@
 </ul>
 </li>
 </ol>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2>]]></content>
+<ul>
+<li><code>sudo apt install python</code> 即可<br>界面：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant@debian12:~$ python</span><br><span class="line">Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux</span><br><span class="line">Type <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> or <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt; import mistletoe</span><br><span class="line">&gt;&gt;&gt; with open(<span class="string">&#x27;hello.md&#x27;</span>,<span class="string">&#x27;r&#x27;</span>) as file:</span><br><span class="line">...     mistletoe.markdown(file)</span><br><span class="line">...</span><br><span class="line"><span class="string">&#x27;&lt;h1&gt;Markdown Example&lt;/h1&gt;\n&lt;p&gt;Markdown is a &lt;em&gt;markup&lt;/em&gt; language.&lt;/p&gt;\n&#x27;</span></span><br><span class="line">&gt;&gt;&gt; <span class="built_in">exit</span>()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="scipy"><a href="#scipy" class="headerlink" title="scipy"></a>scipy</h3><h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p><strong>为了week5的sql，先把java安装好在虚拟机上。</strong></p>
+<ul>
+<li>安装jdk和maven</li>
+<li>jdk<br><code>sudo apt install default-jre</code>之后<code>sudo apt install default-jdk</code></li>
+<li>如果遇到Error，使用<code>apt upadate</code>更新一下安装包</li>
+<li><code>sudo apt inatall maven</code>即可</li>
+</ul>
+<h3 id="maven-相关"><a href="#maven-相关" class="headerlink" title="maven 相关"></a>maven 相关</h3><ul>
+<li><p><code>mvn -v</code> 查看版本(能查看就说明已经安装好了)</p>
+</li>
+<li><p>修改一个叫<code>pom.xml</code>的文件来达成特定目的</p>
+</li>
+<li><p><code>mvn compile</code>编译文件，<code>mvn clean</code>清除编译文件</p>
+</li>
+<li><p><code>mvn compile test</code>运行test之后运行程序</p>
+</li>
+<li><p><code>mvn package</code>创建jar文件在project文件里的<code>target\</code>文件夹里</p>
+</li>
+</ul>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2>]]></content>
       <categories>
         <category>Learn</category>
         <category>linux</category>
@@ -2109,6 +2131,91 @@
 </ul>
 <h2 id="Q10-You-call-fork-and-see-a-return-value-of-404-Which-of-the-following-is-correct"><a href="#Q10-You-call-fork-and-see-a-return-value-of-404-Which-of-the-following-is-correct" class="headerlink" title="Q10. You call fork() and see a return value of 404. Which of the following is correct?"></a>Q10. You call fork() and see a return value of 404. Which of the following is correct?</h2><p>A10. Fork succeeded, you are in the parent process, and the pid of the child process is 404.</p>
 <p>解释：当调用 <code>fork()</code> 函数成功时，它会创建一个新的子进程。在父进程中，<code>fork()</code> 函数会返回新创建的子进程的进程ID（PID）。如果 <code>fork()</code> 的返回值是 404，那么表示子进程的PID是404。因此，父进程会接收到子进程的PID作为<code>fork()</code>函数的返回值。</p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Software tools】第五周？</title>
+    <url>/post/20240220100324.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;韩顺平SQL学习<br>&emsp;&emsp;参考链接：<a href="https://www.bilibili.com/video/BV1H64y1U7GJ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=851580dc05196665ad66dcdc4fb7ded6">https://www.bilibili.com/video/BV1H64y1U7GJ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=851580dc05196665ad66dcdc4fb7ded6</a></p>
+<span id="more"></span>　
+
+<h1 id="MySQL安装和配置"><a href="#MySQL安装和配置" class="headerlink" title="MySQL安装和配置"></a>MySQL安装和配置</h1><h2 id="简单原理"><a href="#简单原理" class="headerlink" title="简单原理"></a>简单原理</h2><p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219221843.png"></p>
+<h2 id="使用了一系列week5的指令在vagrant上安装了数据库"><a href="#使用了一系列week5的指令在vagrant上安装了数据库" class="headerlink" title="使用了一系列week5的指令在vagrant上安装了数据库"></a>使用了一系列week5的指令在vagrant上安装了数据库</h2><ul>
+<li><code>$ sudo apt install mariadb-&#123;server,client&#125;</code><br>Exercise: What does <code>echo &#123;a,b,c&#125;-&#123;1,2,3&#125;</code> print? Try and guess before running it.<br>Answer: <code>a-1 a-2 a-3 b-1 b-2 b-3 c-1 c-2 c-3</code></li>
+<li><code>$ sudo systemctl status mariadb</code></li>
+<li><code>$ sudo journalctl -u mariadb</code></li>
+<li>set run by default <code>$ sudo systemctl enable mariadb</code></li>
+</ul>
+<h2 id="命令行-链接sql"><a href="#命令行-链接sql" class="headerlink" title="命令行-链接sql"></a>命令行-链接sql</h2><p>If 客户端 —&gt; 3306(端口)Mysql服务(<strong>保证运行状态</strong>)<br>此时链接sql指令：<code>mysql -h 主机IP -P 端口 -u 用户名 -p密码</code></p>
+<ul>
+<li>密码和p不加空格</li>
+<li>若p后无密码，mysql要求输入密码</li>
+<li>如果没有 <code>-h 主机</code>，默认本地</li>
+<li>如果没有 <code>-P</code>, 默认3306</li>
+<li><em>实际开发中，往往要修改端口3306</em>(容易遭受黑客攻击)</li>
+<li>链接数据库前，确保它处于运行状态(running…)</li>
+</ul>
+<h2 id="图形可视化MySQL管理软件"><a href="#图形可视化MySQL管理软件" class="headerlink" title="图形可视化MySQL管理软件"></a>图形可视化MySQL管理软件</h2><h3 id="Navicat安装和使用"><a href="#Navicat安装和使用" class="headerlink" title="Navicat安装和使用"></a>Navicat安装和使用</h3><ul>
+<li>试用15天<h3 id="SQLyog安装和使用"><a href="#SQLyog安装和使用" class="headerlink" title="SQLyog安装和使用"></a>SQLyog安装和使用</h3></li>
+<li>看起来比较好用，可以安装一个</li>
+</ul>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="三重结构"><a href="#三重结构" class="headerlink" title="三重结构"></a>三重结构</h2><ul>
+<li>MySQL就是在主机安装一个数据库管理系统(DBMS-database manage system)</li>
+<li>DBMS可以管理多个数据库</li>
+<li>一个数据库可以创建多个表，保存数据</li>
+</ul>
+<p><strong>图示</strong><br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219225752.png"></p>
+<p><strong>MySQL数据库-普通表的本质仍然是文件</strong></p>
+<h2 id="SQL语句分类"><a href="#SQL语句分类" class="headerlink" title="SQL语句分类"></a>SQL语句分类</h2><ul>
+<li>DDL: 数据定义语句[create 表，库…]</li>
+<li>DML: 数据操作语句[增加insert;修改update；删除delete]</li>
+<li>DQL: 数据查询语句[select]</li>
+<li>DCL: 数据控制语句[管理数据库，用户权限: grant revoke]</li>
+</ul>
+<h2 id="通过java程序操作数据库"><a href="#通过java程序操作数据库" class="headerlink" title="通过java程序操作数据库"></a>通过java程序操作数据库</h2><p>也可以通过java程序来操作SQL。</p>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><ul>
+<li>基本语法<code>CREATE DATABASE [IF NOT EXISTS] db_name</code></li>
+<li><code>[DEFAULT]CHARACTER SET sharset_name</code>: 指定数据库采用字符集，若不指定，默认utf-8.</li>
+<li><code>[DEFAULT]COLLATE collation_name</code>: 指定数据库字符集的校对规则。<ul>
+<li>utf8_bin -&gt; 区分大小写</li>
+<li>utf8_general_ci -&gt; 不区分大小写<br>练习：<br>db01 -&gt; 单纯创建表<br>db02 -&gt; 创建表 + 使用utf8字符集<br>db03 -&gt; 创建表 + 使用utf8字符集 + 带区分大小写的校对规则<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@debian12:/home<span class="comment"># mysql</span></span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection <span class="built_in">id</span> is 39</span><br><span class="line">Server version: 10.11.6-MariaDB-0+deb12u1 Debian 12</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db01;</span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db02 CHARACTER SET utf8;</span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db03 CHARACTER SET utf8 COLLATE utf8_bin;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="查询数据库"><a href="#查询数据库" class="headerlink" title="查询数据库"></a>查询数据库</h2><ul>
+<li>显示数据库 <code>SHOW DATABASES;</code></li>
+<li>查看当前创建数据库定义信息 <code>SHOW CREATE DATABASE db_name;</code></li>
+<li>删除数据库<code>DROP DATABSE db_name;</code> <strong>慎重删库</strong></li>
+<li>创建数据库表的时候，用反引号解决规避关键字的问题’`’这东西</li>
+</ul>
+<h2 id="备份-amp-恢复数据库重要"><a href="#备份-amp-恢复数据库重要" class="headerlink" title="备份&amp;恢复数据库重要"></a>备份&amp;恢复数据库<strong>重要</strong></h2><p>mark： 看到P10开头</p>
+<h1 id="表"><a href="#表" class="headerlink" title="表"></a>表</h1><h1 id="Mysql数据类型"><a href="#Mysql数据类型" class="headerlink" title="Mysql数据类型"></a>Mysql数据类型</h1><h1 id="CRUD-重要"><a href="#CRUD-重要" class="headerlink" title="CRUD(重要)"></a>CRUD(重要)</h1><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h1 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h1><h1 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h1><h1 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h1><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1>]]></content>
+      <categories>
+        <category>Learn</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Software tools】第四周习题</title>
+    <url>/post/20240216100324.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;只有考试部分（debugging)</p>
+<span id="more"></span>　
+
+<ul>
+<li>安装GDB <code>sudo apt install gdb</code></li>
+<li>安装能用readline的包 <code>sudo apt-get install libreadline-dev</code></li>
+<li><code>layout src</code> GDB可视化</li>
+</ul>
 ]]></content>
       <categories>
         <category>Learn</category>

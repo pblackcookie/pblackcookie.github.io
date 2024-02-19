@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yuxin719.org.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="&amp;emsp;&amp;emsp;韩顺平SQL学习&amp;emsp;&amp;emsp;参考链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1H64y1U7GJ&#x2F;?spm_id_from&#x3D;333.337.search-card.all.click&amp;vd_source&#x3D;851580dc05196665ad66dcdc4fb7ded6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Software tools】第五周？">
+<meta property="og:url" content="https://yuxin719.org.cn/post/20240220100324.html">
+<meta property="og:site_name" content="寒流掉的狼毛">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;韩顺平SQL学习&amp;emsp;&amp;emsp;参考链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1H64y1U7GJ&#x2F;?spm_id_from&#x3D;333.337.search-card.all.click&amp;vd_source&#x3D;851580dc05196665ad66dcdc4fb7ded6">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219221843.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219225752.png">
+<meta property="article:published_time" content="2024-02-20T10:03:24.000Z">
+<meta property="article:modified_time" content="2024-02-19T23:46:10.310Z">
+<meta property="article:author" content="寒流">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219221843.png">
+
+<link rel="canonical" href="https://yuxin719.org.cn/post/20240220100324.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Software tools】第五周？ | 寒流掉的狼毛</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">寒流掉的狼毛</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">如果以后再也见不到您，祝您早安，午安，还有晚安。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yuxin719.org.cn/post/20240220100324.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blog_image.jpg">
+      <meta itemprop="name" content="寒流">
+      <meta itemprop="description" content="个人网站，记录一切本狼所感兴趣之事。偶尔发发同人文。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒流掉的狼毛">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Software tools】第五周？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-02-20 18:03:24 / 修改时间：07:46:10" itemprop="dateCreated datePublished" datetime="2024-02-20T18:03:24+08:00">2024-02-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn/" itemprop="url" rel="index"><span itemprop="name">Learn</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>&emsp;&emsp;韩顺平SQL学习<br>&emsp;&emsp;参考链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1H64y1U7GJ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=851580dc05196665ad66dcdc4fb7ded6">https://www.bilibili.com/video/BV1H64y1U7GJ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=851580dc05196665ad66dcdc4fb7ded6</a></p>
+<span id="more"></span>　
+
+<h1 id="MySQL安装和配置"><a href="#MySQL安装和配置" class="headerlink" title="MySQL安装和配置"></a>MySQL安装和配置</h1><h2 id="简单原理"><a href="#简单原理" class="headerlink" title="简单原理"></a>简单原理</h2><p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219221843.png"></p>
+<h2 id="使用了一系列week5的指令在vagrant上安装了数据库"><a href="#使用了一系列week5的指令在vagrant上安装了数据库" class="headerlink" title="使用了一系列week5的指令在vagrant上安装了数据库"></a>使用了一系列week5的指令在vagrant上安装了数据库</h2><ul>
+<li><code>$ sudo apt install mariadb-&#123;server,client&#125;</code><br>Exercise: What does <code>echo &#123;a,b,c&#125;-&#123;1,2,3&#125;</code> print? Try and guess before running it.<br>Answer: <code>a-1 a-2 a-3 b-1 b-2 b-3 c-1 c-2 c-3</code></li>
+<li><code>$ sudo systemctl status mariadb</code></li>
+<li><code>$ sudo journalctl -u mariadb</code></li>
+<li>set run by default <code>$ sudo systemctl enable mariadb</code></li>
+</ul>
+<h2 id="命令行-链接sql"><a href="#命令行-链接sql" class="headerlink" title="命令行-链接sql"></a>命令行-链接sql</h2><p>If 客户端 —&gt; 3306(端口)Mysql服务(<strong>保证运行状态</strong>)<br>此时链接sql指令：<code>mysql -h 主机IP -P 端口 -u 用户名 -p密码</code></p>
+<ul>
+<li>密码和p不加空格</li>
+<li>若p后无密码，mysql要求输入密码</li>
+<li>如果没有 <code>-h 主机</code>，默认本地</li>
+<li>如果没有 <code>-P</code>, 默认3306</li>
+<li><em>实际开发中，往往要修改端口3306</em>(容易遭受黑客攻击)</li>
+<li>链接数据库前，确保它处于运行状态(running…)</li>
+</ul>
+<h2 id="图形可视化MySQL管理软件"><a href="#图形可视化MySQL管理软件" class="headerlink" title="图形可视化MySQL管理软件"></a>图形可视化MySQL管理软件</h2><h3 id="Navicat安装和使用"><a href="#Navicat安装和使用" class="headerlink" title="Navicat安装和使用"></a>Navicat安装和使用</h3><ul>
+<li>试用15天<h3 id="SQLyog安装和使用"><a href="#SQLyog安装和使用" class="headerlink" title="SQLyog安装和使用"></a>SQLyog安装和使用</h3></li>
+<li>看起来比较好用，可以安装一个</li>
+</ul>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="三重结构"><a href="#三重结构" class="headerlink" title="三重结构"></a>三重结构</h2><ul>
+<li>MySQL就是在主机安装一个数据库管理系统(DBMS-database manage system)</li>
+<li>DBMS可以管理多个数据库</li>
+<li>一个数据库可以创建多个表，保存数据</li>
+</ul>
+<p><strong>图示</strong><br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219225752.png"></p>
+<p><strong>MySQL数据库-普通表的本质仍然是文件</strong></p>
+<h2 id="SQL语句分类"><a href="#SQL语句分类" class="headerlink" title="SQL语句分类"></a>SQL语句分类</h2><ul>
+<li>DDL: 数据定义语句[create 表，库…]</li>
+<li>DML: 数据操作语句[增加insert;修改update；删除delete]</li>
+<li>DQL: 数据查询语句[select]</li>
+<li>DCL: 数据控制语句[管理数据库，用户权限: grant revoke]</li>
+</ul>
+<h2 id="通过java程序操作数据库"><a href="#通过java程序操作数据库" class="headerlink" title="通过java程序操作数据库"></a>通过java程序操作数据库</h2><p>也可以通过java程序来操作SQL。</p>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><ul>
+<li>基本语法<code>CREATE DATABASE [IF NOT EXISTS] db_name</code></li>
+<li><code>[DEFAULT]CHARACTER SET sharset_name</code>: 指定数据库采用字符集，若不指定，默认utf-8.</li>
+<li><code>[DEFAULT]COLLATE collation_name</code>: 指定数据库字符集的校对规则。<ul>
+<li>utf8_bin -&gt; 区分大小写</li>
+<li>utf8_general_ci -&gt; 不区分大小写<br>练习：<br>db01 -&gt; 单纯创建表<br>db02 -&gt; 创建表 + 使用utf8字符集<br>db03 -&gt; 创建表 + 使用utf8字符集 + 带区分大小写的校对规则<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@debian12:/home<span class="comment"># mysql</span></span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection <span class="built_in">id</span> is 39</span><br><span class="line">Server version: 10.11.6-MariaDB-0+deb12u1 Debian 12</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db01;</span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db02 CHARACTER SET utf8;</span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db03 CHARACTER SET utf8 COLLATE utf8_bin;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="查询数据库"><a href="#查询数据库" class="headerlink" title="查询数据库"></a>查询数据库</h2><ul>
+<li>显示数据库 <code>SHOW DATABASES;</code></li>
+<li>查看当前创建数据库定义信息 <code>SHOW CREATE DATABASE db_name;</code></li>
+<li>删除数据库<code>DROP DATABSE db_name;</code> <strong>慎重删库</strong></li>
+<li>创建数据库表的时候，用反引号解决规避关键字的问题’`’这东西</li>
+</ul>
+<h2 id="备份-amp-恢复数据库重要"><a href="#备份-amp-恢复数据库重要" class="headerlink" title="备份&amp;恢复数据库重要"></a>备份&amp;恢复数据库<strong>重要</strong></h2><p>mark： 看到P10开头</p>
+<h1 id="表"><a href="#表" class="headerlink" title="表"></a>表</h1><h1 id="Mysql数据类型"><a href="#Mysql数据类型" class="headerlink" title="Mysql数据类型"></a>Mysql数据类型</h1><h1 id="CRUD-重要"><a href="#CRUD-重要" class="headerlink" title="CRUD(重要)"></a>CRUD(重要)</h1><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h1 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h1><h1 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h1><h1 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h1><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>寒流
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yuxin719.org.cn/post/20240220100324.html" title="【Software tools】第五周？">https://yuxin719.org.cn/post/20240220100324.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20240217040224.html" rel="prev" title="【Software tools】Mock Test整理">
+      <i class="fa fa-chevron-left"></i> 【Software tools】Mock Test整理
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">MySQL安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">简单原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BA%86%E4%B8%80%E7%B3%BB%E5%88%97week5%E7%9A%84%E6%8C%87%E4%BB%A4%E5%9C%A8vagrant%E4%B8%8A%E5%AE%89%E8%A3%85%E4%BA%86%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">使用了一系列week5的指令在vagrant上安装了数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C-%E9%93%BE%E6%8E%A5sql"><span class="nav-number">1.3.</span> <span class="nav-text">命令行-链接sql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8F%AF%E8%A7%86%E5%8C%96MySQL%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">图形可视化MySQL管理软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Navicat%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.1.</span> <span class="nav-text">Navicat安装和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLyog%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.2.</span> <span class="nav-text">SQLyog安装和使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E9%87%8D%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">三重结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E8%AF%AD%E5%8F%A5%E5%88%86%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">SQL语句分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87java%E7%A8%8B%E5%BA%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.3.</span> <span class="nav-text">通过java程序操作数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.4.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.5.</span> <span class="nav-text">查询数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD-amp-%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8D%E8%A6%81"><span class="nav-number">2.6.</span> <span class="nav-text">备份&amp;恢复数据库重要</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">Mysql数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CRUD-%E9%87%8D%E8%A6%81"><span class="nav-number">5.</span> <span class="nav-text">CRUD(重要)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">6.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="nav-number">7.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">8.</span> <span class="nav-text">外连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%A6%E6%9D%9F"><span class="nav-number">9.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">10.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">11.</span> <span class="nav-text">事务</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="寒流"
+      src="/images/blog_image.jpg">
+  <p class="site-author-name" itemprop="name">寒流</p>
+  <div class="site-description" itemprop="description">个人网站，记录一切本狼所感兴趣之事。偶尔发发同人文。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pblackcookie" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pblackcookie" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuxinsun147@gmail.com" title="E-Mail → mailto:yuxinsun147@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liehuohanliu" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liehuohanliu" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/s2029536227" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;s2029536227" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">来自寒流，爱您。</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">126k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:30</span>
+</div>
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span> | 你好！不论你是谁，很高兴遇见你。
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("08/03/2022 15:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已于 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒" +  " 前涅槃重生";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
