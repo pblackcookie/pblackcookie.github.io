@@ -28,7 +28,7 @@
 <meta property="og:description" content="&amp;emsp;&amp;emsp;Software tools的Mock Test练习">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-17T04:02:24.000Z">
-<meta property="article:modified_time" content="2024-02-17T13:49:00.802Z">
+<meta property="article:modified_time" content="2024-02-25T00:01:28.031Z">
 <meta property="article:author" content="寒流">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-02-17 12:02:24 / 修改时间：21:49:00" itemprop="dateCreated datePublished" datetime="2024-02-17T12:02:24+08:00">2024-02-17</time>
+              <time title="创建时间：2024-02-17 12:02:24" itemprop="dateCreated datePublished" datetime="2024-02-17T12:02:24+08:00">2024-02-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-02-25 08:01:28" itemprop="dateModified" datetime="2024-02-25T08:01:28+08:00">2024-02-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -319,7 +325,7 @@
 </ul>
 <h2 id="Q8-The-following-script-with-line-numbers-added-is-an-attempt-to-implement-the-“compiler-helper-exercise”-to-make-a-script-called-b-that-when-called-with-either-b-build-example-or-b-build-example-c-should-first-compile-the-C-program-example-c-to-example-and-if-and-only-if-this-was-successful-then-run-it"><a href="#Q8-The-following-script-with-line-numbers-added-is-an-attempt-to-implement-the-“compiler-helper-exercise”-to-make-a-script-called-b-that-when-called-with-either-b-build-example-or-b-build-example-c-should-first-compile-the-C-program-example-c-to-example-and-if-and-only-if-this-was-successful-then-run-it" class="headerlink" title="Q8. The following script, with line numbers added, is an attempt to implement the “compiler helper exercise” to make a script called b that, when called with either ./b build example or ./b build example.c, should first compile the C program example.c to example and, if and only if this was successful, then run it."></a>Q8. The following script, with line numbers added, is an attempt to implement the “compiler helper exercise” to make a script called b that, when called with either ./b build example or ./b build example.c, should first compile the C program example.c to example and, if and only if this was successful, then run it.</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> 1 | #!/bin/sh</span><br><span class="line"> 2 | # Build helper script</span><br><span class="line"> 3 | if [ $# -lt 2 ]</span><br><span class="line"> 4 | then</span><br><span class="line"> 5 |     echo &quot;Use: $0 [compile|build|run] PROGRAM&quot;</span><br><span class="line"> 6 |     exit 2</span><br><span class="line"> 7 | fi</span><br><span class="line"> 8 | BASE=&quot;$(basename $2)&quot;</span><br><span class="line"> 9 | SOURCE=&quot;$&#123;BASE&#125;.c&quot;</span><br><span class="line">10 | case $1 in</span><br><span class="line">11 |     compile)</span><br><span class="line">12 |         gcc -Wall -std=c99 &quot;$SOURCE&quot; -o &quot;$BASE&quot;</span><br><span class="line">13 |         ;;</span><br><span class="line">14 |     run)</span><br><span class="line">15 |         exec &quot;./$BASE&quot;</span><br><span class="line">16 |         ;;</span><br><span class="line">17 |     build)</span><br><span class="line">18 |         $0 compile &quot;$2&quot; || $0 run &quot;$2&quot;</span><br><span class="line">19 |         ;;</span><br><span class="line">20 |     *)</span><br><span class="line">21 |         echo &quot;Unknown command &#x27;$1&#x27;, valid ones are compile, build, run.&quot;</span><br><span class="line">22 |         ;;</span><br><span class="line">23 | esac</span><br></pre></td></tr></table></figure>
 
-<p>The first mistake is on line 8. 应该是{}而不是()<br>The second mistake is on line 18. || 用错了</p>
+<p>The first mistake is on line 8. 哪里错了呢？<br>The second mistake is on line 18. || 用错了 </p>
 <h2 id="Q9-Enter-the-commands-that-you-would-run-on-a-Debian-Linux-system-as-the-root-user-to-perform-the-following-system-administration-tasks"><a href="#Q9-Enter-the-commands-that-you-would-run-on-a-Debian-Linux-system-as-the-root-user-to-perform-the-following-system-administration-tasks" class="headerlink" title="Q9. Enter the commands that you would run on a Debian Linux system as the root user to perform the following system administration tasks."></a>Q9. Enter the commands that you would run on a Debian Linux system as the root user to perform the following system administration tasks.</h2><p>A9. </p>
 <ul>
 <li>Install the package called redstone (assume that it exists): <code>apt install redstone</code></li>
@@ -366,8 +372,8 @@
       <i class="fa fa-chevron-left"></i> 【Software tools】第三周习题
     </a></div>
       <div class="post-nav-item">
-    <a href="/post/20240220100324.html" rel="next" title="【Software tools】第五周？">
-      【Software tools】第五周？ <i class="fa fa-chevron-right"></i>
+    <a href="/post/20240219100534.html" rel="next" title="【Software tools】第四周习题">
+      【Software tools】第四周习题 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
