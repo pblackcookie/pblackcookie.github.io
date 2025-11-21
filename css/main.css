@@ -1125,7 +1125,7 @@ pre .javascript .function {
   background: var(--menu-item-bg-color);
 }
 .use-motion .menu-item {
-  opacity: 0;
+  opacity: 1;
 }
 .sidebar {
   background: #222;
@@ -2285,7 +2285,9 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .header-inner {
-  opacity: 0.8;
+  /*opacity: 0.8;*/
+  opacity: 1 !important;
+
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav-toggle,
@@ -2366,7 +2368,8 @@ ul.breadcrumb li + li:last-child {
   margin-top: 100%;
   position: static;
   width: 240px;
-  opacity: 0.8;
+  /*opacity: 0.8;*/
+  opacity: 1 !important;
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -2383,7 +2386,8 @@ ul.breadcrumb li + li:last-child {
   box-sizing: border-box;
   color: var(--text-color);
   width: 240px;
-  opacity: 0;
+  opacity: 1!important;
+
 }
 .sidebar-inner.affix {
   position: fixed;
@@ -2467,7 +2471,8 @@ ul.breadcrumb li + li:last-child {
   background: initial;
   box-shadow: initial;
   padding: initial;
-  opacity: 0.8;
+  /*opacity: 0.8;*/
+  opacity: 0.1 !important;
 }
 .post-block {
   background: var(--content-bg-color);
@@ -2594,4 +2599,6 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: 50% 50%;
+  opacity: 1;
 }
+

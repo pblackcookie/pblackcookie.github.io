@@ -112,9 +112,10 @@ symbols_count_time:
   wpm: 300
 
 search:
-  path: search.xml
-  field: post
-  format: html
+  path: search.xml  # 生成的索引文件路径，可改为search.json
+  field: all       # 搜索范围，post仅文章、page仅页面、all两者都包含
+  content: true     # 是否包含文章全文，false仅含标题和时间
+  format: html      # 内容格式，striptags会删除html标签，raw保留原始文本
   limit: 10000
 
 encrypt: 
@@ -127,4 +128,8 @@ deploy:
   repo: git@github.com:pblackcookie/pblackcookie.github.io.git
   branch: master
 
+# 自定义样式注入配置
+injects:
+  style:
+    - source/css/my_search_style.styl
 

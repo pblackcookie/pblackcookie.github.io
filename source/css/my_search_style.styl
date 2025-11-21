@@ -1,0 +1,20 @@
+/* 全局强制搜索框所有元素不透明 */
+body .search-pop-overlay .search-popup,
+body .search-pop-overlay .search-popup * {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  color: #333 !important;
+  border: none !important;
+  z-index: 99999 !important;
+}
+
+/* 单独强化输入框边框 */
+body .search-pop-overlay .search-popup input.search-input {
+  border: 1px solid #eee !important;
+}
+
+/* 强化遮罩层 */
+body .search-pop-overlay.search-active {
+  background: rgba(0, 0, 0, 0.6) !important;
+  z-index: 99998 !important;
+}

@@ -1,10 +1,11 @@
 .sidebar {
-  background: var(--body-bg-color);
+  //background: var(--body-bg-color);
+  background: rgba(255,255,255,0.8);
   box-shadow: none;
   margin-top: 100%;
   position: static;
   width: $sidebar-desktop;
-  opacity: 0.8
+  //opacity: 0.8
 
   +tablet-mobile() {
     display: none;
@@ -16,7 +17,8 @@
 }
 
 .sidebar-inner {
-  background: var(--content-bg-color);
+  //background: var(--content-bg-color);
+  //background: transparent !important;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   box-sizing: border-box;
@@ -24,11 +26,13 @@
   width: $sidebar-desktop;
 
   if (hexo-config('motion.enable') && hexo-config('motion.transition.sidebar')) {
-    opacity: 0;
+    opacity: 0.8;
   }
 
   &.affix {
     position: fixed;
+    //color: var(--text-color);
+    background: rgba(255,255,255,0.8);
     top: $sidebar-offset;
   }
 
@@ -53,9 +57,11 @@
     display: block;
 
     &:hover {
-      background: none;
+      background: var(--body-bg-color);
+      //background :rgba(255,255,255,0.6);
       border: 0;
       color: darken($orange, 20%);
+      //opacity :0.8 ！important;
 
       .fa, .fab, .far, .fas {
         color: darken($orange, 20%);
