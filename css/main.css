@@ -1192,7 +1192,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #9f8f81;
+  background: #39ffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2172,6 +2172,110 @@ ul.breadcrumb li + li:last-child {
 .tag-cloud a:hover {
   color: var(--link-hover-color) !important;
 }
+.search-pop-overlay {
+  background: rgba(0,0,0,0);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: visibility 0s linear 0.2s, background 0.2s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1400;
+  pointer-events: none; /* 默认禁止点击，避免遮挡页面 */
+}
+.search-pop-overlay.search-active {
+  background: rgba(0,0,0,0.5);
+  transition: background 0.2s;
+  visibility: visible;
+  pointer-events: auto; /* 激活后允许点击遮罩（关闭搜索） */
+}
+.search-popup {
+  background: var(--card-bg-color);
+  opacity: 1 !important;
+  border-radius: 5px;
+  height: 80%;
+  left: calc(50% - 350px);
+  position: fixed;
+  top: 10%;
+  transform: scale(1);
+  transition: transform 0.2s;
+  width: 700px;
+  z-index: 1500;
+  pointer-events: auto; /* 确保弹窗内可点击，外部不可穿透 */
+}
+.search-active .search-popup {
+  transform: scale(1);
+}
+@media (max-width: 767px) {
+  .search-popup {
+    border-radius: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+.search-popup .search-icon,
+.search-popup .popup-btn-close {
+  color: #999;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.search-popup .popup-btn-close {
+  cursor: pointer;
+}
+.search-popup .popup-btn-close:hover .fa {
+  color: #222;
+}
+.search-popup .search-header {
+  background: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  padding: 5px;
+}
+.search-popup input.search-input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+.search-popup input.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+.search-popup .search-input-container {
+  flex-grow: 1;
+  padding: 2px;
+}
+.search-popup ul.search-result-list {
+  margin: 0 5px;
+  padding: 0;
+  width: 100%;
+}
+.search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.search-popup a.search-result-title {
+  font-weight: bold;
+}
+.search-popup .search-keyword {
+  border-bottom: 1px dashed #ff2a2a;
+  color: #ff2a2a;
+  font-weight: bold;
+}
+.search-popup #search-result {
+  display: flex;
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+}
+.search-popup #no-result {
+  color: #ccc;
+  margin: auto;
+}
 .header {
   margin: 0 auto;
   position: relative;
@@ -2285,7 +2389,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .header-inner {
-  opacity: 0.8;
+  background: rgba(255,255,255,0.8);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav-toggle,
@@ -2294,10 +2398,6 @@ ul.breadcrumb li + li:last-child {
     flex-direction: column;
     justify-content: center;
   }
-}
-.site-nav-toggle .toggle,
-.site-nav-right .toggle {
-  color: #fff;
 }
 .site-nav-toggle .toggle .toggle-line,
 .site-nav-right .toggle .toggle-line {
@@ -2361,12 +2461,11 @@ ul.breadcrumb li + li:last-child {
   border-bottom-color: #fc6423;
 }
 .sidebar {
-  background: var(--body-bg-color);
+  background: rgba(255,255,255,0.8);
   box-shadow: none;
   margin-top: 100%;
   position: static;
   width: 240px;
-  opacity: 0.8;
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -2377,16 +2476,16 @@ ul.breadcrumb li + li:last-child {
   display: none;
 }
 .sidebar-inner {
-  background: var(--content-bg-color);
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   box-sizing: border-box;
   color: var(--text-color);
   width: 240px;
-  opacity: 0;
+  opacity: 0.8;
 }
 .sidebar-inner.affix {
   position: fixed;
+  background: rgba(255,255,255,0.8);
   top: 12px;
 }
 .sidebar-inner.affix-bottom {
@@ -2407,7 +2506,7 @@ ul.breadcrumb li + li:last-child {
   display: block;
 }
 .sidebar-button a:hover {
-  background: none;
+  background: var(--body-bg-color);
   border: 0;
   color: #e34603;
 }
