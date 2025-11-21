@@ -127,9 +127,3 @@ deploy:
   type: git
   repo: git@github.com:pblackcookie/pblackcookie.github.io.git
   branch: master
-
-# 自定义样式注入配置
-injects:
-  style:
-    - source/css/my_search_style.styl
-
