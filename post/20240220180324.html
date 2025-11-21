@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yuxin719.org.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="&emsp;&emsp;韩顺平SQL学习参考链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1H64y1U7GJ&#x2F;?spm_id_from&#x3D;333.337.search-card.all.click&amp;vd_source&#x3D;851580dc05196665ad66dcdc4fb7ded6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Software tools】第五周？">
+<meta property="og:url" content="https://yuxin719.org.cn/post/20240220180324.html">
+<meta property="og:site_name" content="寒流掉的狼毛">
+<meta property="og:description" content="&emsp;&emsp;韩顺平SQL学习参考链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1H64y1U7GJ&#x2F;?spm_id_from&#x3D;333.337.search-card.all.click&amp;vd_source&#x3D;851580dc05196665ad66dcdc4fb7ded6">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219221843.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219225752.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240220145345.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240220145812.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240220161607.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240220180423.png">
+<meta property="article:published_time" content="2024-02-20T10:03:24.000Z">
+<meta property="article:modified_time" content="2024-02-24T09:00:53.543Z">
+<meta property="article:author" content="寒流">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219221843.png">
+
+<link rel="canonical" href="https://yuxin719.org.cn/post/20240220180324.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Software tools】第五周？ | 寒流掉的狼毛</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">寒流掉的狼毛</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">如果以后再也见不到您，祝您早安，午安，还有晚安。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tools">
+
+    <a href="/tools/" rel="section"><i class="fa fa-briefcase fa-fw"></i>工具</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">42</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yuxin719.org.cn/post/20240220180324.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blog_image.jpg">
+      <meta itemprop="name" content="寒流">
+      <meta itemprop="description" content="个人网站，记录一切本狼所感兴趣之事。偶尔发发同人文。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒流掉的狼毛">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Software tools】第五周？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-02-20 18:03:24" itemprop="dateCreated datePublished" datetime="2024-02-20T18:03:24+08:00">2024-02-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-02-24 17:00:53" itemprop="dateModified" datetime="2024-02-24T17:00:53+08:00">2024-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn/" itemprop="url" rel="index"><span itemprop="name">Learn</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>&emsp;&emsp;韩顺平SQL学习<br>参考链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1H64y1U7GJ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=851580dc05196665ad66dcdc4fb7ded6">https://www.bilibili.com/video/BV1H64y1U7GJ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=851580dc05196665ad66dcdc4fb7ded6</a></p>
+<span id="more"></span>　
+
+<h1 id="MySQL安装和配置"><a href="#MySQL安装和配置" class="headerlink" title="MySQL安装和配置"></a>MySQL安装和配置</h1><h2 id="简单原理"><a href="#简单原理" class="headerlink" title="简单原理"></a>简单原理</h2><p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219221843.png"></p>
+<h2 id="使用了一系列week5的指令在vagrant上安装了数据库"><a href="#使用了一系列week5的指令在vagrant上安装了数据库" class="headerlink" title="使用了一系列week5的指令在vagrant上安装了数据库"></a>使用了一系列week5的指令在vagrant上安装了数据库</h2><ul>
+<li><code>$ sudo apt install mariadb-{server,client}</code><br>Exercise: What does <code>echo {a,b,c}-{1,2,3}</code> print? Try and guess before running it.<br>Answer: <code>a-1 a-2 a-3 b-1 b-2 b-3 c-1 c-2 c-3</code></li>
+<li><code>$ sudo systemctl status mariadb</code></li>
+<li><code>$ sudo journalctl -u mariadb</code></li>
+<li>set run by default <code>$ sudo systemctl enable mariadb</code></li>
+</ul>
+<h2 id="命令行-链接sql"><a href="#命令行-链接sql" class="headerlink" title="命令行-链接sql"></a>命令行-链接sql</h2><p>If 客户端 —&gt; 3306(端口)Mysql服务(<strong>保证运行状态</strong>)<br>此时链接sql指令：<code>mysql -h 主机IP -P 端口 -u 用户名 -p密码</code></p>
+<ul>
+<li>密码和p不加空格</li>
+<li>若p后无密码，mysql要求输入密码</li>
+<li>如果没有 <code>-h 主机</code>，默认本地</li>
+<li>如果没有 <code>-P</code>, 默认3306</li>
+<li><em>实际开发中，往往要修改端口3306</em>(容易遭受黑客攻击)</li>
+<li>链接数据库前，确保它处于运行状态(running…)</li>
+</ul>
+<h2 id="图形可视化MySQL管理软件"><a href="#图形可视化MySQL管理软件" class="headerlink" title="图形可视化MySQL管理软件"></a>图形可视化MySQL管理软件</h2><h3 id="Navicat安装和使用"><a href="#Navicat安装和使用" class="headerlink" title="Navicat安装和使用"></a>Navicat安装和使用</h3><ul>
+<li>试用15天<h3 id="SQLyog安装和使用"><a href="#SQLyog安装和使用" class="headerlink" title="SQLyog安装和使用"></a>SQLyog安装和使用</h3></li>
+<li>看起来比较好用，可以安装一个</li>
+</ul>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="三重结构"><a href="#三重结构" class="headerlink" title="三重结构"></a>三重结构</h2><ul>
+<li>MySQL就是在主机安装一个数据库管理系统(DBMS-database manage system)</li>
+<li>DBMS可以管理多个数据库</li>
+<li>一个数据库可以创建多个表，保存数据</li>
+</ul>
+<p><strong>图示</strong><br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240219225752.png"></p>
+<p><strong>MySQL数据库-普通表的本质仍然是文件</strong></p>
+<h2 id="SQL语句分类"><a href="#SQL语句分类" class="headerlink" title="SQL语句分类"></a>SQL语句分类</h2><ul>
+<li>DDL: 数据定义语句[create 表，库…]</li>
+<li>DML: 数据操作语句[增加insert;修改update；删除delete]</li>
+<li>DQL: 数据查询语句[select]</li>
+<li>DCL: 数据控制语句[管理数据库，用户权限: grant revoke]</li>
+</ul>
+<h2 id="通过java程序操作数据库"><a href="#通过java程序操作数据库" class="headerlink" title="通过java程序操作数据库"></a>通过java程序操作数据库</h2><p>也可以通过java程序来操作SQL。</p>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><ul>
+<li>基本语法<code>CREATE DATABASE [IF NOT EXISTS] db_name</code></li>
+<li><code>[DEFAULT]CHARACTER SET sharset_name</code>: 指定数据库采用字符集，若不指定，默认utf-8.</li>
+<li><code>[DEFAULT]COLLATE collation_name</code>: 指定数据库字符集的校对规则。<ul>
+<li>utf8_bin -&gt; 区分大小写</li>
+<li>utf8_general_ci -&gt; 不区分大小写<br>练习：<br>db01 -&gt; 单纯创建表<br>db02 -&gt; 创建表 + 使用utf8字符集<br>db03 -&gt; 创建表 + 使用utf8字符集 + 带区分大小写的校对规则<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@debian12:/home<span class="comment"># mysql</span></span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection <span class="built_in">id</span> is 39</span><br><span class="line">Server version: 10.11.6-MariaDB-0+deb12u1 Debian 12</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db01;</span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db02 CHARACTER SET utf8;</span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE hsp_db03 CHARACTER SET utf8 COLLATE utf8_bin;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="查询数据库"><a href="#查询数据库" class="headerlink" title="查询数据库"></a>查询数据库</h2><ul>
+<li>显示数据库 <code>SHOW DATABASES;</code></li>
+<li>查看当前创建数据库定义信息 <code>SHOW CREATE DATABASE db_name;</code></li>
+<li>删除数据库<code>DROP DATABSE db_name;</code> <strong>慎重删库</strong></li>
+<li>创建数据库表的时候，用反引号解决规避关键字的问题’`’这东西</li>
+</ul>
+<h2 id="备份-amp-恢复数据库重要"><a href="#备份-amp-恢复数据库重要" class="headerlink" title="备份&amp;恢复数据库重要"></a>备份&amp;恢复数据库<strong>重要</strong></h2><ul>
+<li>备份数据库<strong>DOS那儿执行</strong>：<code>mysqldump -u root -p -B db_name db_name &gt; path\\bak.sql</code></li>
+<li>恢复数据库： 先进入<code>mysql</code> <strong>mysql里执行</strong>之后再 <code>source path\\bak.sql</code><br>第二个方法：直接将bak.sql内容放到查询编辑器中，执行(但是一般还是进入sql里方法好)</li>
+</ul>
+<h1 id="Mysql数据类型-列类型-数据类型"><a href="#Mysql数据类型-列类型-数据类型" class="headerlink" title="Mysql数据类型(列类型 = 数据类型)"></a>Mysql数据类型(列类型 = 数据类型)</h1><p>一些常用的数据类型（字段类型）</p>
+<ul>
+<li><p>数值类型<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240220145345.png"></p>
+</li>
+<li><p>其他类型<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240220145812.png"></p>
+</li>
+<li><p>要存放非常非常大的数值： DECIMAL可以办到（而且它的精度也是最高的）</p>
+</li>
+<li><p>char固定长度；verchar可变长度。 查询速度char &gt; verchar。 都是255</p>
+</li>
+</ul>
+<h1 id="表-一定是在数据库里面-不单独存在"><a href="#表-一定是在数据库里面-不单独存在" class="headerlink" title="表 - 一定是在数据库里面(不单独存在)"></a>表 - 一定是在数据库里面(不单独存在)</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ul>
+<li>基本语法： <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name(</span><br><span class="line">     field1 datatype;</span><br><span class="line">     field2 datatype;</span><br><span class="line">     field3 datatype;</span><br><span class="line">)<span class="type">character</span> <span class="keyword">set</span> 字符集 <span class="keyword">collate</span> 校对规则 engine 存储引擎</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(<span class="keyword">none</span>)]<span class="operator">&gt;</span> use hsp_db02;</span><br><span class="line">Database changed</span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">table</span> `<span class="keyword">user</span>`(</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> id <span class="type">INT</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> `name` <span class="type">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> `password` <span class="type">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> `birthday` <span class="type">DATE</span>)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin ENGINE INNODB;</span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">table</span> `<span class="keyword">user</span>`( id <span class="type">INT</span>, `name` <span class="type">VARCHAR</span>(<span class="number">255</span>), `password` VARCHA</span><br><span class="line">R(<span class="number">255</span>), `birthday` <span class="type">DATE</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin ENGINE INNODB;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.051</span> sec)</span><br></pre></td></tr></table></figure>
+<p><strong>反引号很重要(斜着的那个东西`)</strong></p>
+<h3 id="创建表练习"><a href="#创建表练习" class="headerlink" title="创建表练习"></a>创建表练习</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">table</span> `emp`( id <span class="type">INT</span>, `name` <span class="type">VARCHAR</span>(<span class="number">255</span>), sex <span class="type">CHAR</span>(<span class="number">1</span>), `birthday` <span class="type">DATE</span>, entry_date DATETIME, job <span class="type">VARCHAR</span>(<span class="number">32</span>), salary <span class="keyword">DOUBLE</span>, `resume` TEXT);</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.037</span> sec)</span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> `emp` <span class="keyword">values</span>(<span class="number">100</span>,<span class="string">&#x27;monster&#x27;</span>,<span class="string">&#x27;F&#x27;</span>,<span class="string">&#x27;2001-11-11&#x27;</span>,<span class="string">&#x27;2010-11-10 11:11:11&#x27;</span>, <span class="string">&#x27;mountain&#x27;</span>, <span class="string">&#x27;3000&#x27;</span>,<span class="string">&#x27;xunshan&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.013</span> sec)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `emp`</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">VALUES</span>(<span class="number">3</span>,<span class="string">&#x27;human&#x27;</span>,<span class="string">&#x27;F&#x27;</span>,<span class="string">&#x27;2021-2-10&#x27;</span>,<span class="string">&#x27;2024-2-20 16:00:01&#x27;</span>,<span class="string">&#x27;cute&#x27;</span>,<span class="number">1000</span>,<span class="string">&#x27;cute is job&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.014</span> sec)</span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> `emp`</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> ;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+---------+------+------------+---------------------+----------+--------+-------------+</span></span><br><span class="line"><span class="operator">|</span> id   <span class="operator">|</span> name    <span class="operator">|</span> sex  <span class="operator">|</span> birthday   <span class="operator">|</span> entry_date          <span class="operator">|</span> job      <span class="operator">|</span> salary <span class="operator">|</span> resume      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+---------+------+------------+---------------------+----------+--------+-------------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">100</span> <span class="operator">|</span> monster <span class="operator">|</span> F    <span class="operator">|</span> <span class="number">2001</span><span class="number">-11</span><span class="number">-11</span> <span class="operator">|</span> <span class="number">2010</span><span class="number">-11</span><span class="number">-10</span> <span class="number">11</span>:<span class="number">11</span>:<span class="number">11</span> <span class="operator">|</span> mountain <span class="operator">|</span>   <span class="number">3000</span> <span class="operator">|</span> xunshan     <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> human   <span class="operator">|</span> F    <span class="operator">|</span> <span class="number">2021</span><span class="number">-02</span><span class="number">-10</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-02</span><span class="number">-20</span> <span class="number">16</span>:<span class="number">00</span>:<span class="number">01</span> <span class="operator">|</span> cute     <span class="operator">|</span>   <span class="number">1000</span> <span class="operator">|</span> cute <span class="keyword">is</span> job <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+---------+------+------------+---------------------+----------+--------+-------------+</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.001</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><ul>
+<li><p>添加列 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename</span><br><span class="line"><span class="keyword">ADD</span> (<span class="keyword">column</span> datatype [DEDAULT expr]</span><br><span class="line">     [, colunm datatype]...);</span><br></pre></td></tr></table></figure></li>
+<li><p>修改列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename</span><br><span class="line">MODIFY (<span class="keyword">column</span> datatype [DEDAULT expr]</span><br><span class="line">     [, colunm datatype]...);</span><br></pre></td></tr></table></figure></li>
+<li><p>删除列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename</span><br><span class="line"><span class="keyword">DROP</span> (<span class="keyword">column</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>查看表的结构 <code>desc 表名;</code> -可以查看表所有的列</p>
+</li>
+<li><p>修改表名 <code>rename table table_name to new_table_name</code></p>
+</li>
+<li><p>修改表字符集 <code>alter table table_name character set 字符集</code></p>
+</li>
+</ul>
+<p>练习题：<br><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240220161607.png"><br>答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `emp`</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">ADD</span> image <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> AFTER RESUME;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.057</span> sec)</span><br><span class="line">Records: <span class="number">0</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">0</span></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `emp`</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> MODIFY job <span class="type">VARCHAR</span>(<span class="number">60</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.081</span> sec)</span><br><span class="line">Records: <span class="number">0</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">0</span></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> emp</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">drop</span> sex;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.053</span> sec)</span><br><span class="line">Records: <span class="number">0</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">0</span></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> RENAME <span class="keyword">TABLE</span> emp <span class="keyword">to</span> employee;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.033</span> sec)</span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> employee <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.051</span> sec)</span><br><span class="line">Records: <span class="number">0</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> employee CHANGE `name` user_name <span class="type">VARCHAR</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">2</span> <span class="keyword">rows</span> affected (<span class="number">0.090</span> sec)</span><br><span class="line">Records: <span class="number">2</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">DESC</span> employee;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="operator">|</span> Field      <span class="operator">|</span> Type        <span class="operator">|</span> <span class="keyword">Null</span> <span class="operator">|</span> Key <span class="operator">|</span> <span class="keyword">Default</span> <span class="operator">|</span> Extra <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="operator">|</span> id         <span class="operator">|</span> <span class="type">int</span>(<span class="number">11</span>)     <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> user_name  <span class="operator">|</span> <span class="type">varchar</span>(<span class="number">64</span>) <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> birthday   <span class="operator">|</span> <span class="type">date</span>        <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> entry_date <span class="operator">|</span> datetime    <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> job        <span class="operator">|</span> <span class="type">varchar</span>(<span class="number">60</span>) <span class="operator">|</span> <span class="keyword">NO</span>   <span class="operator">|</span>     <span class="operator">|</span>         <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> salary     <span class="operator">|</span> <span class="keyword">double</span>      <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> resume     <span class="operator">|</span> text        <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> image      <span class="operator">|</span> <span class="type">varchar</span>(<span class="number">32</span>) <span class="operator">|</span> <span class="keyword">NO</span>   <span class="operator">|</span>     <span class="operator">|</span>         <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="number">8</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.002</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="CRUD-重要"><a href="#CRUD-重要" class="headerlink" title="CRUD(重要)"></a>CRUD(重要)</h1><ul>
+<li>C - CREATE</li>
+<li>R - READ</li>
+<li>U - UPDATE</li>
+<li>D - DELECT</li>
+</ul>
+<h2 id="INSERT-语句-插入数据"><a href="#INSERT-语句-插入数据" class="headerlink" title="INSERT 语句 - 插入数据"></a>INSERT 语句 - 插入数据</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name <span class="keyword">column</span></span><br><span class="line">     <span class="keyword">values</span>(value...);</span><br></pre></td></tr></table></figure>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>使用INSERT语句向表employee中插入两个员工信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> `employee`(id,user_name,birthday,entry_date,job,salary,resume,image)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">&#x27;Amy&#x27;</span>,<span class="string">&#x27;2001-7-19&#x27;</span>,<span class="string">&#x27;2024-10-10 12:00:01&#x27;</span>,<span class="string">&#x27;programmar&#x27;</span>,<span class="number">10000</span>,<span class="string">&#x27;GOOD girl&#x27;</span>,<span class="string">&#x27;not yet&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.013</span> sec)</span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> `employee`(id,user_name,birthday,entry_date,job,salary,resume,image)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">&#x27;Bell&#x27;</span>,<span class="string">&#x27;2022-2-22&#x27;</span>,<span class="string">&#x27;2024-2-2 12:22:22&#x27;</span>,<span class="string">&#x27;dontknow&#x27;</span>,<span class="string">&#x27;0&#x27;</span>,<span class="string">&#x27;good girl2&#x27;</span>,<span class="string">&#x27;no&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.014</span> sec)</span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> employee;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="operator">|</span> id   <span class="operator">|</span> user_name <span class="operator">|</span> birthday   <span class="operator">|</span> entry_date          <span class="operator">|</span> job        <span class="operator">|</span> salary <span class="operator">|</span> resume      <span class="operator">|</span> image   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">100</span> <span class="operator">|</span> monster   <span class="operator">|</span> <span class="number">2001</span><span class="number">-11</span><span class="number">-11</span> <span class="operator">|</span> <span class="number">2010</span><span class="number">-11</span><span class="number">-10</span> <span class="number">11</span>:<span class="number">11</span>:<span class="number">11</span> <span class="operator">|</span> mountain   <span class="operator">|</span>   <span class="number">3000</span> <span class="operator">|</span> xunshan     <span class="operator">|</span>         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> human     <span class="operator">|</span> <span class="number">2021</span><span class="number">-02</span><span class="number">-10</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-02</span><span class="number">-20</span> <span class="number">16</span>:<span class="number">00</span>:<span class="number">01</span> <span class="operator">|</span> cute       <span class="operator">|</span>   <span class="number">1000</span> <span class="operator">|</span> cute <span class="keyword">is</span> job <span class="operator">|</span>         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> Amy       <span class="operator">|</span> <span class="number">2001</span><span class="number">-07</span><span class="number">-19</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-10</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">00</span>:<span class="number">01</span> <span class="operator">|</span> programmar <span class="operator">|</span>  <span class="number">10000</span> <span class="operator">|</span> GOOD girl   <span class="operator">|</span> <span class="keyword">not</span> yet <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> Bell      <span class="operator">|</span> <span class="number">2022</span><span class="number">-02</span><span class="number">-22</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-02</span><span class="number">-02</span> <span class="number">12</span>:<span class="number">22</span>:<span class="number">22</span> <span class="operator">|</span> dontknow   <span class="operator">|</span>      <span class="number">0</span> <span class="operator">|</span> good girl2  <span class="operator">|</span> <span class="keyword">no</span>      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.001</span> sec)</span><br></pre></td></tr></table></figure>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>插入数据与字段数据类型相对</li>
+<li>数据长度应在规定范围内</li>
+<li>values里的值和表头应该一一对应</li>
+<li>字符&amp;日期数据类型 -&gt; 单引号引起来</li>
+<li>列可以插入空值，前提是该字段允许为空:<code>insert into table value(null)</code></li>
+<li>添加多条记录： <code>insert into table_name (列名) values (),(),()</code></li>
+<li>给表中所有字段添加数据，可以不写前面的字段名称(表会默认匹配)</li>
+<li>不给某个字段值的时候，有默认-&gt;添加默认；无默认-&gt;报错(希望指定某个表的默认值，创建表的时候写默认)</li>
+</ul>
+<h2 id="UPDATE语句-更新数据"><a href="#UPDATE语句-更新数据" class="headerlink" title="UPDATE语句 - 更新数据"></a>UPDATE语句 - 更新数据</h2><h3 id="基本语法："><a href="#基本语法：" class="headerlink" title="基本语法："></a>基本语法：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name</span><br><span class="line">     <span class="keyword">SET</span> col_name1 <span class="operator">=</span> expr1[, col_name2<span class="operator">=</span>expr2 ...]</span><br><span class="line">     [<span class="keyword">WHERE</span> where_definition]</span><br></pre></td></tr></table></figure>
+<h3 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h3><p><img src="https://raw.githubusercontent.com/pblackcookie/ImageHosting/main/My-Pictures/20240220180423.png"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">update</span> employee <span class="keyword">SET</span> salary <span class="operator">=</span> <span class="number">5000</span>;</span><br><span class="line">Query OK, <span class="number">4</span> <span class="keyword">rows</span> affected (<span class="number">0.009</span> sec)</span><br><span class="line"><span class="keyword">Rows</span> matched: <span class="number">4</span>  Changed: <span class="number">4</span>  Warnings: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">UPDATE</span> employee <span class="keyword">SET</span> salary <span class="operator">=</span> <span class="number">3000</span> <span class="keyword">where</span> user_name <span class="operator">=</span> <span class="string">&#x27;monster&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.013</span> sec)</span><br><span class="line"><span class="keyword">Rows</span> matched: <span class="number">1</span>  Changed: <span class="number">1</span>  Warnings: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">UPDATE</span> employee <span class="keyword">SET</span> salary <span class="operator">=</span> salary <span class="operator">+</span> <span class="number">1000</span> <span class="keyword">where</span> user_name <span class="operator">=</span> <span class="string">&#x27;Amy&#x27;</span>;</span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employee</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> ;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="operator">|</span> id   <span class="operator">|</span> user_name <span class="operator">|</span> birthday   <span class="operator">|</span> entry_date          <span class="operator">|</span> job        <span class="operator">|</span> salary <span class="operator">|</span> resume      <span class="operator">|</span> image   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">100</span> <span class="operator">|</span> monster   <span class="operator">|</span> <span class="number">2001</span><span class="number">-11</span><span class="number">-11</span> <span class="operator">|</span> <span class="number">2010</span><span class="number">-11</span><span class="number">-10</span> <span class="number">11</span>:<span class="number">11</span>:<span class="number">11</span> <span class="operator">|</span> mountain   <span class="operator">|</span>   <span class="number">3000</span> <span class="operator">|</span> xunshan     <span class="operator">|</span>         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> human     <span class="operator">|</span> <span class="number">2021</span><span class="number">-02</span><span class="number">-10</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-02</span><span class="number">-20</span> <span class="number">16</span>:<span class="number">00</span>:<span class="number">01</span> <span class="operator">|</span> cute       <span class="operator">|</span>   <span class="number">5000</span> <span class="operator">|</span> cute <span class="keyword">is</span> job <span class="operator">|</span>         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> Amy       <span class="operator">|</span> <span class="number">2001</span><span class="number">-07</span><span class="number">-19</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-10</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">00</span>:<span class="number">01</span> <span class="operator">|</span> programmar <span class="operator">|</span>   <span class="number">6000</span> <span class="operator">|</span> GOOD girl   <span class="operator">|</span> <span class="keyword">not</span> yet <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> Bell      <span class="operator">|</span> <span class="number">2022</span><span class="number">-02</span><span class="number">-22</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-02</span><span class="number">-02</span> <span class="number">12</span>:<span class="number">22</span>:<span class="number">22</span> <span class="operator">|</span> dontknow   <span class="operator">|</span>   <span class="number">5000</span> <span class="operator">|</span> good girl2  <span class="operator">|</span> <span class="keyword">no</span>      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.001</span> sec)</span><br></pre></td></tr></table></figure>
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>UPDATE 更新原有表中的各列</li>
+<li>SET 语句指定要修改哪些值，也可以修改多个列</li>
+<li>WHERE语句指定更新哪行，没有的话则所有的行都被更新</li>
+</ul>
+<h2 id="SELETE语句-选择数据"><a href="#SELETE语句-选择数据" class="headerlink" title="SELETE语句 - 选择数据"></a>SELETE语句 - 选择数据</h2><h3 id="基本语法：-1"><a href="#基本语法：-1" class="headerlink" title="基本语法："></a>基本语法：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="operator">*</span> <span class="operator">|</span> &#123;column1， column2, column3...&#125;</span><br><span class="line">     <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以使用表达式对查询的列进行运算</li>
+</ul>
+<p><strong>记得整理select函数的一些用法</strong></p>
+<h3 id="单表"><a href="#单表" class="headerlink" title="单表"></a>单表</h3><h4 id="查询加强"><a href="#查询加强" class="headerlink" title="查询加强"></a>查询加强</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 表查询 <span class="operator">-</span> 加强</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> empl</span><br><span class="line">     <span class="keyword">WHERE</span> hiredate <span class="operator">&gt;</span> <span class="string">&#x27;1920-01-01&#x27;</span>;</span><br><span class="line"># 模糊查询 <span class="keyword">LIKE</span>关键字</span><br><span class="line"># <span class="operator">%</span> <span class="operator">-</span> <span class="number">0</span><span class="operator">-</span>多个任意字符</span><br><span class="line"># _ <span class="operator">-</span> 单个任意字符</span><br><span class="line"><span class="keyword">SELECT</span> ename,sal <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">WHERE</span> ename <span class="keyword">LIKE</span> <span class="string">&#x27;__O%&#x27;</span>; # 第三个字符大写O</span><br><span class="line"># 本身是否为空 <span class="operator">-</span> 用 <span class="keyword">IS</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">WHERE</span> mgr <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br><span class="line"># <span class="keyword">order</span> <span class="keyword">by</span> <span class="operator">-</span> 排序</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">ORDER</span> <span class="keyword">BY</span> sal <span class="keyword">ASC</span>; # <span class="keyword">ASC</span> <span class="operator">-</span> 升序</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">ORDER</span> <span class="keyword">BY</span> deptno <span class="keyword">ASC</span>， sal <span class="keyword">DESC</span>；  # 同时满足这个两个条件的排序，且有先后顺序</span><br></pre></td></tr></table></figure>
+<h5 id="分页查询-重要"><a href="#分页查询-重要" class="headerlink" title="分页查询 - 重要"></a>分页查询 - 重要</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">SELECT</span> ... LIMIT <span class="keyword">start</span>,<span class="keyword">rows</span> <span class="keyword">start</span>从<span class="number">0</span>开始，从<span class="keyword">start</span><span class="operator">+</span><span class="number">1</span>行起，取出三行</span><br><span class="line"># 每页有三行</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">ORDER</span> <span class="keyword">BY</span> empno</span><br><span class="line">     LIMIT <span class="number">0</span>,<span class="number">3</span>;</span><br><span class="line">     <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">ORDER</span> <span class="keyword">BY</span> empno</span><br><span class="line">     LIMIT <span class="number">3</span>,<span class="number">3</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">ORDER</span> <span class="keyword">BY</span> empno</span><br><span class="line">     LIMIT <span class="number">6</span>,<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="分组增强"><a href="#分组增强" class="headerlink" title="分组增强"></a>分组增强</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line"># 每种岗位的雇员总数，平均工资</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>), <span class="built_in">AVG</span>(sal), job</span><br><span class="line">     <span class="keyword">FROM</span> emp <span class="keyword">GROUP</span> <span class="keyword">BY</span> job;</span><br><span class="line"></span><br><span class="line"># 总数 <span class="operator">+</span> 非空</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>), <span class="built_in">COUNT</span>(comm) # count 不会统计非空值</span><br><span class="line">     <span class="keyword">FROM</span> emp;</span><br><span class="line"># 另一种,这里的‘<span class="number">1</span>’实际代表非空值，其实写什么都可以，只要不是非空</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>), <span class="built_in">COUNT</span>(IF(comm <span class="keyword">IS</span> <span class="keyword">NULL</span>,<span class="number">1</span>,<span class="keyword">NULL</span>)) # count 不会统计非空值</span><br><span class="line">     <span class="keyword">FROM</span> emp;</span><br><span class="line"></span><br><span class="line"># 显示管理员 <span class="keyword">DISTINCT</span> <span class="operator">-</span> 去重</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> mgr)</span><br><span class="line">     <span class="keyword">FROM</span> emp；</span><br><span class="line"></span><br><span class="line"># 最大差额 <span class="operator">-</span> <span class="built_in">max</span>(sal) <span class="operator">-</span> <span class="built_in">min</span>(sal)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(sal) <span class="operator">-</span> <span class="built_in">MIN</span>(sal)</span><br><span class="line">     <span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+<h5 id="多子句查询"><a href="#多子句查询" class="headerlink" title="多子句查询"></a>多子句查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 会有一个不能写错的顺序</span><br><span class="line"># <span class="keyword">group</span> <span class="keyword">by</span> col1,col2... <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">having</span> <span class="keyword">condition</span> <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">order</span> <span class="keyword">by</span> col <span class="operator">-</span><span class="operator">&gt;</span> limit <span class="keyword">start</span>,<span class="keyword">rows</span>;</span><br><span class="line"><span class="keyword">SELECT</span> deptno, <span class="built_in">AVG</span>(sal) <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno</span><br><span class="line">     <span class="keyword">HAVING</span> avg_sal <span class="operator">&gt;</span> <span class="number">1000</span></span><br><span class="line">     <span class="keyword">ORDER</span> <span class="keyword">BY</span> avg_sal <span class="keyword">DESC</span></span><br><span class="line">     LIMIT <span class="number">0</span>, <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="多表"><a href="#多表" class="headerlink" title="多表"></a>多表</h3><p>对两个或两个以上的表进行查询。<br><em>过滤</em>是重点</p>
+<h4 id="多表笛卡尔集"><a href="#多表笛卡尔集" class="headerlink" title="多表笛卡尔集"></a>多表笛卡尔集</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 规则： 从第一张取出每一行，和第二张表的每一行进行组合，返回结果【所有列col1<span class="operator">*</span>col2】</span><br><span class="line"># 重点： 过滤 <span class="keyword">WHERE</span> <span class="operator">-</span> 分析过滤条件</span><br><span class="line"># 如果有两个detpno，那么<span class="keyword">select</span> detpno就会报错(不知道你写的是哪个detpno)</span><br><span class="line"># 需要指定显示某个表的列： 表.列名</span><br><span class="line"><span class="keyword">SELECT</span> ename, sal, dname</span><br><span class="line">     <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">WHERE</span> emp.deptno <span class="operator">=</span> dept.deptno; #表有关联，才有意义</span><br></pre></td></tr></table></figure>
+<p><strong>过滤条件不少于(表个数-1)</strong></p>
+<h4 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 姓名，工资，薪水级别(两张表)</span><br><span class="line"># 先写简单查询 <span class="operator">-</span><span class="operator">&gt;</span> 加入过滤条件</span><br><span class="line"><span class="keyword">SELECT</span> ename, sal, grade </span><br><span class="line">     <span class="keyword">FROM</span> emp, salgrade</span><br><span class="line">     <span class="keyword">WHERE</span> sal <span class="keyword">between</span> losal <span class="keyword">and</span> hisal;</span><br></pre></td></tr></table></figure>
+<h4 id="自链接"><a href="#自链接" class="headerlink" title="自链接"></a>自链接</h4><p>将同一张表看成两张表: <strong>找到在同一张表的关联方法</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 显示员工名字 <span class="operator">+</span> 上级名字</span><br><span class="line"># 要给表取别名</span><br><span class="line"><span class="keyword">SELECT</span> worker.name <span class="keyword">AS</span> <span class="string">&#x27;ee&#x27;</span>, boss.ename <span class="keyword">AS</span> <span class="string">&#x27;er&#x27;</span></span><br><span class="line">     <span class="keyword">FROM</span> emp wroker, emp boss</span><br><span class="line">     <span class="keyword">WHERE</span> worker.mgr <span class="operator">=</span> boss.empno;</span><br></pre></td></tr></table></figure>
+<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><p>把一个select语句的查询结果拿来，一个子查询来用</p>
+<h5 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> job</span><br><span class="line">     <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">WHERE</span> deptno <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"># 把上面的查询结果用来当</span><br><span class="line"><span class="keyword">SELECT</span> ename,job,sal,deptno</span><br><span class="line">     <span class="keyword">FROM</span> emp</span><br><span class="line">     <span class="keyword">WHERE</span> job <span class="keyword">IN</span>(</span><br><span class="line">          <span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> job</span><br><span class="line">          <span class="keyword">FROM</span> emp</span><br><span class="line">          <span class="keyword">WHERE</span> deptno <span class="operator">=</span> <span class="number">10</span></span><br><span class="line">     ) <span class="keyword">AND</span> deptno ！<span class="operator">=</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h5 id="临时列表"><a href="#临时列表" class="headerlink" title="临时列表"></a>临时列表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="DELETE语句-删除数据"><a href="#DELETE语句-删除数据" class="headerlink" title="DELETE语句 - 删除数据"></a>DELETE语句 - 删除数据</h2><h3 id="基本语法：-2"><a href="#基本语法：-2" class="headerlink" title="基本语法："></a>基本语法：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">from</span> table_name</span><br><span class="line">     [<span class="keyword">WHERE</span> where_definition]</span><br></pre></td></tr></table></figure>
+<h3 id="练习-2"><a href="#练习-2" class="headerlink" title="练习"></a>练习</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">delete</span> <span class="keyword">from</span> employee</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">where</span> user_name <span class="operator">=</span> <span class="string">&#x27;monster&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.015</span> sec)</span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> employee;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="operator">|</span> id   <span class="operator">|</span> user_name <span class="operator">|</span> birthday   <span class="operator">|</span> entry_date          <span class="operator">|</span> job        <span class="operator">|</span> salary <span class="operator">|</span> resume      <span class="operator">|</span> image   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> human     <span class="operator">|</span> <span class="number">2021</span><span class="number">-02</span><span class="number">-10</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-02</span><span class="number">-20</span> <span class="number">16</span>:<span class="number">00</span>:<span class="number">01</span> <span class="operator">|</span> cute       <span class="operator">|</span>   <span class="number">5000</span> <span class="operator">|</span> cute <span class="keyword">is</span> job <span class="operator">|</span>         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> Amy       <span class="operator">|</span> <span class="number">2001</span><span class="number">-07</span><span class="number">-19</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-10</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">00</span>:<span class="number">01</span> <span class="operator">|</span> programmar <span class="operator">|</span>   <span class="number">6000</span> <span class="operator">|</span> GOOD girl   <span class="operator">|</span> <span class="keyword">not</span> yet <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> Bell      <span class="operator">|</span> <span class="number">2022</span><span class="number">-02</span><span class="number">-22</span> <span class="operator">|</span> <span class="number">2024</span><span class="number">-02</span><span class="number">-02</span> <span class="number">12</span>:<span class="number">22</span>:<span class="number">22</span> <span class="operator">|</span> dontknow   <span class="operator">|</span>   <span class="number">5000</span> <span class="operator">|</span> good girl2  <span class="operator">|</span> <span class="keyword">no</span>      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+-----------+------------+---------------------+------------+--------+-------------+---------+</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.002</span> sec)</span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">DELETE</span> <span class="keyword">from</span> employee;</span><br><span class="line">Query OK, <span class="number">3</span> <span class="keyword">rows</span> affected (<span class="number">0.006</span> sec)</span><br><span class="line"></span><br><span class="line">MariaDB [hsp_db02]<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> employee;</span><br><span class="line"><span class="keyword">Empty</span> <span class="keyword">set</span> (<span class="number">0.002</span> sec)</span><br></pre></td></tr></table></figure>
+<h3 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>不加where，整个表就会被删空</li>
+<li>delete语句不能删除某一列的值(delete删除的是行)<br>可以用updat设置为null或’’</li>
+<li>delete只能删除表里的数据，但是删除不了表本身(<code>DROP TABLE table_name</code>是删表的)</li>
+</ul>
+<h1 id="函数-先跳过"><a href="#函数-先跳过" class="headerlink" title="函数 - 先跳过"></a>函数 - 先跳过</h1><h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><h2 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h2><h2 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a>加密函数</h2><h2 id="流程控制函数"><a href="#流程控制函数" class="headerlink" title="流程控制函数"></a>流程控制函数</h2><h1 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h1><h1 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h1><p>左外连接和右外连接。</p>
+<h2 id="左外连接"><a href="#左外连接" class="headerlink" title="左外连接"></a>左外连接</h2><p>左侧的表完全显示。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">from</span> 表<span class="number">1</span> <span class="keyword">left</span> <span class="keyword">join</span> 表<span class="number">2</span> <span class="keyword">on</span> 条件 #表<span class="number">1</span>是左表，表<span class="number">2</span>是右表</span><br></pre></td></tr></table></figure>
+<h2 id="右外连接"><a href="#右外连接" class="headerlink" title="右外连接"></a>右外连接</h2><p>右侧的表完全显示。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">from</span> 表<span class="number">1</span> <span class="keyword">right</span> <span class="keyword">join</span> 表<span class="number">2</span> <span class="keyword">on</span> 条件 #表<span class="number">1</span>是左表，表<span class="number">2</span>是右表</span><br></pre></td></tr></table></figure>
+<h1 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h1><h2 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h2><ul>
+<li><strong>unique &amp; not null</strong></li>
+<li><strong>一张表中最多只有一个主键，但可以复合主键</strong> # PRIMARY KEY(id,<code>name</code>)这种<h3 id="unique"><a href="#unique" class="headerlink" title="unique"></a>unique</h3></li>
+<li>表示列是不可以重复的</li>
+<li>没指定not null,则unique可以有多个null</li>
+<li>一张表可以有多个unique字段<h3 id="not-null"><a href="#not-null" class="headerlink" title="not null"></a>not null</h3></li>
+<li>不让指定列为null</li>
+<li>如果约束条件为 unique + not null, 其实和主键没啥区别(但是这样约束出来的不是主键)<h2 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h2>定义主表和从表之间的关系。外键约束定义在从表上，主表必须有主键约束或是unique约束。<br><code>FOREIGN KEY(本表字段名) REFERENCES 主表名(主键名或unique字段)</code></li>
+<li>主外键关系一旦定义，数据不能随意删除了。<h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2>强制指定数据必须满足的条件。<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1></li>
+</ul>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>寒流
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yuxin719.org.cn/post/20240220180324.html" title="【Software tools】第五周？">https://yuxin719.org.cn/post/20240220180324.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20240219180534.html" rel="prev" title="【Software tools】第四周习题">
+      <i class="fa fa-chevron-left"></i> 【Software tools】第四周习题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20240428233034.html" rel="next" title="【Software tools】Mock Test 2 整理">
+      【Software tools】Mock Test 2 整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">MySQL安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">简单原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BA%86%E4%B8%80%E7%B3%BB%E5%88%97week5%E7%9A%84%E6%8C%87%E4%BB%A4%E5%9C%A8vagrant%E4%B8%8A%E5%AE%89%E8%A3%85%E4%BA%86%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">使用了一系列week5的指令在vagrant上安装了数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C-%E9%93%BE%E6%8E%A5sql"><span class="nav-number">1.3.</span> <span class="nav-text">命令行-链接sql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8F%AF%E8%A7%86%E5%8C%96MySQL%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">图形可视化MySQL管理软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Navicat%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.1.</span> <span class="nav-text">Navicat安装和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLyog%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.2.</span> <span class="nav-text">SQLyog安装和使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E9%87%8D%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">三重结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E8%AF%AD%E5%8F%A5%E5%88%86%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">SQL语句分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87java%E7%A8%8B%E5%BA%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.3.</span> <span class="nav-text">通过java程序操作数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.4.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.5.</span> <span class="nav-text">查询数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD-amp-%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8D%E8%A6%81"><span class="nav-number">2.6.</span> <span class="nav-text">备份&amp;恢复数据库重要</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%88%97%E7%B1%BB%E5%9E%8B-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">Mysql数据类型(列类型 &#x3D; 数据类型)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8-%E4%B8%80%E5%AE%9A%E6%98%AF%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E9%9D%A2-%E4%B8%8D%E5%8D%95%E7%8B%AC%E5%AD%98%E5%9C%A8"><span class="nav-number">4.</span> <span class="nav-text">表 - 一定是在数据库里面(不单独存在)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA"><span class="nav-number">4.1.</span> <span class="nav-text">创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E7%BB%83%E4%B9%A0"><span class="nav-number">4.1.1.</span> <span class="nav-text">创建表练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">4.2.</span> <span class="nav-text">修改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CRUD-%E9%87%8D%E8%A6%81"><span class="nav-number">5.</span> <span class="nav-text">CRUD(重要)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#INSERT-%E8%AF%AD%E5%8F%A5-%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">5.1.</span> <span class="nav-text">INSERT 语句 - 插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">5.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-number">5.1.2.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.1.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPDATE%E8%AF%AD%E5%8F%A5-%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE"><span class="nav-number">5.2.</span> <span class="nav-text">UPDATE语句 - 更新数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="nav-number">5.2.1.</span> <span class="nav-text">基本语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0-1"><span class="nav-number">5.2.2.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-1"><span class="nav-number">5.2.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELETE%E8%AF%AD%E5%8F%A5-%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE"><span class="nav-number">5.3.</span> <span class="nav-text">SELETE语句 - 选择数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%9A-1"><span class="nav-number">5.3.1.</span> <span class="nav-text">基本语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E8%A1%A8"><span class="nav-number">5.3.2.</span> <span class="nav-text">单表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%8A%A0%E5%BC%BA"><span class="nav-number">5.3.2.1.</span> <span class="nav-text">查询加强</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2-%E9%87%8D%E8%A6%81"><span class="nav-number">5.3.2.1.1.</span> <span class="nav-text">分页查询 - 重要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%A2%9E%E5%BC%BA"><span class="nav-number">5.3.2.1.2.</span> <span class="nav-text">分组增强</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E5%AD%90%E5%8F%A5%E6%9F%A5%E8%AF%A2"><span class="nav-number">5.3.2.1.3.</span> <span class="nav-text">多子句查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%A1%A8"><span class="nav-number">5.3.3.</span> <span class="nav-text">多表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%A1%A8%E7%AC%9B%E5%8D%A1%E5%B0%94%E9%9B%86"><span class="nav-number">5.3.3.1.</span> <span class="nav-text">多表笛卡尔集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-number">5.3.3.2.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E9%93%BE%E6%8E%A5"><span class="nav-number">5.3.3.3.</span> <span class="nav-text">自链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">5.3.3.4.</span> <span class="nav-text">子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C"><span class="nav-number">5.3.3.4.1.</span> <span class="nav-text">多行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%B4%E6%97%B6%E5%88%97%E8%A1%A8"><span class="nav-number">5.3.3.4.2.</span> <span class="nav-text">临时列表</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DELETE%E8%AF%AD%E5%8F%A5-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">5.4.</span> <span class="nav-text">DELETE语句 - 删除数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%9A-2"><span class="nav-number">5.4.1.</span> <span class="nav-text">基本语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0-2"><span class="nav-number">5.4.2.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-2"><span class="nav-number">5.4.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0-%E5%85%88%E8%B7%B3%E8%BF%87"><span class="nav-number">6.</span> <span class="nav-text">函数 - 先跳过</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number">6.1.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="nav-number">6.2.</span> <span class="nav-text">日期函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E5%87%BD%E6%95%B0"><span class="nav-number">6.3.</span> <span class="nav-text">加密函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%87%BD%E6%95%B0"><span class="nav-number">6.4.</span> <span class="nav-text">流程控制函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="nav-number">7.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">8.</span> <span class="nav-text">外连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">8.1.</span> <span class="nav-text">左外连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B3%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">8.2.</span> <span class="nav-text">右外连接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%A6%E6%9D%9F"><span class="nav-number">9.</span> <span class="nav-text">约束</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%94%AE"><span class="nav-number">9.1.</span> <span class="nav-text">主键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unique"><span class="nav-number">9.1.1.</span> <span class="nav-text">unique</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#not-null"><span class="nav-number">9.1.2.</span> <span class="nav-text">not null</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%94%AE"><span class="nav-number">9.2.</span> <span class="nav-text">外键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#check"><span class="nav-number">9.3.</span> <span class="nav-text">check</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">10.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">11.</span> <span class="nav-text">事务</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="寒流"
+      src="/images/blog_image.jpg">
+  <p class="site-author-name" itemprop="name">寒流</p>
+  <div class="site-description" itemprop="description">个人网站，记录一切本狼所感兴趣之事。偶尔发发同人文。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pblackcookie" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pblackcookie" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuxinsun147@gmail.com" title="E-Mail → mailto:yuxinsun147@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liehuohanliu" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liehuohanliu" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/s2029536227" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;s2029536227" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">来自寒流，爱您。</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">129k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:36</span>
+</div>
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span> | 你好！不论你是谁，很高兴遇见你。
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("08/03/2022 15:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已于 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒" +  " 前涅槃重生";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
