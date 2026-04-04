@@ -437,8 +437,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/09/17/40/21/" rel="next" title="Word合并文档&amp;Word目录操作说明">
-                  Word合并文档&Word目录操作说明 <i class="fa fa-angle-right"></i>
+                <a href="/2022/08/09/17/40/55/" rel="next" title="Lycoris Recoil-感想集合">
+                  Lycoris Recoil-感想集合 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -503,6 +503,23 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
 <script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://comfy-entremet-d5b5fa.netlify.app/.netlify/functions/twikoo","lang":"zh-CN","el":"#twikoo-comments"}</script>
 <script>
 document.addEventListener('page:loaded', () => {
@@ -524,23 +541,6 @@ document.addEventListener('page:loaded', () => {
   display: inline-block;
 }
 </style>
-<!-- calendar widget -->
-
-    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
-    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
-    <script>
-    $(function() {
-        $('#CloudCalendar').aCalendar('zh-CN',
-            $.extend(
-                '', {
-                    single:true,
-                    root:'/calendar/'
-                }
-            )
-        );
-    });
-    </script>
-
 
 </body>
 </html>
