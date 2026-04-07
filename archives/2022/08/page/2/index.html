@@ -66,44 +66,49 @@
 
 
 
-<!-- 霞鹜文楷字体 -->
-<link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreen.css">
+<!-- 霞鹜文楷 + Montserrat 双字体 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkai screen.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
 
 <style>
-  /* 全局字体 */
-  body,
-  .site-title,
-  .site-subtitle,
-  h1, h2, h3, h4, h5, h6,
-  .post-title,
-  .post-body,
-  .post-body p,
-  .post-body li,
-  .content,
-  article,
-  .article-entry,
-  .header,
-  .sidebar,
-  .menu,
-  .footer {
-    font-family: "LXGW WenKai Screen", "LXGW WenKai", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif !important;
-  }
-  
-  /* 代码块用等宽版 */
-  code,
-  pre,
-  .code-block,
-  .highlight,
-  figure.highlight,
-  .gutter,
-  .code {
-    font-family: "LXGW WenKai Mono", "Menlo", "Consolas", "Courier New", monospace !important;
-  }
+/* 全局：中文用霞鹜文楷，英文用 Montserrat */
+body,
+.site-title,
+.site-subtitle,
+h1,h2,h3,h4,h5,h6,
+.post-title,
+.post-body,
+.post-body p,
+.post-body li,
+.content,
+article,
+.article-entry,
+.header,
+.sidebar,
+.menu,
+.footer {
+  font-family:
+    "Montserrat",
+    "LXGW WenKai Screen",
+    "LXGW WenKai",
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif !important;
+}
 
+/* 代码块不变 */
+code,
+pre,
+.code-block,
+.highlight,
+figure.highlight,
+.gutter,
+.code {
+  font-family: "LXGW WenKai Mono", "Menlo", "Consolas", "Courier New", monospace !important;
+}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -340,6 +345,23 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
 <script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://comfy-entremet-d5b5fa.netlify.app/.netlify/functions/twikoo","lang":"zh-CN","el":"#twikoo-comments"}</script>
 <script>
 document.addEventListener('page:loaded', () => {
@@ -361,23 +383,6 @@ document.addEventListener('page:loaded', () => {
   display: inline-block;
 }
 </style>
-<!-- calendar widget -->
-
-    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
-    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
-    <script>
-    $(function() {
-        $('#CloudCalendar').aCalendar('zh-CN',
-            $.extend(
-                '', {
-                    single:true,
-                    root:'/calendar/'
-                }
-            )
-        );
-    });
-    </script>
-
 
 </body>
 </html>
