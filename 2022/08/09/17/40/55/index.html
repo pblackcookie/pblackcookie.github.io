@@ -78,50 +78,41 @@
 
 
 
-<!-- 霞鹜文楷 + Montserrat 完美双语版（手机电脑都正常） -->
+<!-- 霞鹜文楷 + Montserrat 完美双语（标题数字也生效） -->
 <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreen.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
 
 <style>
-/* 全局默认：霞鹜文楷（保证中文一定显示） */
+/* 全局中文：霞鹜文楷 */
 body,
 .site-title,
 .site-subtitle,
-h1,h2,h3,h4,h5,h6,
 .post-title,
 .post-body,
-.post-body p,
-.post-body li,
-.content,
-article,
-.article-entry,
 .header,
+.footer,
 .sidebar,
-.menu,
-.footer {
-  font-family: "LXGW WenKai Screen", "LXGW WenKai", "PingFang SC", "Microsoft YaHei", sans-serif !important;
+.menu {
+  font-family: "LXGW WenKai Screen", sans-serif !important;
 }
 
-/* 英文 + 数字 + 符号 强制用 Montserrat */
-:is(body, h1, h2, h3, h4, h5, h6, .post-title, .post-body)
-:is(span, a, p, li, div) {
+/* ====================================== */
+/* 关键：所有标题 + 正文 的 英文/数字 强制 Montserrat */
+/* ====================================== */
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.post-body p,
+.post-body li,
+a, span, div {
   font-family: "Montserrat", "LXGW WenKai Screen", sans-serif !important;
 }
 
-/* 但中文依然走霞鹜文楷，不会被覆盖 */
-:is(body, h1, h2, h3, h4, h5, h6, .post-title, .post-body) {
-  font-family: "LXGW WenKai Screen", "LXGW WenKai", sans-serif !important;
-}
-
-/* 代码块不变 */
+/* 代码块保持等宽不变 */
 code,
 pre,
-.code-block,
 .highlight,
-figure.highlight,
-.gutter,
-.code {
-  font-family: "LXGW WenKai Mono", Menlo, Consolas, "Courier New", monospace !important;
+.code-block {
+  font-family: "LXGW WenKai Mono", Menlo, Consolas, monospace !important;
 }
 </style>
 
